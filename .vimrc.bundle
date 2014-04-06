@@ -1,0 +1,15 @@
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+" Plugins
+Plugin 'Emmet.vim'
+Plugin 'MatchTag'
+Plugin 'pydoc.vim'
+Plugin 'delimitMate.vim'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'pangloss/vim-javascript'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'othree/xml.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+

@@ -19,26 +19,10 @@ call vundle#rc()
 "let path = '~/some/path/here'
 "call vundle#rc(path)
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
-" Plugins
-Plugin 'Emmet.vim'
-Plugin 'MatchTag'
-Plugin 'pydoc.vim'
-Plugin 'delimitMate.vim'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'pangloss/vim-javascript'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'othree/xml.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///root/path/to/plugin'
-Plugin 'file://~/.vim/bundle/winmanager'
-Plugin 'file://~/.vim/bundle/nerdtree'
-Plugin 'file://~/.vim/bundle/taglist'
+if filereadable(expand("~/.vim/.vimrc.bundle"))
+  source ~/.vim/.vimrc.bundle
+  source ~/.vim/.vimrc.bundle.local
+endif
 
 filetype plugin indent on 
 " To ignore plugin indent changes, instead use:
