@@ -103,12 +103,6 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            自动补全
 "
-"defalut g:pydiction_menu_height == 15
- let g:pydiction_menu_height = 20 "
-"关掉智能补全时的预览窗口
-"set completeopt=longest,menu
-"pydiction 1.2 python auto complete
- let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 "omni 
  let OmniCpp_ShowPrototypeInAbbr = 1
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -217,35 +211,41 @@ let g:winManagerWindowLayout='NERDTree|TagList'
 
 "only errors no warnings
  let g:syntastic_quiet_messages={'level': 'warnings'}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"								js acp 自动补全
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"									YouCompleteMe
 "
-let g:acp_enableAtStartup = 1
-let g:acp_completeOption = '.,w,b,u,t,i,k'
-let g:acp_behaviorSnipmateLength = 1
-let g:acp_behaviorKeywordCommand = "\<C-n>"
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+" 关掉补全时的预览窗口
+set completeopt=longest,menu                
+" 不用每次提示加载.ycm_extra_conf.py文件
+let g:ycm_confirm_extra_conf = 0              
+" 关闭ycm的syntastic
+let g:ycm_show_diagnostics_ui = 0 
 
-let jsbehavs = { 'javascript': [] }
-    call add(jsbehavs.javascript, {
-        \   'command'      : "\<C-x>\<C-u>",
-        \   'completefunc' : 'acp#completeSnipmate',
-        \   'meets'        : 'acp#meetsForSnipmate',
-        \   'onPopupClose' : 'acp#onPopupCloseSnipmate',
-        \   'repeat'       : 0,
-    \})
-    call add(jsbehavs.javascript, {
-        \   'command' : g:acp_behaviorKeywordCommand,
-        \   'meets'   : 'acp#meetsForKeyword',
-        \   'repeat'  : 0,
-        \ })
-    call add(jsbehavs.javascript, {
-        \    'command'  : "\<C-x>\<C-o>",
-        \    'meets'   : 'acp#meetsForKeyword',
-        \    'repeat'   : 0,
-    \})
+let g:ycm_filetype_whitelist = {'c' : 1, 'cpp' : 1, 'java' : 1, 'python' : 1}
+" 评论中也应用补全
+let g:ycm_complete_in_comments = 1        
+" 两个字开始补全
+let g:ycm_min_num_of_chars_for_completion = 2   
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:acp_behavior = {}
-call extend(g:acp_behavior, jsbehavs, 'keep')
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Track the engine.
+"Bundle 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+"Bundle 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<alt-f>"
+let g:UltiSnipsJumpBackwardTrigger="<alt-b>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="horizontal"
