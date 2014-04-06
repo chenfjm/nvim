@@ -103,6 +103,12 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            自动补全
 "
+"defalut g:pydiction_menu_height == 15
+ let g:pydiction_menu_height = 20 "
+"关掉智能补全时的预览窗口
+"set completeopt=longest,menu
+"pydiction 1.2 python auto complete
+ let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 "omni 
  let OmniCpp_ShowPrototypeInAbbr = 1
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -187,8 +193,8 @@ let g:winManagerWindowLayout='NERDTree|TagList'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 错误检查
 "
-" let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_javascript_checkers = ['jshint']
+ let g:syntastic_python_checkers = ['flake8']
+ let g:syntastic_javascript_checkers = ['jshint']
 " 
 "Default: 0
 "If enabled, syntastic will do syntax checks when buffers are first loaded as
@@ -212,6 +218,34 @@ let g:winManagerWindowLayout='NERDTree|TagList'
 "only errors no warnings
  let g:syntastic_quiet_messages={'level': 'warnings'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"							js acp 自动补全
+"
+let g:acp_enableAtStartup = 1
+let g:acp_completeOption = '.,w,b,u,t,i,k'
+let g:acp_behaviorSnipmateLength = 1
+let g:acp_behaviorKeywordCommand = "\<C-n>"
+
+let jsbehavs = { 'javascript': [] }
+    call add(jsbehavs.javascript, {
+        \   'command'      : "\<C-x>\<C-u>",
+        \   'completefunc' : 'acp#completeSnipmate',
+        \   'meets'        : 'acp#meetsForSnipmate',
+        \   'onPopupClose' : 'acp#onPopupCloseSnipmate',
+        \   'repeat'       : 0,
+    \})
+    call add(jsbehavs.javascript, {
+        \   'command' : g:acp_behaviorKeywordCommand,
+        \   'meets'   : 'acp#meetsForKeyword',
+        \   'repeat'  : 0,
+        \ })
+    call add(jsbehavs.javascript, {
+        \    'command'  : "\<C-x>\<C-o>",
+        \    'meets'   : 'acp#meetsForKeyword',
+        \    'repeat'   : 0,
+    \})
+
+let g:acp_behavior = {}
+call extend(g:acp_behavior, jsbehavs, 'keep')
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
