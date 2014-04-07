@@ -1,0 +1,6 @@
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///root/path/to/plugin'
+Plugin 'file://~/.vim/local/winmanager'
+Plugin 'file://~/.vim/local/nerdtree'
+Plugin 'file://~/.vim/local/taglist'
+
