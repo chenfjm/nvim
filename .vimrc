@@ -16,10 +16,10 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " alternatively, pass a path where Vundle should install plugins
-"let path = '~/some/path/here'
+"let path = '~/.vim/local'
 "call vundle#rc(path)
 
-if filereadable(expand("~/.vim/.vimrc.bundle"))
+if filereadable(expand("~/.vim/.vimrc"))
   source ~/.vim/.vimrc.bundle
   source ~/.vim/.vimrc.local
 endif
