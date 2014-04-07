@@ -21,7 +21,7 @@ call vundle#rc()
 
 if filereadable(expand("~/.vim/.vimrc.bundle"))
   source ~/.vim/.vimrc.bundle
-  source ~/.vim/.vimrc.bundle.local
+  source ~/.vim/.vimrc.local
 endif
 
 filetype plugin indent on 
