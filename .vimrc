@@ -119,14 +119,6 @@ filetype plugin indent on
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"							snipMate块补全
-"
- let g:acp_behaviorSnipmateLength = 1
-" 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Taglist
 "
 "不同时显示多个文件的tag，只显示当前文件的
@@ -233,12 +225,24 @@ let g:ycm_complete_in_comments = 1
 " 两个字开始补全
 let g:ycm_min_num_of_chars_for_completion = 2   
 let g:ycm_seed_identifiers_with_syntax = 1
+"set YouCompleteMe trigger key 
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-m>', '<Up>']
+
+"离开插入模式后自动关闭预览窗口
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif	
+"回车即选中当前项
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"	
+
+
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"										ultisnips
 " Track the engine.
 "Bundle 'SirVer/ultisnips'
 
@@ -246,9 +250,10 @@ nnoremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "Bundle 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<alt-f>"
-let g:UltiSnipsJumpBackwardTrigger="<alt-b>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-m>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="horizontal"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
