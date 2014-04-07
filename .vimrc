@@ -19,9 +19,12 @@ call vundle#rc()
 "let path = '~/.vim/local'
 "call vundle#rc(path)
 
-if filereadable(expand("~/.vim/.vimrc"))
-  source ~/.vim/.vimrc.bundle
-  source ~/.vim/.vimrc.local
+if filereadable(expand("~/.vim/.vimrc.bundle"))
+  	source ~/.vim/.vimrc.bundle
+endif
+
+if filereadable(expand("~/.vim/.vimrc.local"))
+  	source ~/.vim/.vimrc.local
 endif
 
 filetype plugin indent on 
