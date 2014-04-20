@@ -92,6 +92,8 @@ filetype plugin indent on
  runtime macros/matchit.vim 
 "高亮搜索单词
  set hlsearch
+"配置字体
+ set guifont=YaHei\ Consolas\ Hybrid\ 12
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
