@@ -240,7 +240,8 @@ inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <C-[> :YcmCompleter GoToDeclaration<CR>
+nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
