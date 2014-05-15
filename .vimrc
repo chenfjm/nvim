@@ -184,9 +184,19 @@ let g:winManagerWindowLayout='NERDTree|TagList'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 错误检查
 "
- let g:syntastic_python_checkers = ['flake8']
- let g:syntastic_javascript_checkers = ['jshint']
-" 
+"let g:syntastic_cpp_include_dirs = ['/usr/include/']
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
+"set error or warning signs
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+"whether to show balloons
+let g:syntastic_enable_balloons = 1
+
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_javascript_checkers = ['jshint'] 
 "Default: 0
 "If enabled, syntastic will do syntax checks when buffers are first loaded as
 "well as on saving >
@@ -226,16 +236,20 @@ let g:ycm_filetype_whitelist = {'c' : 1, 'cpp' : 1, 'java' : 1, 'python' : 1}
 let g:ycm_complete_in_comments = 1        
 " 两个字开始补全
 let g:ycm_min_num_of_chars_for_completion = 2   
+" 开启 YCM 基于标签引擎
+let g:ycm_collect_identifiers_from_tags_files=1
+" 禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_cache_omnifunc=0
+" 关键字补全	
 let g:ycm_seed_identifiers_with_syntax = 1
 ""上下左右键的行为 会显示其他信息
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-m>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-m>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-m>\<C-n>" : "\<PageUp>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-k>\<C-j>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-k>\<C-j>" : "\<PageUp>"
 "set YouCompleteMe trigger key 
-"ycm_key_list_select_completion设置为空使Ultisnips用tab进行补全
-let g:ycm_key_list_select_completion = []
-let g:ycm_key_list_previous_completion = ['<C-m>', '<Up>']
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+"let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+"let g:ycm_key_list_previous_completion = ['<Up>']
 
 "离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif	
@@ -243,7 +257,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"	
 
 
-let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_key_invoke_completion = '<Enter>'
 let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <C-[> :YcmCompleter GoToDeclaration<CR>
@@ -260,8 +274,8 @@ nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<C-n>"
-let g:UltiSnipsJumpBackwardTrigger="<C-m>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="horizontal"
