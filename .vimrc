@@ -227,9 +227,15 @@ let g:ycm_complete_in_comments = 1
 " 两个字开始补全
 let g:ycm_min_num_of_chars_for_completion = 2   
 let g:ycm_seed_identifiers_with_syntax = 1
+""上下左右键的行为 会显示其他信息
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-m>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-m>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-m>\<C-n>" : "\<PageUp>"
 "set YouCompleteMe trigger key 
-let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-m>', '<Up>']
+"ycm_key_list_select_completion设置为空使Ultisnips用tab进行补全
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = ['<C-m>', '<Up>']
 
 "离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif	
@@ -254,8 +260,8 @@ nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-m>"
+"let g:UltiSnipsJumpForwardTrigger="<C-n>"
+let g:UltiSnipsJumpBackwardTrigger="<C-m>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="horizontal"
