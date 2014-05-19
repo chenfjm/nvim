@@ -223,7 +223,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "									YouCompleteMe
 "
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 " 关掉补全时的预览窗口
 set completeopt=longest,menu                
 " 不用每次提示加载.ycm_extra_conf.py文件
