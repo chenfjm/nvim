@@ -94,6 +94,9 @@ filetype plugin indent on
  set hlsearch
 "配置字体
  set guifont=YaHei\ Consolas\ Hybrid\ 12
+"开启气泡提示
+ set ballooneval
+ "set balloondelay=100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
