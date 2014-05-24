@@ -192,7 +192,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 "Default: 0
 "If enabled, syntastic will do syntax checks when buffers are first loaded as
 "well as on saving >
- let g:syntastic_check_on_open=1
+ "let g:syntastic_check_on_open=1
 
 "Default: 0
 "Enable this option to tell syntastic to always stick any detected errors into
