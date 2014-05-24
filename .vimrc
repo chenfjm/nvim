@@ -290,7 +290,7 @@ let g:UltiSnipsEditSplit="horizontal"
  map <S-f> :exe "Cfinish "<CR>										
  map <S-w> :exe "Cwhere "<CR>	
  map <S-l> :exe "Cinfo locals "<CR>	
- map <S-t> :exe "Cinfo breakpoints "<CR>	
+ map <S-t> :exe "Cbacktrace "<CR>	
  map <S-x> :exe "Cfoldvar " . line(".")<CR>	 
  autocmd BufRead *.c* map <S-z> :exe "Csigint "<CR>										
  autocmd BufRead *.c* map <S-a> :exe "Cinfo args "<CR>	
