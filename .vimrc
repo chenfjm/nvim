@@ -130,16 +130,22 @@ filetype plugin indent on
  let Tlist_Show_One_File = 1 
 "如果taglist窗口是最后一个窗口，则退出vim
  let Tlist_Exit_OnlyWindow = 1
+ let Tlist_Auto_Update = 1
+"不显示树结构
+ let Tlist_Enable_Fold_Column = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdtree
 "
+"不显示帮助信息
+ let NERDTreeMinimalUI=1
 "鼠标点击							 
  let NERDTreeMouseMode = 2
-"隐藏pyc文件
+"忽略文件、隐藏文件
  let NERDTreeIgnore = ['\.pyc$']
+ let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

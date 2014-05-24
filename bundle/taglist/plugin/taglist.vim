@@ -587,7 +587,7 @@ function! s:Tlist_Window_Display_Help()
 
     if s:tlist_brief_help
         " Add the brief help
-        call append(0, '" Press <F1> to display help text')
+        "call append(0, '" Press <F1> to display help text')
     else
         " Add the extensive help
         call append(0, '" <enter> : Jump to tag definition')
