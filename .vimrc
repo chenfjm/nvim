@@ -96,7 +96,9 @@ filetype plugin indent on
  set guifont=YaHei\ Consolas\ Hybrid\ 12
 "开启气泡提示
  set ballooneval
- "set balloondelay=100
+"set balloondelay=100
+"在当前目录及子目录下用find打开指定文件
+ set path=./**
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
