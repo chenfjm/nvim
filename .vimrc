@@ -99,6 +99,11 @@ filetype plugin indent on
 "set balloondelay=100
 "在当前目录及子目录下用find打开指定文件
  set path=./**
+"proto语法文件
+ augroup filetype
+   au! BufRead,BufNewFile *.proto setfiletype proto
+ augroup end
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
