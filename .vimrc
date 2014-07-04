@@ -99,7 +99,8 @@ filetype plugin indent on
  augroup filetype
    au! BufRead,BufNewFile *.proto setfiletype proto
  augroup end
-
+"启动界面
+set shortmess=atI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
