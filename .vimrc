@@ -23,10 +23,6 @@ if filereadable(expand("~/.vim/.vimrc.bundle"))
   	source ~/.vim/.vimrc.bundle
 endif
 
-if filereadable(expand("~/.vim/.vimrc.local"))
-  	source ~/.vim/.vimrc.local
-endif
-
 filetype plugin indent on 
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -46,7 +42,7 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "								使用说明
 "
-"wm   	  : 开启/关闭winmanager、taglist窗口
+"wm   	  : 开启/关闭NerdTree窗口
 "gg=G 	  : 自动format代码
 "<Ctr+y>, : html简写法
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -62,7 +58,7 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               基本配置
 "启动gVIM时最大化
- autocmd GUIEnter * winpos 0 0 | set lines=999 columns=9999
+ autocmd GUIEnter * set lines=999 columns=9999
 "
 "开启语法高亮
  syntax on
@@ -77,10 +73,10 @@ filetype plugin indent on
  set foldlevel=99
 "显示当前的行号列号：
  set ruler
-"在状态栏显示正在输入的命令
- set showcmd
 "显示行号：
  set number
+"行宽
+ set textwidth=80
 "隐藏菜单栏,工具栏和侧边栏
  set guioptions-=m
  set guioptions-=T
@@ -131,30 +127,40 @@ filetype plugin indent on
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            Taglist
-"
-"不同时显示多个文件的tag，只显示当前文件的
- let Tlist_Show_One_File = 1 
-"如果taglist窗口是最后一个窗口，则退出vim
- let Tlist_Exit_OnlyWindow = 1
- let Tlist_Auto_Update = 1
-"不显示树结构
- let Tlist_Enable_Fold_Column = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdtree
 "
 "不显示帮助信息
  let NERDTreeMinimalUI=1
 "鼠标点击							 
  let NERDTreeMouseMode = 2
+"宽度
+"let g:NERDTreeWinSize = 30 
 "忽略文件、隐藏文件
  let NERDTreeIgnore = ['\.pyc$']
  let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
+ nmap wm :NERDTreeToggle<cr>
+"关闭当前窗口
+ nmap wc      <C-w>c     
+"分割窗口移动快捷键
+ nnoremap <c-h> <c-w>h
+ nnoremap <c-j> <c-w>j
+ nnoremap <c-k> <c-w>k
+ nnoremap <c-l> <c-w>l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"									tagbar
+"
+nmap tb :Tagbar<cr>
+let tagbar_ctags_bin='/usr/local/bin/ctags'
+let tagbar_width=30
+let g:tagbar_compact = 1
+let g:tagbar_autoshowtag = 1
+
+autocmd BufRead,BufWinLeave *.py :Tagbar
+autocmd BufRead,BufWinLeave *.c* :Tagbar
+autocmd BufRead,BufWinLeave *.js :Tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "						instant- markdown
@@ -170,23 +176,7 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           winmanager
-"
-let g:winManagerWindowLayout='NERDTree|TagList'
- nmap wm :WMToggle<cr>
-"关闭当前窗口
- nmap wc      <C-w>c     
-"分割窗口移动快捷键
- nnoremap <c-h> <c-w>h
- nnoremap <c-j> <c-w>j
- nnoremap <c-k> <c-w>k
- nnoremap <c-l> <c-w>l
-"设置宽度
- let g:winManagerWidth = 35
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 错误检查
 "
 "let g:syntastic_cpp_include_dirs = ['/usr/include/']
@@ -330,3 +320,4 @@ let g:DoxygenToolkit_returnTag="@Returns   "
 map <C-a> :DoxAuthor<CR>
 map <C-s> :Dox<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
