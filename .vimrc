@@ -280,8 +280,8 @@ let g:UltiSnipsEditSplit="horizontal"
 "
  let g:pyclewn_args="--terminal=TERMINAL --window=bottom"
  "C,C++
- autocmd BufRead *.c* map <F5>  :Pyclewn<CR>
- autocmd BufRead *.c* map <F4>  :nbclose<CR>
+ autocmd BufRead *.c* map <F5>  :Tagbar<CR> :Pyclewn<CR>
+ autocmd BufRead *.c* map <F4>  :nbclose<CR> <C-j>wc
  map <S-b> :exe "Cbreak " . expand("%:p") . ":" . line(".")<CR>										
  map <S-e> :exe "Cclear " . expand("%:p") . ":" . line(".")<CR>										
  map <S-u> :exe "Cup "<CR>										
@@ -289,7 +289,6 @@ let g:UltiSnipsEditSplit="horizontal"
  map <S-n> :exe "Cnext "<CR>										
  map <S-c> :exe "Ccontinue "<CR>										
  map <S-s> :exe "Cstep "<CR>										
- map <S-q> :exe "Cquit "<CR>										
  map <S-f> :exe "Cfinish "<CR>										
  map <S-w> :exe "Cwhere "<CR>	
  map <S-l> :exe "Cinfo locals "<CR>	
@@ -299,15 +298,17 @@ let g:UltiSnipsEditSplit="horizontal"
  autocmd BufRead *.c* map <S-a> :exe "Cinfo args "<CR>	
  autocmd BufRead *.c* map <S-r> :exe "Crun "<CR>										
  autocmd BufRead *.c* map <S-p> :exe "Cprint " . expand("<cword>") <CR>
+ autocmd BufRead *.c* map <S-q> :exe "Cquit "<CR>										
 "python
  autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
  autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
  autocmd BufRead *.py nmap <F6> :!python %<CR>
- autocmd BufRead *.py map <F5>  :Pyclewn pdb %:p<CR>
+ autocmd BufRead *.py map <F5>  :Tagbar<CR> :Pyclewn pdb %:p<CR>
  autocmd BufRead *.py map <S-z> :exe "Cinterrupt "<CR>										
  autocmd BufRead *.py map <S-a> :exe "Cargs "<CR>	
  autocmd BufRead *.py map <S-r> :exe "Creturn "<CR>	
  autocmd BufRead *.py map <S-p> :exe "Cp " . expand("<cword>") <CR>
+ autocmd BufRead *.py map <S-q> :exe "Cquit "<CR> <C-j>wc									
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
