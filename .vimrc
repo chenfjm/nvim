@@ -157,9 +157,12 @@ let tagbar_width=30
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 
-autocmd BufRead,BufWinLeave *.py :Tagbar
-autocmd BufRead,BufWinLeave *.c* :Tagbar
-autocmd BufRead,BufWinLeave *.js :Tagbar
+autocmd BufWinEnter *.py :TagbarOpen
+autocmd BufWinEnter *.c* :TagbarOpen
+autocmd BufWinEnter *.js :TagbarOpen
+autocmd BufWinLeave *.py :TagbarClose
+autocmd BufWinLeave *.c* :TagbarClose
+autocmd BufWinLeave *.js :TagbarClose
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -280,7 +283,7 @@ let g:UltiSnipsEditSplit="horizontal"
 "
  let g:pyclewn_args="--terminal=TERMINAL --window=bottom"
  "C,C++
- autocmd BufRead *.c* map <F5>  :Tagbar<CR> :Pyclewn<CR>
+ autocmd BufRead *.c* map <F5>  :TagbarClose<CR> :Pyclewn<CR>
  autocmd BufRead *.c* map <F4>  :nbclose<CR> <C-j>wc
  map <S-b> :exe "Cbreak " . expand("%:p") . ":" . line(".")<CR>										
  map <S-e> :exe "Cclear " . expand("%:p") . ":" . line(".")<CR>										
@@ -303,12 +306,12 @@ let g:UltiSnipsEditSplit="horizontal"
  autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
  autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
  autocmd BufRead *.py nmap <F6> :!python %<CR>
- autocmd BufRead *.py map <F5>  :Tagbar<CR> :Pyclewn pdb %:p<CR>
+ autocmd BufRead *.py map <F5>  :TagbarClose<CR> :Pyclewn pdb %:p<CR>
  autocmd BufRead *.py map <S-z> :exe "Cinterrupt "<CR>										
  autocmd BufRead *.py map <S-a> :exe "Cargs "<CR>	
  autocmd BufRead *.py map <S-r> :exe "Creturn "<CR>	
  autocmd BufRead *.py map <S-p> :exe "Cp " . expand("<cword>") <CR>
- autocmd BufRead *.py map <S-q> :exe "Cquit "<CR> <C-j>wc									
+ autocmd BufRead *.py map <S-q> :exe "Cquit "<CR> <C-j>wc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
