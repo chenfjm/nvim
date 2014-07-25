@@ -107,7 +107,7 @@ set shortmess=atI
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             ctags
 "
- let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+ let Tlist_Ctags_Cmd='/usr/bin/ctags'
 "用法：$ ctags –R src
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -153,7 +153,7 @@ set shortmess=atI
 "									tagbar
 "
 nmap tb :Tagbar<cr>
-let tagbar_ctags_bin='/usr/local/bin/ctags'
+let tagbar_ctags_bin='/usr/bin/ctags'
 let tagbar_width=30
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
