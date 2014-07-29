@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Vimplugins : vim config files and plugins" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Vimplugins</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/chenfjm/VimPlugins">View on GitHub</a>
+
+          <h1 id="project_title">Vimplugins</h1>
+          <h2 id="project_tagline">vim config files and plugins</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/chenfjm/VimPlugins/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/chenfjm/VimPlugins/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="vimconfig" class="anchor" href="#vimconfig"><span class="octicon octicon-link"></span></a>VimConfig</h1>
+
+<h3>
+<a name="%E8%8E%B7%E5%8F%96%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" class="anchor" href="#%E8%8E%B7%E5%8F%96%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="octicon octicon-link"></span></a>获取配置文件</h3>
+
+<pre><code>git clone https://github.com/chenfjm/VimPlugins.git
+mv VimConfig ~/.vim
+cd .vim
+git submodule init
+git submodule update   
+cp .vimrc ~
+</code></pre>
+
+<h3>
+<a name="%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6" class="anchor" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="octicon octicon-link"></span></a>安装插件</h3>
+
+<pre><code>gvim
+:PluginInstall   
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+</code></pre>
+
+<h3>
+<a name="%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E8%BD%AF%E4%BB%B6" class="anchor" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E8%BD%AF%E4%BB%B6"><span class="octicon octicon-link"></span></a>安装依赖软件</h3>
+
+<pre><code>apt-get install ctags
+tar xzf pyclewn-1.11.py3.tar.gz
+cd pyclewn-1.11.py3
+python setup.py install --force  
+</code></pre>
+
+<ul>
+<li><a href="http://pyclewn.sourceforge.net/">pyclewn</a></li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Vimplugins maintained by <a href="https://github.com/chenfjm">chenfjm</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
