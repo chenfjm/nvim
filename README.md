@@ -25,4 +25,9 @@ VimConfig
 	python setup.py install --force  
 
 
-- [pyclewn](http://pyclewn.sourceforge.net/)
+- [pyclewn](http://pyclewn.sourceforge.net/)  
+
+###GVim运行效果  
+
+![](https://chenfjm.github.io/VimPlugins/images/vim1.png)
+![](https://chenfjm.github.io/VimPlugins/images/vim2.png)
