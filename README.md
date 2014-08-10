@@ -20,6 +20,7 @@ VimConfig
 ###安装依赖软件  
 
 	apt-get install ctags
+	easy_install flake8
 	tar xzf pyclewn-1.11.py3.tar.gz
 	cd pyclewn-1.11.py3
 	python setup.py install --force  
