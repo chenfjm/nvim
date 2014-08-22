@@ -45,6 +45,8 @@ filetype plugin indent on
 "wm   	  : 开启/关闭NerdTree窗口
 "gg=G 	  : 自动format代码
 "<Ctr+y>, : html简写法
+"B
+"B
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -67,6 +69,8 @@ filetype plugin indent on
  set tabstop=4
  set shiftwidth=4
  filetype indent on
+"删除键(osx)
+ set backspace=indent,eol,start
 "中文乱码"
  set fileencodings=utf-8,chinese
 "默认展开所有代码
@@ -84,6 +88,7 @@ filetype plugin indent on
  set guioptions-=L
 "启用鼠标
  set mouse=a
+ "B
 "在html标签之间跳转(%)
  runtime macros/matchit.vim 
 "高亮搜索单词
@@ -91,8 +96,8 @@ filetype plugin indent on
 "配置字体
  set guifont=YaHei\ Consolas\ Hybrid\ 12
 "开启气泡提示
- set ballooneval
-"set balloondelay=100
+" set ballooneval
+" set balloondelay=100
 "在当前目录及子目录下用find打开指定文件
  set path=./**
 "proto语法文件
@@ -107,7 +112,8 @@ set shortmess=atI
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             ctags
 "
- let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+ "let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
 "用法：$ ctags –R src
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
