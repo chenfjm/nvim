@@ -165,10 +165,12 @@ let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 
 autocmd BufWinEnter *.py :TagbarOpen
-autocmd BufWinEnter *.c* :TagbarOpen
+autocmd BufWinEnter *.c :TagbarOpen
+autocmd BufWinEnter *.cpp :TagbarOpen
 autocmd BufWinEnter *.js :TagbarOpen
 autocmd BufWinLeave *.py :TagbarClose
-autocmd BufWinLeave *.c* :TagbarClose
+autocmd BufWinLeave *.c :TagbarClose
+autocmd BufWinLeave *.cpp :TagbarClose
 autocmd BufWinLeave *.js :TagbarClose
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
