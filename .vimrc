@@ -54,7 +54,7 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "      	                          主题                                      
 "colorscheme github
- colorscheme Monokai-Refined
+ colorscheme vim-monokai
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
