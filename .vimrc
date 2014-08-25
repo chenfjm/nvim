@@ -70,8 +70,6 @@ filetype plugin indent on
  set tabstop=4
  set shiftwidth=4
  filetype indent on
-"删除键(osx)
- set backspace=indent,eol,start
 "中文乱码"
  set fileencodings=utf-8,chinese
 "默认展开所有代码
@@ -93,12 +91,6 @@ filetype plugin indent on
  runtime macros/matchit.vim 
 "高亮搜索单词
  set hlsearch
-"配置字体
- "set guifont=YaHei\ Consolas\ Hybrid\ 12
- set guifont=Menlo\ Regular\ 12
-"开启气泡提示
-" set ballooneval
-" set balloondelay=100
 "在当前目录及子目录下用find打开指定文件
  set path=./**
 "proto语法文件
@@ -107,7 +99,20 @@ filetype plugin indent on
  augroup end
 "启动界面
 set shortmess=atI
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"OSX------------------------------------------------------------------------
+"删除键
+ set backspace=indent,eol,start
+"OSX------------------------------------------------------------------------
+
+"ubuntu---------------------------------------------------------------------
+"配置字体
+" set guifont=YaHei\ Consolas\ Hybrid\ 12
+"开启气泡提示
+" set ballooneval
+" set balloondelay=100
+"ubuntu---------------------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
