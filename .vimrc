@@ -68,6 +68,7 @@ filetype plugin indent on
 "
 "自动、智能缩进
  set tabstop=4
+ set expandtab
  set shiftwidth=4
  filetype indent on
 "中文乱码"
