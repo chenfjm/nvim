@@ -100,6 +100,11 @@ filetype plugin indent on
  augroup end
 "启动界面
 set shortmess=atI
+"Alt 组合键不映射到菜单上
+set winaltkeys=no
+
+imap jj <Esc>
+cmap q<CR> qa<CR>
 
 if has("gui_running")
 "ubuntu---------------------------------------------------------------------
@@ -187,7 +192,7 @@ let g:NERDTreeWinSize = 35
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "									tagbar
 "
-nmap tb :Tagbar<cr>
+nmap <A-t> :Tagbar<cr>
 let tagbar_ctags_bin='/usr/bin/ctags'
 let tagbar_width=35
 let g:tagbar_compact = 1
@@ -323,9 +328,15 @@ let g:UltiSnipsEditSplit="horizontal"
 "										pyclewn
 "
  let g:pyclewn_args="--terminal=TERMINAL --window=bottom"
- "C,C++
- autocmd BufRead *.c* map <F5>  :TagbarClose<CR> :Pyclewn<CR>
- autocmd BufRead *.c* map <F4>  :nbclose<CR> <C-j>wc
+
+ autocmd BufRead *.c* map <F5>  :TagbarClose<CR> :Pyclewn<CR> :call StartDebug()<CR> :call StartDebugC()<CR> 
+ autocmd BufRead *.py map <F5>  :TagbarClose<CR> :Pyclewn pdb %:p<CR> :call StartDebug()<CR> :call StartDebugPy()<CR>
+ autocmd BufRead *.py nmap <F6> :!python %<CR> 
+ autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
+ autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+ map <F4>  :nbclose<CR> <C-j>wc :call StopDebug()<CR>
+
+ func! StartDebug()
  map <S-b> :exe "Cbreak " . expand("%:p") . ":" . line(".")<CR>										
  map <S-e> :exe "Cclear " . expand("%:p") . ":" . line(".")<CR>										
  map <S-u> :exe "Cup "<CR>										
@@ -338,21 +349,42 @@ let g:UltiSnipsEditSplit="horizontal"
  map <S-l> :exe "Cinfo locals "<CR>	
  map <S-t> :exe "Cinfo break "<CR>	
  map <S-x> :exe "Cfoldvar " . line(".")<CR>	 
- autocmd BufRead *.c* map <S-z> :exe "Csigint "<CR>										
- autocmd BufRead *.c* map <S-a> :exe "Cinfo args "<CR>	
- autocmd BufRead *.c* map <S-r> :exe "Crun "<CR>										
- autocmd BufRead *.c* map <S-p> :exe "Cprint " . expand("<cword>") <CR>
- autocmd BufRead *.c* map <S-q> :exe "Cquit "<CR>										
-"python
- autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
- autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
- autocmd BufRead *.py nmap <F6> :!python %<CR>
- autocmd BufRead *.py map <F5>  :TagbarClose<CR> :Pyclewn pdb %:p<CR>
- autocmd BufRead *.py map <S-z> :exe "Cinterrupt "<CR>										
- autocmd BufRead *.py map <S-a> :exe "Cargs "<CR>	
- autocmd BufRead *.py map <S-r> :exe "Creturn "<CR>	
- autocmd BufRead *.py map <S-p> :exe "Cp " . expand("<cword>") <CR>
- autocmd BufRead *.py map <S-q> :exe "Cquit "<CR> <C-j>wc
+ endfunc
+
+ func! StartDebugC()
+     map <S-z> :exe "Csigint "<CR>										
+     map <S-a> :exe "Cinfo args "<CR>	
+     map <S-r> :exe "Crun "<CR>										
+     map <S-p> :exe "Cprint " . expand("<cword>") <CR>
+     map <S-q> :exe "Cquit "<CR>										
+ endfunc
+ func! StartDebugPy()
+     map <S-z> :exe "Cinterrupt "<CR>										
+     map <S-a> :exe "Cargs "<CR>	
+     map <S-r> :exe "Creturn "<CR>	
+     map <S-p> :exe "Cp " . expand("<cword>") <CR>
+     map <S-q> :exe "Cquit "<CR> <C-j>wc
+ endfunc
+
+ func! StopDebug()
+ unmap <S-b>
+ unmap <S-e>
+ unmap <S-u>
+ unmap <S-d>
+ unmap <S-n>
+ unmap <S-c>
+ unmap <S-s>
+ unmap <S-f>
+ unmap <S-w>
+ unmap <S-l>
+ unmap <S-t>
+ unmap <S-x>
+ unmap <S-z>
+ unmap <S-a>
+ unmap <S-r>
+ unmap <S-p>
+ unmap <S-q>
+ endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
