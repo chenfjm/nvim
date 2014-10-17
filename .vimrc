@@ -238,7 +238,7 @@ let g:syntastic_enable_balloons = 1
 
 "安装flake8: easy_install flake8
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E401,E265,E302,E261,F403,E128'
+let g:syntastic_python_flake8_args='--ignore=E501,E401,E265,E302,E261,E262,F403,E128'
 let g:syntastic_javascript_checkers = ['jshint'] 
 "Default: 0
 "If enabled, syntastic will do syntax checks when buffers are first loaded as
