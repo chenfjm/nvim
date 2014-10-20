@@ -194,7 +194,7 @@ let g:NERDTreeWinSize = 35
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "									tagbar
 "
-nmap <A-t> :Tagbar<cr>
+nmap tb :Tagbar<cr>
 let tagbar_ctags_bin='/usr/bin/ctags'
 let tagbar_width=35
 let g:tagbar_compact = 1
