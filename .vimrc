@@ -175,7 +175,7 @@ let Tlist_Ctags_Cmd='/usr/bin/ctags'
 "鼠标点击							 
  let NERDTreeMouseMode = 2
 "宽度
-let g:NERDTreeWinSize = 32 
+let g:NERDTreeWinSize = 35 
 "忽略文件、隐藏文件
  let NERDTreeIgnore = ['\.pyc$']
  let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
@@ -194,7 +194,7 @@ let g:NERDTreeWinSize = 32
 "
 nmap tb :Tagbar<cr>
 let tagbar_ctags_bin='/usr/bin/ctags'
-let tagbar_width=32
+let tagbar_width=35
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 
@@ -302,8 +302,8 @@ inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
 let g:ycm_key_invoke_completion = '<Enter>'
 let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
-nnoremap <C-[> :YcmCompleter GoToDeclaration<CR>
-nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
+nnoremap <C-[> :YcmCompleter GoToDefinition<CR>
+nnoremap <C-]> :YcmCompleter GoToDeclaration<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
