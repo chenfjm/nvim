@@ -175,7 +175,7 @@ let Tlist_Ctags_Cmd='/usr/bin/ctags'
 "鼠标点击							 
  let NERDTreeMouseMode = 2
 "宽度
-let g:NERDTreeWinSize = 35 
+let g:NERDTreeWinSize = 32 
 "忽略文件、隐藏文件
  let NERDTreeIgnore = ['\.pyc$']
  let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
@@ -194,7 +194,7 @@ let g:NERDTreeWinSize = 35
 "
 nmap tb :Tagbar<cr>
 let tagbar_ctags_bin='/usr/bin/ctags'
-let tagbar_width=35
+let tagbar_width=32
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 

@@ -3,3 +3,4 @@ bundle/*
 autoload
 plugin
 syntax
+.DS_Store
