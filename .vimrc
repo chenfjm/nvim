@@ -1,6 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                                                          "
+
 "                                 CHEN                                     "
 "                              VIM-PYTHON                                  "
 "                                                                          "
@@ -200,14 +198,14 @@ let tagbar_width=35
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 
-autocmd BufWinEnter *.py :TagbarOpen
-autocmd BufWinEnter *.c :TagbarOpen
-autocmd BufWinEnter *.cpp :TagbarOpen
-autocmd BufWinEnter *.js :TagbarOpen
-autocmd BufWinLeave *.py :TagbarClose
-autocmd BufWinLeave *.c :TagbarClose
-autocmd BufWinLeave *.cpp :TagbarClose
-autocmd BufWinLeave *.js :TagbarClose
+"autocmd BufWinEnter *.py :TagbarOpen
+"autocmd BufWinEnter *.c :TagbarOpen
+"autocmd BufWinEnter *.cpp :TagbarOpen
+"autocmd BufWinEnter *.js :TagbarOpen
+"autocmd BufWinLeave *.py :TagbarClose
+"autocmd BufWinLeave *.c :TagbarClose
+"autocmd BufWinLeave *.cpp :TagbarClose
+"autocmd BufWinLeave *.js :TagbarClose
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -282,7 +280,7 @@ let g:ycm_complete_in_comments = 1
 " 两个字开始补全
 let g:ycm_min_num_of_chars_for_completion = 2   
 " 开启 YCM 基于标签引擎
-let g:ycm_collect_identifiers_from_tags_files=1
+"let g:ycm_collect_identifiers_from_tags_files=1
 " 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_cache_omnifunc=0
 " 关键字补全	
