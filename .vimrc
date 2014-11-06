@@ -58,14 +58,13 @@ filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               基本配置
-"启动gVIM时最大化
- autocmd GUIEnter * set lines=999 columns=9999
 "
 "开启语法高亮
  syntax on
 "
 "自动、智能缩进
  set tabstop=4
+ set sts=4
  set expandtab
  set shiftwidth=4
  filetype indent on
@@ -79,11 +78,6 @@ filetype plugin indent on
  set number
 "行宽
  set textwidth=80
-"隐藏菜单栏,工具栏和侧边栏
- set guioptions-=m
- set guioptions-=T
- set guioptions-=r
- set guioptions-=L
 "启用鼠标
  set mouse=a
 "在html标签之间跳转(%)
@@ -149,21 +143,6 @@ endif
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
  "let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
 "用法：$ ctags –R src
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            自动补全
-"
-"omni 
- let OmniCpp_ShowPrototypeInAbbr = 1
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
- autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
- autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
- autocmd FileType css set omnifunc=csscomplete#CompleteCSS
- autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
- autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType c set omnifunc=ccomplete#Complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
