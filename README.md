@@ -1,6 +1,10 @@
 VimConfig
 =========
 
+###简介  
+
+	VimConfig支持Mac OS、Linux，YCM插件要求Vim最低版本7.4
+
 ###获取配置文件  
 
 	git clone https://github.com/chenfjm/VimPlugins.git
@@ -28,7 +32,7 @@ VimConfig
 
 - [pyclewn](http://pyclewn.sourceforge.net/)  
 
-###GVim运行效果  
+###运行效果  
 
 ![](https://chenfjm.github.io/VimPlugins/images/vim1.png)
 ![](https://chenfjm.github.io/VimPlugins/images/vim2.png)
