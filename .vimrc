@@ -162,6 +162,7 @@ let g:NERDTreeWinSize = 35
  nmap wm :NERDTreeToggle<cr>
 "关闭当前窗口
  nmap wc      <C-w>c     
+ nmap wv      <C-w>v     
 "分割窗口移动快捷键
  nnoremap <c-h> <c-w>h
  nnoremap <c-j> <c-w>j
