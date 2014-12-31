@@ -255,7 +255,6 @@ let g:ycm_confirm_extra_conf = 0
 " 关闭ycm的syntastic
 let g:ycm_show_diagnostics_ui = 0 
 
-let g:ycm_filetype_whitelist = {'c' : 1, 'cpp' : 1, 'java' : 1, 'python' : 1}
 " 评论中也应用补全
 let g:ycm_complete_in_comments = 1        
 " 两个字开始补全
