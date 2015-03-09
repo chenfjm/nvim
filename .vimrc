@@ -155,7 +155,7 @@ let Tlist_Ctags_Cmd='/usr/bin/ctags'
 "鼠标点击							 
  let NERDTreeMouseMode = 2
 "宽度
-let g:NERDTreeWinSize = 35 
+let g:NERDTreeWinSize = 32
 "忽略文件、隐藏文件
  let NERDTreeIgnore = ['\.pyc$']
  let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
