@@ -282,8 +282,8 @@ inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
 let g:ycm_key_invoke_completion = '<Enter>'
 let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
-autocmd BufRead *.py nnoremap <C-[> :YcmCompleter GoToDefinition<CR>
-autocmd BufRead *.py nnoremap <C-]> :YcmCompleter GoToDeclaration<CR>
+autocmd BufRead *.py nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
+"autocmd BufRead *.py nnoremap <C-]> :YcmCompleter GoToDeclaration<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
