@@ -224,6 +224,8 @@ let g:syntastic_enable_balloons = 1
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E401,E265,E302,E261,E262,E123,F403,E128'
 let g:syntastic_javascript_checkers = ['jshint'] 
+"let g:syntastic_javascript_jshint_exec = '/usr/bin/jshint'
+'
 "Default: 0
 "If enabled, syntastic will do syntax checks when buffers are first loaded as
 "well as on saving >
