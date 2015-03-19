@@ -78,7 +78,10 @@ filetype plugin indent on
 "显示行号：
  set number
 "行宽
- set textwidth=120
+"set textwidth=120
+"自动折行
+"set nowrap
+ set wrap
 "启用鼠标
  set mouse=a
 "在html标签之间跳转(%)
