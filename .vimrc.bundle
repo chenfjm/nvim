@@ -1,5 +1,5 @@
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/vundle'
+Plugin 'VundleVim/Vundle.vim'
 " Plugins
 Plugin 'Emmet.vim'
 Plugin 'MatchTag'
