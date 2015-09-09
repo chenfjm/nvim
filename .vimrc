@@ -13,7 +13,7 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "let path = '~/.vim/local'
 "call vundle#rc(path)
@@ -21,6 +21,7 @@ call vundle#rc()
 if filereadable(expand("~/.vim/.vimrc.bundle"))
   	source ~/.vim/.vimrc.bundle
 endif
+call vundle#end() 
 
 filetype plugin indent on 
 " To ignore plugin indent changes, instead use:

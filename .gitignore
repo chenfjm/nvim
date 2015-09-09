@@ -1,4 +1,5 @@
 bundle/*
+!bundle/vundle
 .ycm_extra_conf.pyc
 autoload
 plugin
