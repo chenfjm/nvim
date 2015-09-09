@@ -11,7 +11,7 @@ VimConfig支持Mac OS、Linux，YCM插件要求Vim最低版本7.4
 ###获取配置文件  
 
 	git clone https://github.com/chenfjm/VimPlugins.git
-	mv VimConfig ~/.vim
+	mv VimPlugins ~/.vim
 	cd .vim
 	git submodule init
 	git submodule update   
