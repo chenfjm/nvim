@@ -19,7 +19,7 @@ VimConfig支持Mac OS、Linux，YCM插件要求Vim最低版本7.4
 
 ###安装插件  
 
-	$vimi[:PluginInstall]   
+	$vim[:PluginInstall]   
     $cd ~/.vim/bundle/YouCompleteMe
     $./install.sh (--clang-completer)
     $cd ~/.vim/bundle/command-t/ruby/command-t
