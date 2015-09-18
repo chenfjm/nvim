@@ -28,7 +28,8 @@ VimConfig支持Mac OS、Linux，YCM插件要求Vim最低版本7.4
 
 ###安装依赖软件  
 
-- [install command-t](https://app.yinxiang.com/shard/s3/nl/374257207/1d04ad84-d56b-4ca6-93de-13c6af6f28df/)
+- [install command-t](https://app.yinxiang.com/shard/s3/nl/374257207/1d04ad84-d56b-4ca6-93de-13c6af6f28df/)   
+
 
 	$brew install ctags(Mac OS)   
     $apt-get install ctags(Linux)
