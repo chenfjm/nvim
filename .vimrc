@@ -145,7 +145,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             ctags
 "
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
  "let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
 "用法：$ ctags –R src
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
