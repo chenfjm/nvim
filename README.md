@@ -19,8 +19,7 @@ VimConfig支持Mac OS、Linux，YCM插件要求Vim最低版本7.4
 
 ###安装插件  
 
-	$vim
-	:PluginInstall   
+	$vimi[:PluginInstall]   
     $cd ~/.vim/bundle/YouCompleteMe
     $./install.sh (--clang-completer)
     $cd ~/.vim/bundle/command-t/ruby/command-t
@@ -31,17 +30,17 @@ VimConfig支持Mac OS、Linux，YCM插件要求Vim最低版本7.4
 
 - [install command-t](https://app.yinxiang.com/shard/s3/nl/374257207/1d04ad84-d56b-4ca6-93de-13c6af6f28df/)
 
-	$brew install ctags(Mac OS)
-	$apt-get install ctags(Linux)
+	$brew install ctags(Mac OS)   
+    $apt-get install ctags(Linux)
 
-	$easy_install flake8
-	$brew install nodejs(Mac OS)
-	$apt-get install nodejs(Linux)
-    $npm install jshint -g
+	$easy_install flake8   
+	$brew install nodejs(Mac OS)   
+	$apt-get install nodejs(Linux)   
+    $npm install jshint -g   
 
-	$tar xzf pyclewn-1.11.py3.tar.gz
-	$cd pyclewn-1.11.py3
-	$python setup.py install --force  
+	$tar xzf pyclewn-1.11.py3.tar.gz   
+	$cd pyclewn-1.11.py3   
+	$python setup.py install --force    
 
 ###运行效果  
 
