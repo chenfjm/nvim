@@ -95,6 +95,10 @@ filetype plugin indent on
  augroup filetype
    au! BufRead,BufNewFile *.proto setfiletype proto
  augroup end
+"恢复上次光标位置
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 "启动界面
 set shortmess=atI
 "Alt 组合键不映射到菜单上
