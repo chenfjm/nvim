@@ -227,7 +227,7 @@ let g:syntastic_enable_balloons = 1
 
 "安装flake8: easy_install flake8
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args='--ignore=E401,E265,E261,E262'
+let g:syntastic_python_flake8_args='--ignore=E401,E265,E261,E262,E126,E128'
 let g:syntastic_javascript_checkers = ['jshint'] 
 "let g:syntastic_javascript_jshint_exec = '/usr/bin/jshint'
 '
