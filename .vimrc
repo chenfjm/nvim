@@ -50,13 +50,11 @@ filetype plugin indent on
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "      	                          主题                                      
 "colorscheme github
  colorscheme monokai
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               基本配置
@@ -126,7 +124,6 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   mac os map
 if has('mac') && ($TERM == 'xterm-256color' || $TERM == 'screen-256color')
@@ -144,16 +141,6 @@ map <Esc>[23~ <F11>
 map <Esc>[24~ <F12>
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                             ctags
-"
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-"let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
-"用法：$ ctags –R src
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdtree
@@ -178,11 +165,19 @@ let g:NERDTreeWinSize = 32
  nnoremap <c-l> <c-w>l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                             ctags
+"
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+"let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
+"用法：$ ctags –R src
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "									tagbar
 "
 nmap tb :Tagbar<cr>
-let tagbar_ctags_bin='/usr/bin/ctags'
+let tagbar_ctags_bin='/usr/local/bin/ctags'
 let tagbar_width=35
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
@@ -209,7 +204,6 @@ let g:tagbar_autoshowtag = 1
  let g:instant_markdown_autostart = 0
  nmap <C-p> :InstantMarkdownPreview<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 错误检查
@@ -289,7 +283,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "回车即选中当前项
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"	
 
-
 let g:ycm_key_invoke_completion = '<Enter>'
 let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
 autocmd BufRead *.py nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
@@ -312,7 +305,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="horizontal"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "										pyclewn
