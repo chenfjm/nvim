@@ -44,9 +44,6 @@ filetype plugin indent on
 "
 "wm   	  : 开启/关闭NerdTree窗口
 "tb   	  : 开启/关闭TagBar窗口
-"gg=G 	  : 自动format代码
-"<Ctr+y>, : html简写法
-"
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
