@@ -147,7 +147,7 @@ endif
 "鼠标点击							 
  let NERDTreeMouseMode = 2
 "宽度
-let g:NERDTreeWinSize = 32
+let g:NERDTreeWinSize = 30
 "忽略文件、隐藏文件
  let NERDTreeIgnore = ['\.pyc$']
  let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
