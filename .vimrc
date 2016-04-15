@@ -74,7 +74,7 @@ filetype plugin indent on
 "显示行号：
  set number
 "行宽
-"set textwidth=120
+set textwidth=80
 "自动折行
 "set nowrap
  set wrap
@@ -163,6 +163,7 @@ let g:NERDTreeWinSize = 30
  nnoremap <c-j> <c-w>j
  nnoremap <c-k> <c-w>k
  nnoremap <c-l> <c-w>l
+"autocmd BufRead *.py :NERDTreeToggle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
