@@ -47,3 +47,4 @@ VimConfig支持Mac OS、Linux，YCM插件要求Vim最低版本7.4
 
 ![](https://chenfjm.github.io/VimPlugins/images/vim1.png)
 ![](https://chenfjm.github.io/VimPlugins/images/vim2.png)
+![](https://chenfjm.github.io/VimPlugins/images/vim3.png)
