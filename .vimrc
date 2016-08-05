@@ -61,13 +61,20 @@ filetype plugin indent on
 "
 "自动、智能缩进
  set tabstop=4
+ set softtabstop=4
  set sts=4
  set expandtab
  set shiftwidth=4
+ set expandtab
+ set autoindent
+ set fileformat=unix
  filetype indent on
+
 "中文乱码"
  set fileencodings=utf-8,chinese
 "默认展开所有代码
+ set foldmethod=indent
+ nnoremap <space> za
  set foldlevel=99
 "显示当前的行号列号：
  set ruler
@@ -95,9 +102,9 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 "启动界面
-set shortmess=atI
+ set shortmess=atI
 "Alt 组合键不映射到菜单上
-set winaltkeys=no
+ set winaltkeys=no
 
 imap jj <Esc>
 imap <C-h> <left>
@@ -388,7 +395,8 @@ let g:user_emmet_expandabbr_key = '<C-e>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 CommandT
-"
-map <C-c> :CommandT<CR>
+"                                 SimpylFold
+" 代码折叠
+let g:SimpylFold_docstring_preview=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
