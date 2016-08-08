@@ -314,17 +314,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsEditSplit="horizontal"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"								DoxygenToolkit
-"
-let g:DoxygenToolkit_authorName="chenfjm@gmail.com"
-let g:DoxygenToolkit_briefTag_pre="@brief  " 
-let g:DoxygenToolkit_paramTag_pre="@Param " 
-let g:DoxygenToolkit_returnTag="@Returns   " 
-map <C-a> :DoxAuthor<CR>
-map <C-s> :Dox<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  Emmet
 "
@@ -337,3 +326,19 @@ let g:user_emmet_expandabbr_key = '<C-e>'
 let g:SimpylFold_docstring_preview=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  py文件头
+autocmd bufnewfile *.py call HeaderPython()
+function HeaderPython()
+    call setline(1, "#!/usr/bin/env python")
+    call append(1, "# -*- coding: utf-8 -*-")
+    normal G
+    normal o
+    normal o
+endf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 docstring
+nmap <silent> <C-a> <Plug>(pydocstring)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
