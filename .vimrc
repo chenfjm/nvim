@@ -111,20 +111,8 @@ imap <C-h> <left>
 imap <C-l> <right>
 cmap q<CR> qa<CR>
 
-if has("gui_running")
-"ubuntu---------------------------------------------------------------------
-"配置字体
-	set guifont=YaHei\ Consolas\ Hybrid\ 12
-"开启气泡提示
-	set ballooneval
-	set balloondelay=100
-"ubuntu---------------------------------------------------------------------
-else
-"OSX------------------------------------------------------------------------
-"删除键
- set backspace=indent,eol,start
-"OSX------------------------------------------------------------------------
-endif
+"MacOS
+set backspace=indent,eol,start
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -182,36 +170,13 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"									tagbar
-"
+"							 tagbar
 nmap tb :Tagbar<cr>
 let tagbar_ctags_bin='/usr/local/bin/ctags'
 let tagbar_width=35
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
-
-"autocmd BufWinEnter *.py :TagbarOpen
-"autocmd BufWinEnter *.c :TagbarOpen
-"autocmd BufWinEnter *.cpp :TagbarOpen
-"autocmd BufWinEnter *.js :TagbarOpen
-"autocmd BufWinLeave *.py :TagbarClose
-"autocmd BufWinLeave *.c :TagbarClose
-"autocmd BufWinLeave *.cpp :TagbarClose
-"autocmd BufWinLeave *.js :TagbarClose
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"						instant- markdown
-"
-"依赖：
-" $gem install pygments.rb
-" $gem install redcarpet
-" $npm -g install instant-markdown-d
-"
- au BufRead,BufNewFile *.md set filetype=markdown
- let g:instant_markdown_autostart = 0
- nmap <C-p> :InstantMarkdownPreview<cr>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 错误检查
@@ -341,4 +306,9 @@ endf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 docstring
 nmap <silent> <C-a> <Plug>(pydocstring)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  ctrlP
+let g:ctrlp_working_path_mode = 'ra'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
