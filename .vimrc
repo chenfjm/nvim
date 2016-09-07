@@ -81,7 +81,7 @@ filetype plugin indent on
 "显示行号：
  set number
 "行宽
-set textwidth=80
+set textwidth=90
 "自动折行
 "set nowrap
  set wrap
