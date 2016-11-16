@@ -159,6 +159,8 @@ let g:NERDTreeWinSize = 30
  nnoremap <c-k> <c-w>k
  nnoremap <c-l> <c-w>l
 "autocmd BufRead *.py :NERDTreeToggle
+"关闭窗口
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -315,5 +317,9 @@ nmap <silent> <C-a> <Plug>(pydocstring)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  ctrlP
+" 当前目录查找
 let g:ctrlp_working_path_mode = 'ra'
+" 垂直打开
+let g:ctrlp_open_new_file = 'v'
+let g:ctrlp_open_multiple_files = 'v'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
