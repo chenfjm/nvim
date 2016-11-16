@@ -319,7 +319,11 @@ nmap <silent> <C-a> <Plug>(pydocstring)
 "                                  ctrlP
 " 当前目录查找
 let g:ctrlp_working_path_mode = 'ra'
-" 垂直打开
-let g:ctrlp_open_new_file = 'v'
-let g:ctrlp_open_multiple_files = 'v'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               power-line
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
