@@ -230,7 +230,7 @@ set completeopt=longest,menu
 " 不用每次提示加载.ycm_extra_conf.py文件
 let g:ycm_confirm_extra_conf = 0              
 " 关闭ycm的syntastic
-let g:ycm_show_diagnostics_ui = 0 
+let g:ycm_show_diagnostics_ui = 0
 
 " 评论中也应用补全
 let g:ycm_complete_in_comments = 1        
@@ -333,3 +333,9 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 autocmd BufRead *.md nmap tb :Toc<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               pydiction 
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
