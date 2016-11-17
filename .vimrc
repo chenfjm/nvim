@@ -142,7 +142,7 @@ endif
 "鼠标点击							 
  let NERDTreeMouseMode = 2
 "宽度
-let g:NERDTreeWinSize = 30
+ let g:NERDTreeWinSize = 30
 "忽略文件、隐藏文件
  let NERDTreeIgnore = ['\.pyc$']
  let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
@@ -173,7 +173,7 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							 tagbar
-nmap tb :Tagbar<cr>
+autocmd BufRead *.* nmap tb :Tagbar<cr>
 let tagbar_ctags_bin='/usr/local/bin/ctags'
 let tagbar_width=35
 let g:tagbar_compact = 1
@@ -327,4 +327,11 @@ let g:ctrlp_working_path_mode = 'ra'
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                markdown
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_toc_autofit = 1
+autocmd BufRead *.md nmap tb :Toc<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
