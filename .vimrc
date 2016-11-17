@@ -49,8 +49,8 @@ filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "      	                          主题                                      
-"colorscheme monokai
- colorscheme solarized
+ colorscheme monokai
+"colorscheme solarized
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,8 +85,6 @@ set textwidth=90
 "自动折行
 "set nowrap
  set wrap
-"启用鼠标
- set mouse=a
 "在html标签之间跳转(%)
  runtime macros/matchit.vim 
 "高亮搜索单词
