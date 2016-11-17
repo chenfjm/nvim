@@ -1,6 +1,9 @@
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'sickill/vim-monokai'
+
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'MatchTag'
 Plugin 'delimitMate.vim'
