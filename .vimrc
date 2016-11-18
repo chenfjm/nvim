@@ -70,6 +70,8 @@ filetype plugin indent on
  set fileformat=unix
  filetype indent on
 
+"paste toggle
+ set pastetoggle=pp
 "中文乱码"
  set fileencodings=utf-8,chinese
 "默认展开所有代码
@@ -91,10 +93,6 @@ set textwidth=90
  set hlsearch
 "在当前目录及子目录下用find打开指定文件
  set path=./**
-"proto语法文件
- augroup filetype
-   au! BufRead,BufNewFile *.proto setfiletype proto
- augroup end
 "恢复上次光标位置
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -221,18 +219,6 @@ let g:syntastic_javascript_checkers = ['jshint']
  let g:syntastic_quiet_messages={'level': 'warnings'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               pydiction 
- let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
- let g:pydiction_menu_height = 30
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                jedi-vim
-let g:jedi#usages_command = "<C-u>"
-let g:jedi#documentation_command = "<C-g>"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "									YouCompleteMe
 "
@@ -273,6 +259,19 @@ let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml'
 
 autocmd BufRead *.py nnoremap <C-]> :YcmCompleter GoTo<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                jedi-vim
+let g:jedi#goto_command = "<C-]>"
+let g:jedi#usages_command = "<C-u>"
+let g:jedi#documentation_command = "<C-g>"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               pydiction 
+ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+ let g:pydiction_menu_height = 30
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "										ultisnips
@@ -344,3 +343,4 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 autocmd BufRead *.md nmap tb :Toc<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
