@@ -71,7 +71,7 @@ filetype plugin indent on
  filetype indent on
 
 "paste toggle
- set pastetoggle=pp
+ set pastetoggle=tt
 "中文乱码"
  set fileencodings=utf-8,chinese
 "默认展开所有代码
