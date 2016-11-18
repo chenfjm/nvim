@@ -221,6 +221,18 @@ let g:syntastic_javascript_checkers = ['jshint']
  let g:syntastic_quiet_messages={'level': 'warnings'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               pydiction 
+ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+ let g:pydiction_menu_height = 30
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                jedi-vim
+let g:jedi#usages_command = "<C-u>"
+let g:jedi#documentation_command = "<C-g>"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "									YouCompleteMe
 "
@@ -260,7 +272,6 @@ let g:ycm_key_invoke_completion = '<Enter>'
 let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
 
 autocmd BufRead *.py nnoremap <C-]> :YcmCompleter GoTo<CR>
-autocmd BufRead *.py nnoremap <C-G> :YcmCompleter GetDoc<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -333,10 +344,3 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 autocmd BufRead *.md nmap tb :Toc<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               pydiction 
- let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
- let g:pydiction_menu_height = 30
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
