@@ -22,9 +22,9 @@ VimPlugins
 - Mac OS
 
   ```
-  $brew install ctags(Mac OS)
+  $brew install ctags
   $easy_install flake8 
-  $brew install nodejs(Mac OS)
+  $brew install nodejs
   $npm install jshint -g  
   ```
 
@@ -32,9 +32,9 @@ VimPlugins
 - Linux    
 
   ```
-  $apt-get install ctags(Linux)
+  $apt-get install ctags
   $easy_install flake8 
-  $apt-get install nodejs(Linux)
+  $apt-get install nodejs
   $npm install jshint -g
   ```
 

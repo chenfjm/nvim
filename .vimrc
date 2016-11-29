@@ -186,7 +186,7 @@ let g:syntastic_enable_balloons = 1
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
 let g:syntastic_javascript_checkers = ['jshint'] 
-"let g:syntastic_javascript_jshint_exec = '/usr/bin/jshint'
+let g:syntastic_javascript_jshint_exec = '/usr/local/bin/jshint'
 '
 "Default: 0
 "If enabled, syntastic will do syntax checks when buffers are first loaded as
@@ -250,6 +250,7 @@ let g:ycm_key_invoke_completion = '<Enter>'
 let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml' : ['.', '#'], 'cpp,objcpp' : ['->', '.', '::'], 'php' : ['->', '::'], 'cs,java,javascript,vim,coffee,python,scala,go' : ['.'], 'ruby' : ['.', '::']}
 
 autocmd BufRead *.py nnoremap <C-]> :YcmCompleter GoTo<CR>
+autocmd BufRead *.js nnoremap <C-]> :TernDef<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
