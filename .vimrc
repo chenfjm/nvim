@@ -81,8 +81,11 @@ set textwidth=90
  set wrap
 "在html标签之间跳转(%)
  runtime macros/matchit.vim 
-"高亮搜索单词
- set hlsearch
+" 搜索
+set hlsearch                    " highlight searches
+set incsearch                   " do incremental searching, search as you type
+set ignorecase                  " ignore case when searching
+set smartcase                   " no ignorecase if Uppercase char present
 "在当前目录及子目录下用find打开指定文件
  set path=./**
 "恢复上次光标位置
@@ -336,4 +339,3 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 autocmd BufRead *.md nmap tb :Toc<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
