@@ -52,12 +52,8 @@ filetype plugin indent on
  syntax on
 "
 "自动、智能缩进
- set tabstop=4
- set softtabstop=4
- set sts=4
- set expandtab
- set shiftwidth=4
- set expandtab
+ autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+ autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
  set autoindent
  set fileformat=unix
  filetype indent on
