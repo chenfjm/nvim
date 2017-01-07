@@ -54,6 +54,7 @@ filetype plugin indent on
 "自动、智能缩进
  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd BufRead *.vue setlocal ts=2 sts=2 sw=2 expandtab
  set autoindent
  set fileformat=unix
  filetype indent on
