@@ -1,9 +1,12 @@
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 " Plugins
+ 
+"color
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sickill/vim-monokai'
 
+"common
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'MatchTag'
 Plugin 'delimitMate.vim'
@@ -13,21 +16,27 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ybian/smartim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+"python
 Plugin 'pydoc.vim'
 Plugin 'heavenshell/vim-pydocstring'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-scripts/Pydiction'
+
+"js
+Plugin 'mattn/emmet-vim'
+Plugin 'marijnh/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/xml.vim'
 Plugin 'KohPoll/vim-less'
 Plugin 'lepture/vim-css'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'vim-scripts/Pydiction'
-Plugin 'scrooloose/syntastic'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'mattn/emmet-vim'
-Plugin 'ybian/smartim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'posva/vim-vue'
+Plugin 'mxw/vim-jsx'
+Plugin 'justinj/vim-react-snippets'
