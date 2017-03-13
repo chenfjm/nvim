@@ -55,6 +55,7 @@ filetype plugin indent on
  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.vue setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd BufRead *.css setlocal ts=2 sts=2 sw=2 expandtab
  set autoindent
  set fileformat=unix
  filetype indent on
@@ -185,8 +186,8 @@ let g:syntastic_enable_balloons = 1
 "安装flake8: easy_install flake8
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
-let g:syntastic_javascript_checkers = ['jshint'] 
-let g:syntastic_javascript_jshint_exec = '/usr/local/bin/jshint'
+let g:syntastic_javascript_checkers = ['eslint'] 
+let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 '
 "Default: 0
 "If enabled, syntastic will do syntax checks when buffers are first loaded as
