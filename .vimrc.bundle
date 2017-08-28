@@ -40,3 +40,6 @@ Plugin 'lepture/vim-css'
 Plugin 'darthmall/vim-vue'
 Plugin 'mxw/vim-jsx'
 Plugin 'justinj/vim-react-snippets'
+
+"weapp
+Plugin 'chemzqm/wxapp.vim'
