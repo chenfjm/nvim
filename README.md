@@ -2,7 +2,7 @@
 VimPlugins
 =========
 
-###Quick Installation  
+### Quick Installation  
 
 	$git clone https://github.com/chenfjm/VimPlugins.git
 	$mv VimPlugins ~/.vim
@@ -11,13 +11,13 @@ VimPlugins
 	$git submodule update   
 	$cp .vimrc ~
 
-###PluginInstall  
+### PluginInstall  
 
 	$:PluginInstall(in vim)
 	$cd ~/.vim/bundle/YouCompleteMe
 	$./install.sh (--clang-completer)
 
-###Requirements  
+### Requirements  
 
 - Mac OS
 
