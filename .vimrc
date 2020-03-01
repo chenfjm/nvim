@@ -189,7 +189,7 @@ let g:syntastic_enable_balloons = 1
 
 "安装flake8: easy_install flake8
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E402'
+let g:syntastic_python_flake8_args='--ignore=E501,E402,E999'
 let g:syntastic_javascript_checkers = ['eslint'] 
 let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 '
