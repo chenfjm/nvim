@@ -8,7 +8,6 @@ Plugin 'sickill/vim-monokai'
 
 "common
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'MatchTag'
 Plugin 'delimitMate.vim'
 Plugin 'Mark--Karkat'
 Plugin 'scrooloose/nerdtree'
