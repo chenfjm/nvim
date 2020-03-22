@@ -76,6 +76,8 @@ filetype plugin indent on
  set ruler
 "显示行号：
  set number
+"设置tab：
+ set tabstop=4
 "行宽
 set textwidth=90
 "自动折行
