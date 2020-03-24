@@ -263,7 +263,7 @@ autocmd BufRead *.js nnoremap <C-]> :TernDef<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                jedi-vim
-let g:jedi#goto_assignments_command = "<C-[>"
+"let g:jedi#goto_assignments_command = "<C-[>"
 let g:jedi#usages_command = "<C-u>"
 let g:jedi#documentation_command = "<C-g>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
