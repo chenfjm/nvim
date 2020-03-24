@@ -137,7 +137,7 @@ endif
 "鼠标点击							 
  let NERDTreeMouseMode = 2
 "宽度
- let g:NERDTreeWinSize = 30
+ let g:NERDTreeWinSize = 28
 "忽略文件、隐藏文件
  let NERDTreeIgnore = ['\.pyc$', '__pycache__']
  let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
@@ -170,7 +170,7 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 "							 tagbar
 autocmd BufRead *.* nmap tb :Tagbar<cr>
 let tagbar_ctags_bin='/usr/local/bin/ctags'
-let tagbar_width=35
+let tagbar_width=30
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -221,7 +221,7 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           YouCompleteMe
 "
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 " 让Vim的补全菜单行为与一般IDE一致
 set completeopt=longest,menu                
 " 不用每次提示加载.ycm_extra_conf.py文件
@@ -263,7 +263,7 @@ autocmd BufRead *.js nnoremap <C-]> :TernDef<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                jedi-vim
-let g:jedi#goto_assignments_command = "<C-]>"
+let g:jedi#goto_assignments_command = "<C-[>"
 let g:jedi#usages_command = "<C-u>"
 let g:jedi#documentation_command = "<C-g>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
