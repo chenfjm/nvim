@@ -241,8 +241,8 @@ let g:ycm_cache_omnifunc=0
 " 关键字补全	
 let g:ycm_seed_identifiers_with_syntax = 1
 ""上下左右键的行为 会显示其他信息
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-k>\<C-j>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-k>\<C-j>" : "\<PageUp>"
+"inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-k>\<C-j>" : "\<PageDown>"
+"inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-k>\<C-j>" : "\<PageUp>"
 "set YouCompleteMe trigger key 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 "let g:ycm_key_list_select_completion = ['<Down>']
