@@ -60,6 +60,7 @@ filetype plugin indent on
  autocmd BufRead *.vue setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxml setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxss setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd BufRead *.yaml setlocal ts=4 sts=4 sw=4 expandtab
  set autoindent
  set fileformat=unix
  filetype indent on
