@@ -219,6 +219,14 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
  let g:syntastic_quiet_messages={'level': 'warnings'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                jedi-vim
+"
+let g:jedi#goto_assignments_command = "<C-]>"
+let g:jedi#usages_command = "<C-u>"
+let g:jedi#documentation_command = "<C-g>"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           YouCompleteMe
 "
@@ -261,13 +269,6 @@ let g:ycm_semantic_triggers =  {'c' : ['->', '.'], 'objc' : ['->', '.'], 'ocaml'
 autocmd BufRead *.py nnoremap <C-]> :YcmCompleter GoTo<CR>
 autocmd BufRead *.js nnoremap <C-]> :TernDef<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                jedi-vim
-"let g:jedi#goto_assignments_command = "<C-[>"
-let g:jedi#usages_command = "<C-u>"
-let g:jedi#documentation_command = "<C-g>"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               pydiction 
