@@ -38,6 +38,13 @@ VimPlugins
   $npm install jshint -g
   ```
 
+- pip
+
+  ```
+  $ cd ~/.vim/bundle/vim-pydocstring
+  $ make
+  ```
+
 ### Included Color Schemes
 
 - [Monokai](https://github.com/sickill/vim-monokai) (*default*)
