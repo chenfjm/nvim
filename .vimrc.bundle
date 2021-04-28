@@ -40,5 +40,8 @@ Plugin 'darthmall/vim-vue'
 Plugin 'mxw/vim-jsx'
 Plugin 'justinj/vim-react-snippets'
 
+"go
+Plugin 'fatih/vim-go'
+
 "weapp
 Plugin 'chemzqm/wxapp.vim'
