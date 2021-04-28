@@ -65,6 +65,7 @@ filetype plugin indent on
  set fileformat=unix
  filetype indent on
 
+set cursorline
 "paste toggle
  set pastetoggle=<C-t>
 "中文乱码"
