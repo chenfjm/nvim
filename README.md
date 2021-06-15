@@ -41,6 +41,7 @@ VimPlugins
 - pip
 
   ```
+  $ pip install jedi
   $ cd ~/.vim/bundle/vim-pydocstring
   $ make
   ```
