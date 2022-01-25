@@ -13,8 +13,8 @@ VimPlugins
 
 ### PluginInstall  
 
-	$:PluginInstall(in vim)
-	$:GoInstallBinaries
+	$:PluginInstall (in vim)
+	$:GoInstallBinaries (in vim)
 	$cd ~/.vim/bundle/YouCompleteMe
 	$python3 install.py  --go-completer (--clang-completer)
 

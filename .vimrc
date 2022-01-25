@@ -53,6 +53,7 @@ filetype plugin indent on
 "
 "自动、智能缩进
  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+ autocmd FileType go setlocal ts=4 sts=4 sw=4 expandtab
  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.css setlocal ts=2 sts=2 sw=2 expandtab
@@ -96,12 +97,12 @@ set smartcase                   " no ignorecase if Uppercase char present
  set path=./**
 "恢复上次光标位置
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 "启动界面
- set shortmess=atI
+set shortmess=atI
 "Alt 组合键不映射到菜单上
- set winaltkeys=no
+set winaltkeys=no
 
 imap jj <Esc>
 imap <C-h> <left>
@@ -135,30 +136,36 @@ endif
 "							nerdtree
 "
 "不显示帮助信息
- let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI=1
 "鼠标点击							 
- let NERDTreeMouseMode = 2
+let NERDTreeMouseMode = 1
 "宽度
- let g:NERDTreeWinSize = 28
+let g:NERDTreeWinSize = 28
 "忽略文件、隐藏文件
- let NERDTreeIgnore = ['\.pyc$', '__pycache__']
- let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
- nmap wm :NERDTreeToggle<cr>
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
+nmap wm :NERDTreeToggle<cr>
 "关闭当前窗口
- nmap wc      <C-w>c     
+nmap wc      <C-w>c     
 "分割窗口
- nmap wv      <C-w>v     
+nmap wv      <C-w>v     
 "打开quickfix
- nmap wq :copen<cr>
+nmap wq :copen<cr>
 "分割窗口移动快捷键
- nnoremap <c-h> <c-w>h
- nnoremap <c-j> <c-w>j
- nnoremap <c-k> <c-w>k
- nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 "autocmd BufRead *.py :NERDTreeToggle
 "关闭窗口
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"							nerdcomment
+let g:NERDSpaceDelims=1
+map <silent> <C-c> <plug>NERDCommenterToggle 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             ctags
