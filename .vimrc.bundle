@@ -21,7 +21,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'ybian/smartim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 "python
 Plugin 'pydoc.vim'
@@ -41,7 +41,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'justinj/vim-react-snippets'
 
 "go
-Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "weapp
 Plugin 'chemzqm/wxapp.vim'

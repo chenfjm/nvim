@@ -164,6 +164,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "                             ctags
 "
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+"let Tlist_Ctags_Cmd='/usr/bin/ctags'
 "let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
 "用法：$ ctags –R src
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,6 +173,7 @@ let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 "							 tagbar
 autocmd BufRead *.* nmap tb :Tagbar<cr>
 let tagbar_ctags_bin='/usr/local/bin/ctags'
+"let tagbar_ctags_bin='/usr/bin/ctags'
 let tagbar_width=30
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
@@ -346,4 +348,10 @@ set encoding=utf-8 " Necessary to show Unicode glyphs"
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 autocmd BufRead *.md nmap tb :Toc<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                vim-go
+let g:go_metalinter_autosave = 1
+let g:go_term_enabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
