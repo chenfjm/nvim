@@ -13,8 +13,8 @@ VimPlugins
 
 ### PluginInstall  
 
-	$:PluginInstall(in vim)
-	$:GoInstallBinaries
+	$:PluginInstall (in vim)
+	$:GoInstallBinaries (in vim)
 	$cd ~/.vim/bundle/YouCompleteMe
 	$python3 install.py  --go-completer (--clang-completer)
 
@@ -113,6 +113,7 @@ VimPlugins
   <C-a>: 自动添加Docstring
   <C-g>: 获取类、函数的Docstring
   <C-e>: html、js补全
+  <C-c>: 切换注释
   \cc  : 注释代码
   \cu  : 解除注释
   SpaceSpace: 代码折叠
