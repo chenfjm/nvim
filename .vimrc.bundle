@@ -5,9 +5,10 @@ Plugin 'VundleVim/Vundle.vim'
 "color
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sickill/vim-monokai'
+Plugin 'arcticicestudio/nord-vim'
 
 "common
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'delimitMate.vim'
 Plugin 'Mark--Karkat'
 Plugin 'scrooloose/nerdtree'
@@ -22,6 +23,7 @@ Plugin 'ybian/smartim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
+"Plugin 'ryanoasis/vim-devicons'
 
 "python
 Plugin 'pydoc.vim'
