@@ -6,6 +6,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sickill/vim-monokai'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'luochen1990/rainbow'
 
 "common
 Plugin 'itchyny/lightline.vim'
