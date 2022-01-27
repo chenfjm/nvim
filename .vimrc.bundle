@@ -25,6 +25,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'preservim/vim-markdown'
 Plugin 'elzr/vim-json'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
 "Plugin 'ryanoasis/vim-devicons'
 
 "python
