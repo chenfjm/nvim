@@ -89,6 +89,7 @@ VimPlugins
   wc: 关闭窗口
   wq: 打开 quick fix 窗口
   tb: 开启/关闭TagBar窗口
+  m: 管理当前节点
   ```
 
 
