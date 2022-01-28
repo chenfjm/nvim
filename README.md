@@ -23,8 +23,7 @@ VimPlugins
 - Mac OS
 
   ```
-  $brew install ctags
-  $brew install nodejs
+  $brew install ctags nodejs autopep8
   $pip install pylint flake8 
   $npm install jshint -g  
   ```
@@ -33,9 +32,8 @@ VimPlugins
 - Linux    
 
   ```
-  $apt-get install ctags
+  $yum install ctags, nodejs
   $pip install pylint flake8 
-  $apt-get install nodejs
   $npm install jshint -g
   ```
 

@@ -28,6 +28,12 @@ Plugin 'elzr/vim-json'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Yggdroot/indentLine'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'Chiel92/vim-autoformat'
 "Plugin 'ryanoasis/vim-devicons'
 
 "python
