@@ -72,6 +72,7 @@ set cursorline
 "paste toggle
  set pastetoggle=<C-t>
 "中文乱码"
+"set encoding=utf-8
  set fileencodings=utf-8,chinese
 "默认展开所有代码
  set foldmethod=indent
