@@ -72,7 +72,6 @@ set cursorline
 "paste toggle
  set pastetoggle=<C-t>
 "中文乱码"
- set encoding=utf-8
  set fileencodings=utf-8,chinese
 "默认展开所有代码
  set foldmethod=indent
@@ -226,11 +225,6 @@ let g:syntastic_python_flake8_args='--ignore=E501,E402,E999'
 let g:syntastic_go_checkers = ['golint', 'gofmt']
 let g:syntastic_javascript_checkers = ['eslint'] 
 let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
-'
-"Default: 0
-"If enabled, syntastic will do syntax checks when buffers are first loaded as
-"well as on saving >
-"let g:syntastic_check_on_open=1
 
 "Default: 0
 "Enable this option to tell syntastic to always stick any detected errors into
@@ -241,10 +235,6 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 "When set to 1 the error window will be automatically opened when errors are
 "detected, and closed when none are detected. >
  let g:syntastic_auto_loc_list=1
-
-"When set to 2 the error window will be automatically closed when no errors are
-"detected, but not opened automatically. >
-"let g:syntastic_auto_loc_list=2
 
 "only errors no warnings
  let g:syntastic_quiet_messages={'level': 'warnings'}
@@ -375,7 +365,9 @@ autocmd BufRead *.md nmap tb :Toc<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim-go
-"let g:go_metalinter_autosave = 1
+"let g:go_metalinter_autosave = 0
+"let g:go_list_type = "quickfix"
+let g:go_fmt_fail_silently = 1
 let g:go_term_enabled = 1
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
