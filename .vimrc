@@ -164,6 +164,22 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"							nerdtree-git-plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdcomment
 let g:NERDSpaceDelims=1
 map <silent> <C-c> <plug>NERDCommenterToggle 
@@ -191,6 +207,7 @@ let g:tagbar_autoshowtag = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 错误检查
 "
+":SyntasticInfo 查看可用的checkers
 "let g:syntastic_cpp_include_dirs = ['/usr/include/']
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
@@ -202,16 +219,17 @@ let g:syntastic_warning_symbol = '⚠'
 "whether to show balloons
 let g:syntastic_enable_balloons = 1
 
-"安装flake8: easy_install flake8
-let g:syntastic_python_checkers = ['flake8']
+"安装flake8: pip install pylint flake8
+let g:syntastic_python_checkers = ['pylint', 'flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,E402,E999'
+let g:syntastic_go_checkers = ['golint', 'gofmt']
 let g:syntastic_javascript_checkers = ['eslint'] 
 let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 '
 "Default: 0
 "If enabled, syntastic will do syntax checks when buffers are first loaded as
 "well as on saving >
- "let g:syntastic_check_on_open=1
+"let g:syntastic_check_on_open=1
 
 "Default: 0
 "Enable this option to tell syntastic to always stick any detected errors into
@@ -356,7 +374,7 @@ autocmd BufRead *.md nmap tb :Toc<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim-go
-let g:go_metalinter_autosave = 1
+"let g:go_metalinter_autosave = 1
 let g:go_term_enabled = 1
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',

@@ -24,8 +24,8 @@ VimPlugins
 
   ```
   $brew install ctags
-  $easy_install flake8 
   $brew install nodejs
+  $pip install pylint flake8 
   $npm install jshint -g  
   ```
 
@@ -34,7 +34,7 @@ VimPlugins
 
   ```
   $apt-get install ctags
-  $easy_install flake8 
+  $pip install pylint flake8 
   $apt-get install nodejs
   $npm install jshint -g
   ```
