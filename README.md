@@ -118,6 +118,14 @@ VimPlugins
   SpaceSpace: 代码折叠
   ```
 
+- 其他
+
+  ```
+  <C-n>: 多光标
+  <C-m>: 全选多光标
+  cs({: 替换(为{
+  ```
+
 ### Screenshots
 
 ![](https://chenfjm.github.io/VimPlugins/images/vim1.png)
