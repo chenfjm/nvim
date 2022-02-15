@@ -68,7 +68,8 @@ filetype plugin indent on
  set fileformat=unix
  filetype indent on
 
-set cursorline
+ set cursorline
+ set modifiable
 "paste toggle
  set pastetoggle=<C-t>
 "中文乱码"
@@ -241,8 +242,8 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 "only errors no warnings
  let g:syntastic_quiet_messages={'level': 'warnings'}
 
- autocmd FileType qf map n :lnext<CR>
- autocmd FileType qf map N :lprevious<CR>
+ autocmd filetype qf nnoremap <buffer> j :lnext<CR>zz<C-w>w
+ autocmd filetype qf nnoremap <buffer> k :lprevious<CR>zz<C-w>w
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
