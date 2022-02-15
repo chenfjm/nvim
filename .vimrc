@@ -154,6 +154,7 @@ nmap wc      <C-w>c
 nmap wv      <C-w>v     
 "打开quickfix
 nmap wq :copen<cr>
+nmap wl :lopen<cr>
 "分割窗口移动快捷键
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -161,7 +162,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 "autocmd BufRead *.py :NERDTreeToggle
 "关闭窗口
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -240,8 +241,8 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 "only errors no warnings
  let g:syntastic_quiet_messages={'level': 'warnings'}
 
- map <C-j> :lnext<CR>
- map <C-k> :lprevious<CR>
+ autocmd FileType qf map n :lnext<CR>
+ autocmd FileType qf map N :lprevious<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -417,8 +418,8 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
