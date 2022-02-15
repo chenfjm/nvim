@@ -239,6 +239,9 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 
 "only errors no warnings
  let g:syntastic_quiet_messages={'level': 'warnings'}
+
+ map <C-j> :lnext<CR>
+ map <C-k> :lprevious<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
