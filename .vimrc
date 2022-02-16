@@ -64,6 +64,8 @@ filetype plugin indent on
  autocmd BufRead *.wxml setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxss setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.yaml setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd BufRead *.conf setf dosini
+
  set autoindent
  set fileformat=unix
  filetype indent on
