@@ -237,7 +237,7 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 "Default: 2
 "When set to 1 the error window will be automatically opened when errors are
 "detected, and closed when none are detected. >
- let g:syntastic_auto_loc_list=1
+ let g:syntastic_auto_loc_list=2
 
 "only errors no warnings
  let g:syntastic_quiet_messages={'level': 'warnings'}
