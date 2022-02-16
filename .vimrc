@@ -244,6 +244,8 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 
  autocmd filetype qf nnoremap <buffer> j :lnext<CR>zz<C-w>w
  autocmd filetype qf nnoremap <buffer> k :lprevious<CR>zz<C-w>w
+ autocmd filetype qf nnoremap <buffer> gg :lfirst<CR>zz<C-w>w
+ autocmd filetype qf nnoremap <buffer> G :llast<CR>zz<C-w>w
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
