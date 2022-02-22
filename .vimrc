@@ -449,7 +449,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          vim-gitgutter
 let g:gitgutter_enabled = 1
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0
 " let g:gitgutter_sign_added = 'xx'
 " let g:gitgutter_sign_modified = 'yy'
 " let g:gitgutter_sign_removed = 'zz'
