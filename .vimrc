@@ -244,10 +244,20 @@ let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
 "only errors no warnings
  let g:syntastic_quiet_messages={'level': 'warnings'}
 
- autocmd filetype qf nnoremap <buffer> j :lnext<CR>zz<C-w>w
- autocmd filetype qf nnoremap <buffer> k :lprevious<CR>zz<C-w>w
- autocmd filetype qf nnoremap <buffer> gg :lfirst<CR>zz<C-w>w
- autocmd filetype qf nnoremap <buffer> G :llast<CR>zz<C-w>w
+ autocmd filetype qf call QuickfixMap()
+ function QuickfixMap()
+    if get(getwininfo(win_getid())[0], 'loclist', 0)
+         nnoremap <buffer> j :lnext<CR>zz<C-w>w
+         nnoremap <buffer> k :lprevious<CR>zz<C-w>w
+         nnoremap <buffer> gg :lfirst<CR>zz<C-w>w
+         nnoremap <buffer> G :llast<CR>zz<C-w>w
+    elseif get(getwininfo(win_getid())[0], 'quickfix', 0)
+         nnoremap <buffer> j :cnext<CR>zz<C-w>w
+         nnoremap <buffer> k :cprevious<CR>zz<C-w>w
+         nnoremap <buffer> gg :cfirst<CR>zz<C-w>w
+         nnoremap <buffer> G :clast<CR>zz<C-w>w
+    endif
+ endf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
