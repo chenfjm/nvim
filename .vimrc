@@ -448,6 +448,7 @@ let g:gitgutter_highlight_lines = 0
 " let g:gitgutter_sign_added = 'xx'
 " let g:gitgutter_sign_modified = 'yy'
 " let g:gitgutter_sign_removed = 'zz'
+nmap ll :G blame<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -463,10 +464,19 @@ noremap = :Autoformat<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               fzf
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~50%' }
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
 nmap <C-p> :Files<CR>
-nmap <C-b> :Buffers<CR>
 nmap <C-h> :History<CR>
+nmap cc :Commits<CR>
+nmap bb :BCommits<CR>
+
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
