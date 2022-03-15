@@ -354,12 +354,6 @@ nmap <silent> <C-a> <Plug>(pydocstring)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  ctrlP
-" 当前目录查找
-let g:ctrlp_working_path_mode = 'ra'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
@@ -448,7 +442,7 @@ let g:gitgutter_highlight_lines = 0
 " let g:gitgutter_sign_added = 'xx'
 " let g:gitgutter_sign_modified = 'yy'
 " let g:gitgutter_sign_removed = 'zz'
-nmap ll :G blame<CR>
+nmap mm :G blame<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -464,6 +458,7 @@ noremap = :Autoformat<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               fzf
+" export BAT_THEME=Nord
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~50%' }
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
@@ -473,7 +468,8 @@ let g:fzf_buffers_jump = 1
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 nmap <C-p> :Files<CR>
-nmap <C-h> :History<CR>
+nmap <C-a> :Ag!<CR>
+nmap rr :Buffers<CR>
 nmap cc :Commits<CR>
 nmap bb :BCommits<CR>
 
@@ -482,5 +478,7 @@ command! -bang -nargs=* Ag
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
-nnoremap <silent> <C-a> :Ag<CR>
+
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
