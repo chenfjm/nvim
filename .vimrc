@@ -118,6 +118,21 @@ cmap q<CR> qa<CR>
 "MacOS
 set backspace=indent,eol,start
 
+"loclist&quickfix
+autocmd filetype qf call QuickfixMap()
+function QuickfixMap()
+   if get(getwininfo(win_getid())[0], 'loclist', 0)
+        nnoremap <buffer> j :lnext<CR>zz<C-w>w
+        nnoremap <buffer> k :lprevious<CR>zz<C-w>w
+        nnoremap <buffer> gg :lfirst<CR>zz<C-w>w
+        nnoremap <buffer> G :llast<CR>zz<C-w>w
+   elseif get(getwininfo(win_getid())[0], 'quickfix', 0)
+        nnoremap <buffer> j :cnext<CR>zz<C-w>w
+        nnoremap <buffer> k :cprevious<CR>zz<C-w>w
+        nnoremap <buffer> gg :cfirst<CR>zz<C-w>w
+        nnoremap <buffer> G :clast<CR>zz<C-w>w
+   endif
+endf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -209,59 +224,29 @@ let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 错误检查
-"
-":SyntasticInfo 查看可用的checkers
-"let g:syntastic_cpp_include_dirs = ['/usr/include/']
-let g:syntastic_cpp_remove_include_errors = 1
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
-"set error or warning signs
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-"whether to show balloons
-let g:syntastic_enable_balloons = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                          ale-错误检查
+let g:ale_completion_enabled = 1
+let g:ale_set_highlights = 1
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_use_global_executables = 1
+let g:airline#extensions#ale#enabled = 1
 
-"安装flake8: pip install pylint flake8
-let g:syntastic_python_checkers = ['pylint', 'flake8']
-let g:syntastic_python_flake8_args='--ignore=E501,E402,E999'
-let g:syntastic_go_checkers = ['golint', 'gofmt']
-let g:syntastic_javascript_checkers = ['eslint'] 
-let g:syntastic_javascript_jshint_exec = '/usr/local/bin/eslint'
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
 
-"Default: 0
-"Enable this option to tell syntastic to always stick any detected errors into
-"the loclist: >
- let g:syntastic_always_populate_loc_list=1
-
-"Default: 2
-"When set to 1 the error window will be automatically opened when errors are
-"detected, and closed when none are detected. >
- let g:syntastic_auto_loc_list=2
-
-"only errors no warnings
- let g:syntastic_quiet_messages={'level': 'warnings'}
-
- autocmd filetype qf call QuickfixMap()
- function QuickfixMap()
-    if get(getwininfo(win_getid())[0], 'loclist', 0)
-         nnoremap <buffer> j :lnext<CR>zz<C-w>w
-         nnoremap <buffer> k :lprevious<CR>zz<C-w>w
-         nnoremap <buffer> gg :lfirst<CR>zz<C-w>w
-         nnoremap <buffer> G :llast<CR>zz<C-w>w
-    elseif get(getwininfo(win_getid())[0], 'quickfix', 0)
-         nnoremap <buffer> j :cnext<CR>zz<C-w>w
-         nnoremap <buffer> k :cprevious<CR>zz<C-w>w
-         nnoremap <buffer> gg :cfirst<CR>zz<C-w>w
-         nnoremap <buffer> G :clast<CR>zz<C-w>w
-    endif
- endf
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_fixers = {'python': ['isort','yapf'], 'javascript': ['prettier','eslint']}
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+" let g:ale_linters = {'python': ['pylint'], 'javascript': ['eslint'], 'vue': ['eslint', 'vls']}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                jedi-vim
+"                            jedi-vim
 "
 let g:jedi#goto_assignments_command = "<C-]>"
 let g:jedi#usages_command = "<C-u>"
@@ -475,3 +460,4 @@ let g:indentLine_enabled = 0
 let g:formatterpath = ['/usr/local/go/bin', '/usr/local/bin']
 noremap = :Autoformat<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+

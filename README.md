@@ -25,7 +25,7 @@ VimPlugins
   ```
   $brew install ctags nodejs autopep8 yapf
   $pip install pylint flake8 
-  $npm install jshint -g  
+  $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g  
   ```
 
 
@@ -34,7 +34,7 @@ VimPlugins
   ```
   $yum install ctags nodejs autopep8 yapf
   $pip install pylint flake8 
-  $npm install jshint -g
+  $npm install ellint eslint-plugin-vue eslint-plugin-react typescript -g
   ```
 
 - pip
