@@ -16,7 +16,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'dense-analysis/ale'
 Plugin 'SirVer/ultisnips'
@@ -34,6 +33,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 "Plugin 'ryanoasis/vim-devicons'
 
 "python

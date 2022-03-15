@@ -461,3 +461,16 @@ let g:formatterpath = ['/usr/local/go/bin', '/usr/local/bin']
 noremap = :Autoformat<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               fzf
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+nmap <C-p> :Files<CR>
+nmap <C-b> :Buffers<CR>
+nmap <C-h> :History<CR>
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+nnoremap <silent> <C-a> :Ag<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
