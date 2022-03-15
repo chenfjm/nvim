@@ -32,7 +32,7 @@ VimPlugins
 - Linux    
 
   ```
-  $yum install ctags nodejs autopep8 yapf
+  $yum install ctags nodejs autopep8 yapf the_silver_searcher
   $pip install pylint flake8 
   $npm install ellint eslint-plugin-vue eslint-plugin-react typescript -g
   ```
