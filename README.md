@@ -23,7 +23,7 @@ VimPlugins
 - Mac OS
 
   ```
-  $brew install ctags nodejs autopep8 yapf
+  $brew install ctags nodejs autopep8 yapf the_silver_searcher
   $pip install pylint flake8 
   $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g  
   ```
