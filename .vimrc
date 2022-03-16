@@ -466,7 +466,7 @@ let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 " [[B]Commits] Customize the options used by 'git log':
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cd"
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(red)%an %C(black)%C(bold)%cd"
 	\ --date="format:%Y-%m-%d %H:%M:%S"'
 
 nmap <C-p> :Files<CR>
