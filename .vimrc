@@ -241,8 +241,9 @@ let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_fixers = {'python': ['isort','yapf'], 'javascript': ['prettier','eslint']}
-let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-" let g:ale_linters = {'python': ['pylint'], 'javascript': ['eslint'], 'vue': ['eslint', 'vls']}
+let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let b:ale_linters = {'python': ['pylint']}
+let g:ale_python_pylint_options='--disable=E501'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -465,19 +466,19 @@ let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 " [[B]Commits] Customize the options used by 'git log':
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cd"
+	\ --date="format:%Y-%m-%d %H:%M:%S"'
 
 nmap <C-p> :Files<CR>
-nmap <C-a> :Ag!<CR>
+nmap <C-a> :Rg!<CR>
 nmap rr :Buffers<CR>
-nmap cc :Commits<CR>
-nmap bb :BCommits<CR>
+nmap cc :Commits!<CR>
+nmap bb :BCommits!<CR>
 
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
