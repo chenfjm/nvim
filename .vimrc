@@ -70,6 +70,9 @@ filetype plugin indent on
  set fileformat=unix
  filetype indent on
 
+"Always show the status line - use 2 lines for the status bar
+ set laststatus=2
+
  set cursorline
  set modifiable
 "paste toggle
