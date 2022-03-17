@@ -47,7 +47,8 @@ VimPlugins
 
 ### Included Color Schemes
 
-- [Monokai](https://github.com/sickill/vim-monokai) (*default*)
+- [Nord](https://github.com/arcticicestudio/nord-vim) (*default*)
+- [Monokai](https://github.com/sickill/vim-monokai)
 - [solarized](https://github.com/altercation/vim-colors-solarized)
 
 ### Included Plugins

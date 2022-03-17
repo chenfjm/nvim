@@ -39,7 +39,7 @@ Plugin 'junegunn/fzf.vim'
 
 "python
 Plugin 'pydoc.vim'
-Plugin 'heavenshell/vim-pydocstring'
+Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/Pydiction'
 
