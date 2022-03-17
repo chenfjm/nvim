@@ -4,43 +4,45 @@ VimPlugins
 
 ### Quick Installation  
 
-	$git clone https://github.com/chenfjm/VimPlugins.git
-	$mv VimPlugins ~/.vim
-	$cd .vim
-	$git submodule init
-	$git submodule update   
-	$cp .vimrc ~
+```bash
+$git clone https://github.com/chenfjm/VimPlugins.git
+$mv VimPlugins ~/.vim
+$cd .vim
+$git submodule init
+$git submodule update   
+$cp .vimrc ~
+```
 
 ### PluginInstall  
 
-	$:PluginInstall (in vim)
-	$:GoInstallBinaries (in vim)
-	$cd ~/.vim/bundle/YouCompleteMe
-	$python3 install.py  --go-completer (--clang-completer)
+```bash
+$:PluginInstall (in vim)
+$:GoInstallBinaries (in vim)
+$cd ~/.vim/bundle/YouCompleteMe
+$python3 install.py  --go-completer (--clang-completer)
+```
 
 ### Requirements  
 
 - Mac OS
 
-  ```
+  ```bash
   $brew install ctags nodejs autopep8 yapf ripgrep bat
-  $pip install pylint flake8 
   $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g  
   ```
 
 
 - Linux    
 
-  ```
+  ```bash
   $yum install ctags nodejs autopep8 yapf ripgrep
-  $pip install pylint flake8 
   $npm install ellint eslint-plugin-vue eslint-plugin-react typescript -g
   ```
 
 - pip
 
-  ```
-  $ pip install jedi
+  ```bash
+  $ pip install jedi pylint flake8 doq
   $ cd ~/.vim/bundle/vim-pydocstring
   $ make
   ```
@@ -96,7 +98,7 @@ VimPlugins
 
   ```
   <C-p>: 打开文件搜索控件
-  :vimgrep name **: 在当前目录下递归搜索含有name的文件内容
+  <C-a>: 快速搜索
   gg: 到文件首行
   G: 到文件末尾
   ^: 到文件行首
@@ -110,12 +112,14 @@ VimPlugins
   <C-o>: 后退
   <C-]>: 跳转
   <C-u>: 列出类、函数在哪使用
-  <C-a>: 自动添加Docstring
   <C-g>: 获取类、函数的Docstring
   <C-e>: html、js补全
   <C-c>: 切换注释
-  \cc  : 注释代码
-  \cu  : 解除注释
+  pd: 自动添加Docstring
+  cc: git commit
+  bb: git commit (buffer)
+  mm: git blame
+  
   SpaceSpace: 代码折叠
   ```
 

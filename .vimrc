@@ -378,7 +378,8 @@ endf
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 docstring
-nmap <silent> <C-a> <Plug>(pydocstring)
+nmap <silent> pd <Plug>(pydocstring)
+let g:pydocstring_doq_path = '/usr/local/bin/doq'
 "template
 """"
 ":param {{_args_}}:
