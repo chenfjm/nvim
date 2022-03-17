@@ -1,0 +1,61 @@
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Plugins
+ 
+"color
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'sickill/vim-monokai'
+Plugin 'arcticicestudio/nord-vim'
+Plugin 'luochen1990/rainbow'
+
+"common
+Plugin 'itchyny/lightline.vim'
+Plugin 'delimitMate.vim'
+Plugin 'Mark--Karkat'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'majutsushi/tagbar'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'dense-analysis/ale'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ybian/smartim'
+Plugin 'godlygeek/tabular'
+Plugin 'preservim/vim-markdown'
+Plugin 'elzr/vim-json'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Yggdroot/indentLine'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+"Plugin 'ryanoasis/vim-devicons'
+
+"python
+Plugin 'pydoc.vim'
+Plugin 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-scripts/Pydiction'
+
+"js
+Plugin 'mattn/emmet-vim'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/xml.vim'
+Plugin 'KohPoll/vim-less'
+Plugin 'lepture/vim-css'
+Plugin 'darthmall/vim-vue'
+Plugin 'mxw/vim-jsx'
+Plugin 'justinj/vim-react-snippets'
+
+"go
+Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+"weapp
+Plugin 'chemzqm/wxapp.vim'
