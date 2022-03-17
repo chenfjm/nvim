@@ -91,10 +91,19 @@ filetype plugin indent on
 "设置tab：
  set tabstop=4
 "行宽
-set textwidth=90
+ set textwidth=90
 "自动折行
-"set nowrap
+ "set nowrap
  set wrap
+"自动读取文件修改
+ set autoread
+"激活鼠标的使用
+ set mouse=a
+ set selection=exclusive
+ set selectmode=mouse,key
+"文件类型自动检测，代码智能补全
+ set completeopt=longest,preview,menu
+
 "在html标签之间跳转(%)
  runtime macros/matchit.vim 
 " 搜索
@@ -154,6 +163,20 @@ map <Esc>[21~ <F10>
 map <Esc>[23~ <F11>
 map <Esc>[24~ <F12>
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                    lightline
+let g:lightline = {
+     \ 'colorscheme': 'nord',
+     \ 'active': {
+     \   'left': [ [ 'mode', 'paste' ],
+     \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
+     \ },
+     \ 'component_function': {
+     \   'gitbranch': 'FugitiveHead'
+     \ },
+     \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -270,8 +293,12 @@ let g:ycm_show_diagnostics_ui = 0
 
 " 评论中也应用补全
 let g:ycm_complete_in_comments = 1        
+" 在字符串输入中也能补全
+let g:ycm_complete_in_strings = 1
 " 两个字开始补全
-let g:ycm_min_num_of_chars_for_completion = 2   
+let g:ycm_min_num_of_chars_for_completion = 2
+" 注释和字符串中的文字也会被收入补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " 开启 YCM 基于标签引擎
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_filetype_specific_completion_to_disable = {"python":1}
