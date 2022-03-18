@@ -170,15 +170,15 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    lightline
 let g:lightline = {
-     \ 'colorscheme': 'nord',
-     \ 'active': {
-     \   'left': [ [ 'mode', 'paste' ],
-     \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
-     \ },
-     \ 'component_function': {
-     \   'gitbranch': 'FugitiveHead'
-     \ },
-     \ }
+	 \ 'colorscheme': 'nord',
+	 \ 'active': {
+	 \   'left': [ [ 'mode', 'paste' ],
+	 \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
+	 \ },
+	 \ 'component_function': {
+	 \   'gitbranch': 'FugitiveHead'
+	 \ },
+	 \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -233,20 +233,11 @@ let g:NERDSpaceDelims=1
 map <silent> <C-c> <plug>NERDCommenterToggle 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                             ctags
-"
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-"let Tlist_Ctags_Cmd='/usr/bin/ctags'
-"let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
-"用法：$ ctags –R src
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							 tagbar
 autocmd BufRead *.* nmap tb :Tagbar<cr>
-let tagbar_ctags_bin='/usr/local/bin/ctags'
-"let tagbar_ctags_bin='/usr/bin/ctags'
+" let tagbar_ctags_bin='/usr/local/bin/ctags'
+" let tagbar_ctags_bin='/usr/bin/ctags'
 let tagbar_width=30
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
@@ -379,7 +370,8 @@ endf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 docstring
 nmap <silent> pd <Plug>(pydocstring)
-let g:pydocstring_doq_path = '/usr/local/bin/doq'
+" let g:pydocstring_doq_path = '/usr/local/bin/doq'
+" let g:pydocstring_doq_path = '/usr/bin/doq'
 "template
 """"
 ":param {{_args_}}:
