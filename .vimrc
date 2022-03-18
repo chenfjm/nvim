@@ -105,8 +105,6 @@ filetype plugin indent on
  set clipboard=unnamed
 "文件类型自动检测，代码智能补全
  set completeopt=longest,preview,menu
-"终端在下面
- set splitbelow
 
 "在html标签之间跳转(%)
  runtime macros/matchit.vim 
@@ -203,9 +201,12 @@ let g:lightline = {
 let g:floaterm_wintype='split'
 let g:floaterm_position='belowright'
 let g:floaterm_height=0.3
-nmap wt :FloatermToggle<cr>
-tnoremap <silent> wt <C-\><C-n>:FloatermHide<CR>
+let g:floaterm_autoinsert=v:false
+let g:floaterm_keymap_kill = 'wc'
 tnoremap <silent> wc <C-\><C-n>:FloatermKill<CR>
+tnoremap <silent> wt <C-\><C-n>:FloatermHide<CR>
+tnoremap <silent> jj <C-\><C-n>
+nmap wt :FloatermToggle<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
