@@ -105,6 +105,8 @@ filetype plugin indent on
  set clipboard=unnamed
 "文件类型自动检测，代码智能补全
  set completeopt=longest,preview,menu
+"终端在下面
+ set splitbelow
 
 "在html标签之间跳转(%)
  runtime macros/matchit.vim 
@@ -128,6 +130,19 @@ imap jj <Esc>
 imap <C-h> <left>
 imap <C-l> <right>
 cmap q<CR> qa<CR>
+
+"关闭当前窗口
+nmap wc      <C-w>c     
+"分割窗口
+nmap wv      <C-w>v     
+"打开quickfix
+nmap wq :copen<cr>
+nmap wl :lopen<cr>
+"分割窗口移动快捷键
+nnoremap <silent> <c-h> <c-w>h
+nnoremap <silent> <c-j> <c-w>j
+nnoremap <silent> <c-k> <c-w>k
+nnoremap <silent> <c-l> <c-w>l
 
 "MacOS
 set backspace=indent,eol,start
@@ -165,7 +180,8 @@ map <Esc>[21~ <F10>
 map <Esc>[23~ <F11>
 map <Esc>[24~ <F12>
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    lightline
@@ -182,6 +198,17 @@ let g:lightline = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  vim-floaterm
+"切换终端
+let g:floaterm_wintype='split'
+let g:floaterm_position='belowright'
+let g:floaterm_height=0.3
+nmap wt :FloatermToggle<cr>
+tnoremap <silent> wt <C-\><C-n>:FloatermHide<CR>
+tnoremap <silent> wc <C-\><C-n>:FloatermKill<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdtree
 "
 "不显示帮助信息
@@ -194,18 +221,6 @@ let g:NERDTreeWinSize = 30
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
 nmap wm :NERDTreeToggle<cr>
-"关闭当前窗口
-nmap wc      <C-w>c     
-"分割窗口
-nmap wv      <C-w>v     
-"打开quickfix
-nmap wq :copen<cr>
-nmap wl :lopen<cr>
-"分割窗口移动快捷键
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
 "autocmd BufRead *.py :NERDTreeToggle
 "关闭窗口
  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

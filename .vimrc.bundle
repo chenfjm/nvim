@@ -35,6 +35,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'voldikss/vim-floaterm'
 "Plugin 'ryanoasis/vim-devicons'
 
 "python
