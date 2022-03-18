@@ -99,8 +99,8 @@ filetype plugin indent on
  set autoread
 "激活鼠标的使用
  set mouse=a
- set selection=exclusive
- set selectmode=mouse,key
+ " set selection=exclusive
+ " set selectmode=mouse,key
 "支持系统剪切板
  set clipboard=unnamed
 "文件类型自动检测，代码智能补全
@@ -130,9 +130,11 @@ imap <C-l> <right>
 cmap q<CR> qa<CR>
 
 "关闭当前窗口
-nmap wc      <C-w>c     
+nmap wc  :close!<cr>
+nmap :wq :wqa!<cr>
+nmap :q :qa!<cr>
 "分割窗口
-nmap wv      <C-w>v     
+nmap wv  <C-w>v     
 "打开quickfix
 nmap wq :copen<cr>
 nmap wl :lopen<cr>
@@ -194,20 +196,6 @@ let g:lightline = {
 	 \ },
 	 \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  vim-floaterm
-"切换终端
-let g:floaterm_wintype='split'
-let g:floaterm_position='belowright'
-let g:floaterm_height=0.3
-let g:floaterm_autoinsert=v:false
-let g:floaterm_keymap_kill = 'wc'
-tnoremap <silent> wc <C-\><C-n>:FloatermKill<CR>
-tnoremap <silent> wt <C-\><C-n>:FloatermHide<CR>
-tnoremap <silent> jj <C-\><C-n>
-nmap wt :FloatermToggle<cr>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdtree
@@ -315,9 +303,6 @@ let g:ycm_filetype_specific_completion_to_disable = {"python":1}
 let g:ycm_cache_omnifunc=0
 " 关键字补全	
 let g:ycm_seed_identifiers_with_syntax = 1
-""上下左右键的行为 会显示其他信息
-"inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-k>\<C-j>" : "\<PageDown>"
-"inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-k>\<C-j>" : "\<PageUp>"
 "set YouCompleteMe trigger key 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 "let g:ycm_key_list_select_completion = ['<Down>']
@@ -499,7 +484,21 @@ noremap = :Autoformat<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               fzf
+"                                  vim-floaterm
+"切换终端
+let g:floaterm_wintype='split'
+let g:floaterm_position='belowright'
+let g:floaterm_height=0.3
+let g:floaterm_autoinsert=v:true
+nmap wt :FloatermToggle<cr>
+tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
+tmap <silent> wt <C-\><C-n>:FloatermHide<CR>
+tmap <silent> jj <C-\><C-n>
+autocmd! User FloatermOpen tmap <silent> <C-k> <C-\><C-n><C-w>k
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               	 fzf
 " export BAT_THEME=Nord
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~50%' }
@@ -523,4 +522,6 @@ command! -bang -nargs=* Rg
 
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+autocmd! FileType fzf tmap <C-k> <Up>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
