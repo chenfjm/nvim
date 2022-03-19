@@ -200,6 +200,10 @@ let g:lightline = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdtree
 "
+"<C-c> 进入当前目录
+"u 返回上层目录
+"o 打开目录/文件
+"
 "不显示帮助信息
 let NERDTreeMinimalUI=1
 "鼠标点击							 
@@ -494,7 +498,8 @@ nmap wt :FloatermToggle<cr>
 tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
 tmap <silent> wt <C-\><C-n>:FloatermHide<CR>
 tmap <silent> jj <C-\><C-n>
-autocmd! User FloatermOpen tmap <silent> <C-k> <C-\><C-n><C-w>k
+autocmd User FloatermOpen tmap <silent> <C-k> <C-\><C-n><C-w>k
+autocmd User FloatermOpen tmap <silent> <C-h> <C-\><C-n><C-w>h
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
