@@ -274,7 +274,7 @@ let g:ale_python_pylint_options='--disable="E501"'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            jedi-vim
+"                               jedi-vim
 "
 let g:jedi#goto_assignments_command = "<C-]>"
 let g:jedi#usages_command = "<C-u>"
@@ -282,7 +282,7 @@ let g:jedi#documentation_command = "<C-g>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           YouCompleteMe
+"                             YouCompleteMe
 "
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 " 让Vim的补全菜单行为与一般IDE一致
@@ -326,13 +326,29 @@ autocmd BufRead *.js nnoremap <C-]> :TernDef<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               vimspector
+"安装调试器:
+"VimspectorInstall <Tab> debugpy  delve
+"项目配置文件:
+"cp ~/.vim/bundle/vimspector/support/test/python/simple_python/.vimspector.json .
+"cp ~/.vim/bundle/vimspector/support/test/go/Stdio/.vimspector.json . 
+"使用:
+"F9 加断点
+"F5 执行
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:ycm_semantic_triggers =  {
+  \   'VimspectorPrompt': [ '.', '->', ':', '<' ]
+  \}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               pydiction 
  let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
  let g:pydiction_menu_height = 30
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"										ultisnips
+"								ultisnips
 " Track the engine.
 "Bundle 'SirVer/ultisnips'
 
@@ -349,7 +365,7 @@ let g:UltiSnipsEditSplit="horizontal"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  Emmet
+"                                Emmet
 "
 let g:user_emmet_expandabbr_key = '<C-e>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

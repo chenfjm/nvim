@@ -35,6 +35,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'voldikss/vim-floaterm'
+Plugin 'puremourning/vimspector'
 "Plugin 'ryanoasis/vim-devicons'
 
 "python
@@ -53,9 +54,8 @@ Plugin 'lepture/vim-css'
 Plugin 'darthmall/vim-vue'
 Plugin 'mxw/vim-jsx'
 Plugin 'justinj/vim-react-snippets'
+Plugin 'chemzqm/wxapp.vim'
 
 "go
 Plugin 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-"weapp
-Plugin 'chemzqm/wxapp.vim'
