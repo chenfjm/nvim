@@ -11,7 +11,6 @@ Plugin 'luochen1990/rainbow'
 "common
 Plugin 'itchyny/lightline.vim'
 Plugin 'delimitMate.vim'
-Plugin 'Mark--Karkat'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
