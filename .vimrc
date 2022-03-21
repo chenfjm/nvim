@@ -411,10 +411,29 @@ autocmd BufRead *.md nmap tb :Toc<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim-go
-"let g:go_metalinter_autosave = 0
-"let g:go_list_type = "quickfix"
+" let g:go_metalinter_autosave = 0
+" let g:go_list_type = "quickfix"
+let g:go_def_mapping_enabled = 0
 let g:go_fmt_fail_silently = 1
 let g:go_term_enabled = 1
+let g:go_doc_popup_window = 1
+au FileType go nmap <C-]> :GoDef<cr>
+au FileType go nmap <C-u> :GoCallers<cr>
+au FileType go nmap gd :GoDoc<cr>
+au FileType go nmap gr :GoRun .<cr>
+au FileType go nmap gb :GoBuild<cr>:make<cr>
+au FileType go nmap gi :GoInstall<cr>
+au FileType go nmap gt :GoTest<cr>
+au FileType go nmap gn :GoRename<cr>
+"Show all variables to which the pointer under the cursor may point to
+au FileType go nmap gp :GoPointsTo<cr>
+"See which code is covered by tests
+au FileType go nmap gc :GoCoverage<cr>
+"Call staticcheck
+au FileType go nmap gm :GoMetaLinter<cr>
+au FileType go nmap gat :GoAddTags<cr>
+au FileType go nmap grt :GoRemoveTags<cr>
+
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
