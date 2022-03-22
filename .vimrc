@@ -162,6 +162,10 @@ function QuickfixMap()
         nnoremap <buffer> G :clast<CR>zz<C-w>w
    endif
 endf
+
+"command
+nmap rg :!ranger<cr>
+nmap lg :!lazygit<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
