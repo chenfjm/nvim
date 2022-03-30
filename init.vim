@@ -7,9 +7,15 @@
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"			        插件管理
+"                                插件管理
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin("~/.config/nvim/plugged")
 if filereadable(expand("~/.config/nvim/plug.vim"))
@@ -71,6 +77,7 @@ call plug#end()
  set foldmethod=indent
  nnoremap <space><space> za
  set foldlevel=99
+ set foldenable
 "显示当前的行号列号：
  set ruler
 "显示行号：
@@ -86,8 +93,8 @@ call plug#end()
  set autoread
 "激活鼠标的使用
  set mouse=a
- " set selection=exclusive
- " set selectmode=mouse,key
+ set selection=exclusive
+ set selectmode=mouse,key
 "支持系统剪切板
  set clipboard=unnamed
 "文件类型自动检测，代码智能补全
@@ -108,8 +115,27 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 endif
 "启动界面
 set shortmess=atI
+set cmdheight=2
 "Alt 组合键不映射到菜单上
 set winaltkeys=no
+
+"exec command in init.vim
+set exrc
+"safely do command above
+set secure
+"auto change directory
+set autochdir
+"show cmd inputing like key combine
+set showcmd
+"auto finish vim command
+set wildmenu
+"show substitution automatically
+set inccommand=split
+"make scrolling faster
+set ttyfast
+set visualbell
+set virtualedit=block
+set re=0
 
 imap jj <Esc>
 imap <C-h> <left>
@@ -151,9 +177,8 @@ function QuickfixMap()
 endf
 
 "command
-command! Ranger FloatermNew --width=0.9 --height=0.9 --wintype=float --position=center ranger
-nmap rg :Ranger<cr>
-nmap lg :FloatermNew --width=0.9 --height=0.9 --wintype=float --position=center lazygit<cr>
+nmap rg :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center ranger<cr>
+nmap lg :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center lazygit<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -276,7 +301,23 @@ let g:jedi#documentation_command = "<C-g>"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                coc.nvim
 "Use the command :CocConfig to open your user configuration file
-"Install extensions like: :CocInstall
+":CocInstall <tab>
+":CocList extensions
+let g:coc_global_extensions = [
+	\ 'coc-diagnostic',
+	\ 'coc-explorer',
+	\ 'coc-gitignore',
+	\ 'coc-html',
+	\ 'coc-json',
+	\ 'coc-lists',
+	\ 'coc-prettier',
+	\ 'coc-snippets',
+	\ 'coc-syntax',
+	\ 'coc-tasks',
+	\ 'coc-translator',
+	\ 'coc-vimlsp',
+	\ 'coc-yaml',
+	\ 'coc-yank']
 inoremap <silent><expr> <C-j>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -524,8 +565,3 @@ autocmd! FileType fzf set laststatus=0 noshowmode noruler
 autocmd! FileType fzf tmap <C-k> <Up>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               copilot.vim
-":Copilot setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
