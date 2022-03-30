@@ -319,9 +319,9 @@ let g:coc_global_extensions = [
 	\ 'coc-yaml',
 	\ 'coc-yank']
 inoremap <silent><expr> <C-j>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+	  \ pumvisible() ? "\<C-n>" :
+	  \ <SID>check_back_space() ? "\<TAB>" :
+	  \ coc#refresh()
 inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -330,8 +330,8 @@ inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
 "安装调试器:
 "VimspectorInstall <Tab> debugpy  delve
 "项目配置文件:
-"cp ~/.vim/bundle/vimspector/support/test/python/simple_python/.vimspector.json .
-"cp ~/.vim/bundle/vimspector/support/test/go/Stdio/.vimspector.json . 
+"cp ~/.config/nvim/plugged/vimspector/support/test/python/simple_python/.vimspector.json .
+"cp ~/.config/nvim/plugged/vimspector/support/test/go/Stdio/.vimspector.json . 
 "使用:
 "F9 加断点
 "F5 执行
@@ -339,12 +339,6 @@ let g:vimspector_enable_mappings = 'HUMAN'
 let g:ycm_semantic_triggers =  {
   \   'VimspectorPrompt': [ '.', '->', ':', '<' ]
   \}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               pydiction 
- let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
- let g:pydiction_menu_height = 30
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

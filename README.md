@@ -87,7 +87,6 @@ VimPlugins
 	"python
 	Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 	Plug 'davidhalter/jedi-vim'
-	Plug 'vim-scripts/Pydiction'
 
 	"js
 	Plug 'mattn/emmet-vim'
