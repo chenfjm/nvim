@@ -16,9 +16,6 @@ $checkhealth (in vim)
 
 ```bash
 $:PlugInstall (in vim)
-$:GoInstallBinaries (in vim)
-$cd ~/.config/nvim/plugged/YouCompleteMe
-$python3 install.py  --go-completer (--clang-completer)
 ```
 
 ### Requirements  
@@ -54,30 +51,64 @@ $python3 install.py  --go-completer (--clang-completer)
 
 ### Included Plugins
 
-- [vim-powerline](https://github.com/Lokaltog/vim-powerline)
-- [MatchTag](https://github.com/gregsexton/MatchTag)
-- [delimitMate.vim](https://github.com/vim-scripts/delimitMate.vim)
-- [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
-- [Mark--Karkat](https://github.com/vim-scripts/Mark--Karkat)
-- [nerdtree](https://github.com/scrooloose/nerdtree)
-- [tagbar](https://github.com/majutsushi/tagbar)
-- [SimpylFold](https://github.com/tmhedberg/SimpylFold)
-- [ctrlp.vim](https://github.com/kien/ctrlp.vim)
-- [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
-- [vim-pydocstring](https://github.com/heavenshell/vim-pydocstring)
-- [vim-javascript](https://github.com/pangloss/vim-javascript)
-- [xml.vim](https://github.com/othree/xml.vim)
-- [vim-less](https://github.com/groenewege/vim-less)
-- [vim-css](https://github.com/lepture/vim-css)
-- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-- [jedi-vim](https://github.com/chenfjm/jedi-vim)
-- [Pydiction](https://github.com/rkulla/pydiction)
-- [syntastic](https://github.com/vim-syntastic/syntastic)
-- [ultisnips](https://github.com/SirVer/ultisnips)
-- [vim-snippets](https://github.com/honza/vim-snippets)
-- [emmet-vim](https://github.com/mattn/emmet-vim)
-- [smartim](https://github.com/ybian/smartim)
-- [vim-markdown](https://github.com/plasticboy/vim-markdown)
+  ```
+	"color
+	Plug 'altercation/vim-colors-solarized'
+	Plug 'sickill/vim-monokai'
+	Plug 'arcticicestudio/nord-vim'
+	Plug 'luochen1990/rainbow'
+
+	"common
+	Plug 'itchyny/lightline.vim'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+	Plug 'Xuyuanp/nerdtree-git-plugin'
+	Plug 'majutsushi/tagbar'
+	Plug 'tmhedberg/SimpylFold'
+	Plug 'scrooloose/nerdcommenter'
+	Plug 'dense-analysis/ale'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'ybian/smartim'
+	Plug 'godlygeek/tabular'
+	Plug 'preservim/vim-markdown'
+	Plug 'elzr/vim-json'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-surround'
+	Plug 'easymotion/vim-easymotion'
+	Plug 'terryma/vim-multiple-cursors'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'Yggdroot/indentLine'
+	Plug 'editorconfig/editorconfig-vim'
+	Plug 'Chiel92/vim-autoformat'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
+	Plug 'voldikss/vim-floaterm'
+	Plug 'puremourning/vimspector'
+	Plug 'github/copilot.vim'
+	"Plug 'ryanoasis/vim-devicons'
+
+	"python
+	Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+	Plug 'davidhalter/jedi-vim'
+	Plug 'vim-scripts/Pydiction'
+
+	"js
+	Plug 'mattn/emmet-vim'
+	Plug 'marijnh/tern_for_vim'
+	Plug 'pangloss/vim-javascript'
+	Plug 'othree/xml.vim'
+	Plug 'KohPoll/vim-less'
+	Plug 'lepture/vim-css'
+	Plug 'darthmall/vim-vue'
+	Plug 'mxw/vim-jsx'
+	Plug 'justinj/vim-react-snippets'
+	Plug 'chemzqm/wxapp.vim'
+
+	"go
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  ```
 
 ### Quick Tutorial
 

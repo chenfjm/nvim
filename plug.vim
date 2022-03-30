@@ -1,7 +1,3 @@
-" let Vundle manage Vundle, required
-Plug 'VundleVim/Vundle.vim'
-" Plugs
- 
 "color
 Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
