@@ -1,13 +1,13 @@
 
 "                                 CHEN                                     "
-"                              VIM-PYTHON                                  "
+"                              VIM-CONFIG                                  "
 "                                                                          "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"								插件管理
+"			        插件管理
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -18,14 +18,11 @@ endif
 call plug#end() 
 
 " Brief help
-" :Plugist          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin commands are not allowed.
-" Put your stuff after this line
+" :PlugList          - list configured plugins
+" :PlugInstall(!)    - install (update) plugins
+" :PlugSearch(!) foo - search (or refresh cache first) for foo
+" :PlugClean(!)      - confirm (or auto-approve) removal of unused plugins
+" see :h plug for more details or wiki for FAQ
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
