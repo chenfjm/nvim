@@ -23,7 +23,7 @@ Plug 'ybian/smartim'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'elzr/vim-json'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
