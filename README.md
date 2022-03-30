@@ -5,20 +5,18 @@ VimPlugins
 ### Quick Installation  
 
 ```bash
-$git clone https://github.com/chenfjm/VimPlugins.git
-$mv VimPlugins ~/.vim
-$cd .vim
-$git submodule init
-$git submodule update   
-$cp .vimrc ~
+$cd ~/.config
+$git clone https://github.com/chenfjm/nvim.git
+$sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
 ### PluginInstall  
 
 ```bash
-$:PluginInstall (in vim)
+$:PlugInstall (in vim)
 $:GoInstallBinaries (in vim)
-$cd ~/.vim/bundle/YouCompleteMe
+$cd ~/.config/nvim/plugged/YouCompleteMe
 $python3 install.py  --go-completer (--clang-completer)
 ```
 

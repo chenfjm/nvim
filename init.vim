@@ -11,24 +11,14 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"let path = '~/.vim/local'
-"call vundle#rc(path)
-
-if filereadable(expand("~/.vim/.vimrc.bundle"))
-  	source ~/.vim/.vimrc.bundle
+call plug#begin("~/.config/nvim/plugged")
+if filereadable(expand("~/.config/nvim/plug.vim"))
+  	source ~/.config/nvim/plug.vim
 endif
-call vundle#end() 
+call plug#end() 
 
-filetype plugin indent on 
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
 " Brief help
-" :PluginList          - list configured plugins
+" :Plugist          - list configured plugins
 " :PluginInstall(!)    - install (update) plugins
 " :PluginSearch(!) foo - search (or refresh cache first) for foo
 " :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
@@ -164,8 +154,9 @@ function QuickfixMap()
 endf
 
 "command
-nmap rg :!ranger<cr>
-nmap lg :!lazygit<cr>
+command! Ranger FloatermNew --width=0.9 --height=0.9 --wintype=float --position=center ranger
+nmap rg :Ranger<cr>
+nmap lg :FloatermNew --width=0.9 --height=0.9 --wintype=float --position=center lazygit<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -536,7 +527,7 @@ let g:floaterm_autoinsert=v:true
 nmap wt :FloatermToggle<cr>
 tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
 tmap <silent> wt <C-\><C-n>:FloatermHide<CR>
-tmap <silent> jj <C-\><C-n>
+" tmap <silent> jj <C-\><C-n>
 autocmd User FloatermOpen tmap <silent> <C-k> <C-\><C-n><C-w>k
 autocmd User FloatermOpen tmap <silent> <C-h> <C-\><C-n><C-w>h
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
