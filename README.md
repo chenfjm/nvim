@@ -40,7 +40,7 @@ $python3 install.py  --go-completer (--clang-completer)
 - pip
 
   ```bash
-  $ pip install jedi pylint flake8 doq
+  $ pip install neovim jedi pylint flake8 doq
   $ cd ~/.vim/bundle/vim-pydocstring
   $ make
   ```
