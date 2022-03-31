@@ -302,6 +302,8 @@ let g:jedi#documentation_command = "<C-g>"
 "                                coc.nvim
 "Use the command :CocConfig to open your user configuration file
 ":CocInstall <tab>
+":CocUninstall
+":CocUpdate <tab>
 ":CocList extensions
 let g:coc_global_extensions = [
 	\ 'coc-diagnostic',
