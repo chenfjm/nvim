@@ -319,7 +319,6 @@ let g:coc_global_extensions = [
 	\ 'coc-tasks',
 	\ 'coc-translator',
 	\ 'coc-vimlsp',
-	\ 'coc-yaml',
 	\ 'coc-yank']
 inoremap <silent><expr> <C-j>
 	  \ pumvisible() ? "\<C-n>" :
