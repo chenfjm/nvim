@@ -119,22 +119,7 @@ set cmdheight=2
 "Alt 组合键不映射到菜单上
 set winaltkeys=no
 
-"exec command in init.vim
-set exrc
-"safely do command above
-set secure
-"auto change directory
-set autochdir
-"show cmd inputing like key combine
-set showcmd
-"auto finish vim command
-set wildmenu
-"show substitution automatically
-set inccommand=split
-"make scrolling faster
-set ttyfast
-set visualbell
-set virtualedit=block
+"exec commandavascriptirtualedit=block
 set re=0
 
 imap jj <Esc>
@@ -288,6 +273,8 @@ let g:ale_fixers = {'python': ['isort','yapf'], 'javascript': ['prettier','eslin
 let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let b:ale_linters = {'python': ['pylint']}
 let g:ale_python_pylint_options='--disable="E501"'
+
+au FileType javascript nmap <C-]> :ALEGoToDefinition<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

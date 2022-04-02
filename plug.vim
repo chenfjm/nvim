@@ -41,12 +41,10 @@ Plug 'davidhalter/jedi-vim'
 
 "js
 Plug 'mattn/emmet-vim'
-Plug 'marijnh/tern_for_vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/xml.vim'
 Plug 'KohPoll/vim-less'
 Plug 'lepture/vim-css'
-Plug 'darthmall/vim-vue'
 Plug 'mxw/vim-jsx'
 Plug 'justinj/vim-react-snippets'
 Plug 'chemzqm/wxapp.vim'
