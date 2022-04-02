@@ -305,6 +305,7 @@ let g:coc_global_extensions = [
 	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-tsserver',
+	\ 'coc-vetur',
 	\ 'coc-pyright',
 	\ 'coc-jedi',
 	\ 'coc-go',
@@ -325,7 +326,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <C-]> gd
+au FileType vue nmap <silent> <C-]> gd
 
 inoremap <silent><expr> <C-j>
 	  \ pumvisible() ? "\<C-n>" :
