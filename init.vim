@@ -43,6 +43,7 @@ call plug#end()
 "                               基本配置
 "
 "开启语法高亮
+ let mapleader=" "
  syntax on
  let g:rainbow_active = 1
 "
@@ -114,10 +115,15 @@ if has("autocmd")
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 "启动界面
-set shortmess=atI
+set shortmess=atIc
 set cmdheight=2
 "Alt 组合键不映射到菜单上
 set winaltkeys=no
+"TextEdit might fail if hidden is not set.
+set hidden
+"Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+"delays and poor user experience.
+set updatetime=300
 
 "exec commandavascriptirtualedit=block
 set re=0
@@ -283,6 +289,7 @@ au FileType javascript nmap <C-]> :ALEGoToDefinition<cr>
 let g:jedi#goto_assignments_command = "<C-]>"
 let g:jedi#usages_command = "<C-u>"
 let g:jedi#documentation_command = "<C-g>"
+au FileType python nmap <Leader>r <Plug>(coc-rename)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -292,6 +299,8 @@ let g:jedi#documentation_command = "<C-g>"
 ":CocUninstall
 ":CocUpdate <tab>
 ":CocList extensions
+"
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = [
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
@@ -299,6 +308,7 @@ let g:coc_global_extensions = [
 	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-pyright',
+	\ 'coc-go',
 	\ 'coc-lists',
 	\ 'coc-prettier',
 	\ 'coc-snippets',
@@ -307,11 +317,34 @@ let g:coc_global_extensions = [
 	\ 'coc-translator',
 	\ 'coc-vimlsp',
 	\ 'coc-yank']
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+au FileType vue nmap <silent> <C-]> gd
+
 inoremap <silent><expr> <C-j>
 	  \ pumvisible() ? "\<C-n>" :
 	  \ <SID>check_back_space() ? "\<TAB>" :
 	  \ coc#refresh()
 inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+nnoremap <silent> <Leader>d :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -400,14 +433,13 @@ let g:go_def_mapping_enabled = 0
 let g:go_fmt_fail_silently = 1
 let g:go_term_enabled = 1
 let g:go_doc_popup_window = 1
+au FileType go nmap <Leader>r :GoRename<cr>
 au FileType go nmap <C-]> :GoDef<cr>
 au FileType go nmap <C-u> :GoCallers<cr>
-au FileType go nmap gd :GoDoc<cr>
 au FileType go nmap gr :GoRun .<cr>
 au FileType go nmap gb :GoBuild<cr>:make<cr>
 au FileType go nmap gi :GoInstall<cr>
 au FileType go nmap gt :GoTest<cr>
-au FileType go nmap gn :GoRename<cr>
 "Show all variables to which the pointer under the cursor may point to
 au FileType go nmap gp :GoPointsTo<cr>
 "See which code is covered by tests
