@@ -276,8 +276,6 @@ let g:ale_fixers = {'python': ['isort','yapf'], 'javascript': ['prettier','eslin
 let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let b:ale_linters = {'python': ['pylint']}
 let g:ale_python_pylint_options='--disable="E501"'
-
-au FileType javascript nmap <C-]> :ALEGoToDefinition<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -327,6 +325,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 au FileType vue nmap <silent> <C-]> gd
+au FileType javascript nmap <silent> <C-]> gd
 
 inoremap <silent><expr> <C-j>
 	  \ pumvisible() ? "\<C-n>" :
