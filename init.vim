@@ -121,9 +121,6 @@ set cmdheight=2
 set winaltkeys=no
 "TextEdit might fail if hidden is not set.
 set hidden
-"Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-"delays and poor user experience.
-set updatetime=300
 
 "exec commandavascriptirtualedit=block
 set re=0
@@ -287,9 +284,8 @@ au FileType javascript nmap <C-]> :ALEGoToDefinition<cr>
 "                               jedi-vim
 "
 let g:jedi#goto_assignments_command = "<C-]>"
+let g:jedi#goto_command = "<C-]>"
 let g:jedi#usages_command = "<C-u>"
-let g:jedi#documentation_command = "<C-g>"
-au FileType python nmap <Leader>r <Plug>(coc-rename)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -303,12 +299,17 @@ au FileType python nmap <Leader>r <Plug>(coc-rename)
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = [
 	\ 'coc-diagnostic',
-	\ 'coc-explorer',
+	\ 'coc-docker',
 	\ 'coc-gitignore',
+	\ 'coc-git',
 	\ 'coc-html',
 	\ 'coc-json',
+	\ 'coc-tsserver',
 	\ 'coc-pyright',
+	\ 'coc-jedi',
 	\ 'coc-go',
+	\ 'coc-sh',
+	\ 'coc-sql',
 	\ 'coc-lists',
 	\ 'coc-prettier',
 	\ 'coc-snippets',
@@ -318,12 +319,13 @@ let g:coc_global_extensions = [
 	\ 'coc-vimlsp',
 	\ 'coc-yank']
 
+nmap <Leader>r <Plug>(coc-rename)
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-au FileType vue nmap <silent> <C-]> gd
+nmap <silent> <C-]> gd
 
 inoremap <silent><expr> <C-j>
 	  \ pumvisible() ? "\<C-n>" :
