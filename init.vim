@@ -124,7 +124,7 @@ set winaltkeys=no
 set hidden
 
 "exec commandavascriptirtualedit=block
-set re=0
+" set re=0
 
 imap jj <Esc>
 imap <C-h> <left>
@@ -167,7 +167,7 @@ endf
 
 "command
 nmap rg :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center ranger<cr>
-nmap lg :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center lazygit<cr>
+nmap git :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center lazygit<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -326,8 +326,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 au FileType vue nmap <silent> <C-]> gd
-au FileType javascript nmap <silent> <C-]> gd
-au FileType typescript nmap <silent> <C-]> gd
+" au FileType javascript nmap <silent> <C-]> gd
+" au FileType typescript nmap <silent> <C-]> gd
+nmap <silent> <C-]> gd
 
 inoremap <silent><expr> <C-j>
 	  \ pumvisible() ? "\<C-n>" :
