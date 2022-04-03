@@ -51,6 +51,7 @@ call plug#end()
  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
  autocmd FileType go setlocal ts=4 sts=4 sw=4 expandtab
  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.css setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.json setlocal ts=2 sts=2 sw=2 expandtab
@@ -326,6 +327,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 au FileType vue nmap <silent> <C-]> gd
 au FileType javascript nmap <silent> <C-]> gd
+au FileType typescript nmap <silent> <C-]> gd
 
 inoremap <silent><expr> <C-j>
 	  \ pumvisible() ? "\<C-n>" :
