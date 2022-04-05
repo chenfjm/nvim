@@ -329,6 +329,8 @@ au FileType vue nmap <silent> <C-]> gd
 " au FileType javascript nmap <silent> <C-]> gd
 " au FileType typescript nmap <silent> <C-]> gd
 nmap <silent> <C-]> gd
+" Formatting selected code.
+vmap = <Plug>(coc-format-selected)
 
 inoremap <silent><expr> <C-j>
 	  \ pumvisible() ? "\<C-n>" :
@@ -539,7 +541,10 @@ let g:indentLine_enabled = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           vim-autoformat
 let g:formatterpath = ['/usr/local/go/bin', '/usr/local/bin']
-noremap = :Autoformat<CR>
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+nnoremap = :Autoformat<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
