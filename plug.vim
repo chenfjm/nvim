@@ -17,7 +17,6 @@ Plug 'honza/vim-snippets'
 Plug 'ybian/smartim'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
-Plug 'elzr/vim-json'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
