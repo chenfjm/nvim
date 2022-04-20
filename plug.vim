@@ -38,7 +38,6 @@ Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
 Plug 'davidhalter/jedi-vim'
 
 "js
-Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
