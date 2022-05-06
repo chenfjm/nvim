@@ -33,7 +33,7 @@ VimPlugins
 - pip
 
   ```bash
-  $ pip install neovim jedi pylint flake8 doq
+  $ pip install neovim jedi pylint doq
   $ cd ~/.vim/bundle/vim-pydocstring
   $ make
   ```
