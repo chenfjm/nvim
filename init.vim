@@ -86,6 +86,8 @@ call plug#end()
  set ruler
 "显示行号：
  set number
+ map <Leader>nu :set nu<cr>
+ map <Leader>nn :set nonu<cr>
 "设置tab：
  set tabstop=4
 "行宽
@@ -100,7 +102,7 @@ call plug#end()
  " set selection=exclusive
  " set selectmode=mouse,key
 "支持系统剪切板
- set clipboard=unnamed
+ " set clipboard=unnamed
 "文件类型自动检测，代码智能补全
  set completeopt=longest,preview,menu
 
