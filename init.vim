@@ -87,7 +87,7 @@ call plug#end()
 "显示行号：
  set number
  map <Leader>nu :set nu<cr>
- map <Leader>nn :set nonu<cr>
+ map <Leader>no :set nonu<cr>
 "设置tab：
  set tabstop=4
 "行宽
