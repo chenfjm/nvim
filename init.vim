@@ -531,11 +531,14 @@ let g:multi_cursor_quit_key            = '<Esc>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          vim-gitgutter
+"<Leader>hp: preview hunks
 let g:gitgutter_enabled = 1
 let g:gitgutter_highlight_lines = 0
 " let g:gitgutter_sign_added = 'xx'
 " let g:gitgutter_sign_modified = 'yy'
 " let g:gitgutter_sign_removed = 'zz'
+command! Gqf GitGutterQuickFix | copen
+nmap ff :Gqf<CR>
 nmap mm :G blame<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
