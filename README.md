@@ -158,6 +158,6 @@ VimPlugins
 
 ### Screenshots
 
-![](https://chenfjm.github.io/VimPlugins/images/vim1.png)
-![](https://chenfjm.github.io/VimPlugins/images/vim2.png)
-![](https://chenfjm.github.io/VimPlugins/images/vim3.png)
+![](https://chenfjm.github.io/nvim/images/vim1.png)
+![](https://chenfjm.github.io/nvim/images/vim2.png)
+![](https://chenfjm.github.io/nvim/images/vim3.png)
