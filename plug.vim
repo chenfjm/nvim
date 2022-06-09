@@ -17,7 +17,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ybian/smartim'
 Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -46,3 +45,8 @@ Plug 'ap/vim-css-color'
 "go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+"markdown
+Plug 'preservim/vim-markdown'
+
+"tex
+Plug 'lervag/vimtex'
