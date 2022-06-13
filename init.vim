@@ -221,10 +221,10 @@ require'nvim-treesitter.configs'.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      init_selection = "<CR>",
+      node_incremental = "<CR>",
+      scope_incremental = "<CR>",
+      node_decremental = "<BS>",
     },
   },
   indent = {
@@ -257,7 +257,6 @@ let g:coc_global_extensions = [
 	\ 'coc-tsserver',
 	\ 'coc-vetur',
 	\ 'coc-pyright',
-	\ 'coc-jedi',
 	\ 'coc-go',
 	\ 'coc-sh',
 	\ 'coc-sql',
