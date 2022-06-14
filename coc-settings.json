@@ -1,3 +1,4 @@
 {
-  "vetur.ignoreProjectWarning": true
+  "vetur.ignoreProjectWarning": true,
+  "diagnostic.displayByAle": true
 }

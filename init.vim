@@ -374,11 +374,13 @@ let g:tagbar_autoshowtag = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          ale-错误检查
+let g:ale_disable_lsp = 1
 let g:ale_completion_enabled = 1
 let g:ale_set_highlights = 1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1
 let g:ale_use_global_executables = 1
+let g:ale_linters_explicit = 1
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_sign_error = '✗'
