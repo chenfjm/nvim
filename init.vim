@@ -43,8 +43,9 @@ call plug#end()
 "                               基本配置
 "
 "开启语法高亮
- let mapleader=" "
  syntax on
+ let mapleader=" "
+ set termguicolors
  let g:rainbow_active = 1
 "
 "自动、智能缩进
@@ -234,6 +235,11 @@ require'nvim-treesitter.configs'.setup {
 EOF
 endfunction
 autocmd VimEnter * call TreesitterConfig()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                             vim-hexokinase
+let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

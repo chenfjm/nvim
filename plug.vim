@@ -3,6 +3,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
 Plug 'arcticicestudio/nord-vim'
 Plug 'luochen1990/rainbow'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 "common
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -40,7 +41,6 @@ Plug 'davidhalter/jedi-vim'
 "js
 Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim'
-Plug 'ap/vim-css-color'
 
 "go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
