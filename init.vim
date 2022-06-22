@@ -252,6 +252,7 @@ let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 "
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = [
+	\ 'coc-tabnine',
 	\ 'coc-diagnostic',
 	\ 'coc-docker',
 	\ 'coc-gitignore',
