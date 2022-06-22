@@ -396,7 +396,7 @@ let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
 let g:ale_lint_on_text_changed = 'normal'
-let g:ale_fixers = {'python': ['isort','yapf'], 'javascript': ['prettier','eslint']}
+let g:ale_fixers = {'python': [], 'javascript': ['prettier','eslint']} "'python': ['isort','yapf']
 let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let b:ale_linters = {'python': []}
 let g:ale_python_pylint_options='--disable="E501"'
