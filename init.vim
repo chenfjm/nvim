@@ -310,14 +310,19 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    lightline
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 let g:lightline = {
 	 \ 'colorscheme': 'nord',
 	 \ 'active': {
 	 \   'left': [ [ 'mode', 'paste' ],
-	 \             [ 'gitbranch', 'readonly', 'filename', 'modified'] ]
+	 \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified'] ]
 	 \ },
 	 \ 'component_function': {
-	 \   'gitbranch': 'FugitiveHead'
+	 \   'gitbranch': 'FugitiveHead',
+     \   'cocstatus': 'coc#status',
+     \   'currentfunction': 'CocCurrentFunction'
 	 \ },
 	 \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
