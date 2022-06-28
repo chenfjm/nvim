@@ -289,15 +289,12 @@ nmap <silent> <C-]> gd
 " Formatting selected code.
 vmap = <Plug>(coc-format-selected)
 
-inoremap <silent><expr> <C-j>
-	  \ pumvisible() ? "\<C-n>" :
-	  \ <SID>check_back_space() ? "\<TAB>" :
-	  \ coc#refresh()
-inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nnoremap <silent> <Leader>d :call <SID>show_documentation()<CR>
 function! s:show_documentation()
