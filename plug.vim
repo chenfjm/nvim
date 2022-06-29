@@ -32,6 +32,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
 Plug 'github/copilot.vim'
+Plug 'mhinz/vim-startify'
 "Plug 'ryanoasis/vim-devicons'
 
 "python
@@ -47,6 +48,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 "markdown
 Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 "tex
 Plug 'lervag/vimtex'
