@@ -410,8 +410,8 @@ let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let b:ale_linters = {'python': []}
 let g:ale_python_pylint_options='--disable="E501"'
 
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>n <Plug>(ale_next_wrap)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
