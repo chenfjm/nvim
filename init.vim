@@ -480,7 +480,7 @@ endf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 docstring
 nmap <silent> pd <Plug>(pydocstring)
-" let g:pydocstring_doq_path = '/usr/local/bin/doq'
+let g:pydocstring_doq_path = 'doq'
 " let g:pydocstring_doq_path = '/usr/bin/doq'
 "template
 """"
