@@ -417,8 +417,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               jedi-vim
 "
-let g:jedi#goto_assignments_command = "<C-]>"
-let g:jedi#goto_command = "<C-]>"
 let g:jedi#usages_command = "<C-u>"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
