@@ -103,7 +103,7 @@ call plug#end()
  " set selection=exclusive
  " set selectmode=mouse,key
 "支持系统剪切板
- " set clipboard=unnamed
+ set clipboard=unnamed
 "文件类型自动检测，代码智能补全
  set completeopt=longest,preview,menu
 
