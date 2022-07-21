@@ -370,13 +370,13 @@ nmap wm :NERDTreeToggle<cr>
 function! s:OpenFileOrExplorer(...)
     if a:0 == 0 || a:1 == ''
         NERDTree
-    elseif filereadable(a:1)
-        execute 'edit '.a:1
-        return 0
     elseif a:1 =~? '^\(scp\|ftp\)://' " Add other protocols as needed.
         execute 'Vexplore '.a:1
     elseif isdirectory(a:1)
         execute 'NERDTree '.a:1
+    else
+        execute 'edit '.a:1
+        return 0
     endif
     return 1
 endfunction
@@ -505,9 +505,10 @@ let g:user_emmet_expandabbr_key = '<C-e>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  py文件头
 autocmd bufnewfile *.py call HeaderPython()
+autocmd VimEnter *.py call HeaderPython()
 function HeaderPython()
     call setline(1, "#!/usr/bin/env python")
-    call append(1, "# -*- coding: utf-8 -*-")
+    call setline(2, "# -*- coding: utf-8 -*-")
     normal G
     normal o
     normal o
