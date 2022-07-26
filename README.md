@@ -34,7 +34,7 @@ VimPlugins
 
   ```bash
   $ pip install neovim jedi pylint doq
-  $ cd ~/.vim/bundle/vim-pydocstring
+  $ cd ~/.config/nvim/plugged/vim-pydocstring
   $ make
   ```
 

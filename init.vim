@@ -11,11 +11,16 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Install vim-plug if not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-	!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
 call plug#begin("~/.config/nvim/plugged")
 if filereadable(expand("~/.config/nvim/plug.vim"))
@@ -92,7 +97,7 @@ call plug#end()
 "设置tab：
  set tabstop=4
 "行宽
- set textwidth=90
+ set textwidth=120
 "自动折行
  "set nowrap
  set wrap
@@ -223,6 +228,9 @@ require'nvim-treesitter.configs'.setup {
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+
   -- List of parsers to ignore installing (for "all")
   ignore_install = { "" },
 
@@ -252,7 +260,7 @@ require'nvim-treesitter.configs'.setup {
 EOF
 endfunction
 autocmd VimEnter * call TreesitterConfig()
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             vim-hexokinase
