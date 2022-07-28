@@ -267,6 +267,24 @@ autocmd VimEnter * call TreesitterConfig()
 let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                文件头
+" py
+autocmd bufnewfile *.py call HeaderPython()
+autocmd VimEnter *.py call HeaderPython()
+function HeaderPython()
+	call setline(1, "#!/usr/bin/env python")
+	call setline(2, "# -*- coding: utf-8 -*-")
+endf
+
+" sh
+autocmd bufnewfile *.sh call HeaderShell()
+autocmd VimEnter *.sh call HeaderShell()
+function HeaderShell()
+    call setline(1, "#!/bin/bash")
+endf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                coc.nvim
 "Use the command :CocConfig to open your user configuration file
@@ -383,7 +401,7 @@ function! s:OpenFileOrExplorer(...)
     elseif isdirectory(a:1)
         execute 'NERDTree '.a:1
     else
-        execute 'edit '.a:1
+        " execute 'edit '.a:1
         return 0
     endif
     return 1
@@ -509,16 +527,6 @@ let g:UltiSnipsEditSplit="horizontal"
 "                                Emmet
 "
 let g:user_emmet_expandabbr_key = '<C-e>'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                  py文件头
-autocmd bufnewfile *.py call HeaderPython()
-autocmd VimEnter *.py call HeaderPython()
-function HeaderPython()
-    call setline(1, "#!/usr/bin/env python")
-    call setline(2, "# -*- coding: utf-8 -*-")
-endf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
