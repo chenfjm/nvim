@@ -99,8 +99,8 @@ call plug#end()
 "行宽
  set textwidth=120
 "自动折行
- "set nowrap
- set wrap
+ set nowrap
+ " set wrap
 "自动读取文件修改
  set autoread
 "激活鼠标的使用
