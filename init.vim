@@ -104,7 +104,7 @@ call plug#end()
 "自动读取文件修改
  set autoread
 "激活鼠标的使用
- set mouse=a
+ " set mouse=a
  " set selection=exclusive
  " set selectmode=mouse,key
 "支持系统剪切板
@@ -565,7 +565,7 @@ let g:go_fmt_fail_silently = 1
 let g:go_term_enabled = 1
 let g:go_doc_popup_window = 1
 au FileType go nmap <Leader>r :GoRename<cr>
-au FileType go nmap <C-]> :GoDef<cr>
+" au FileType go nmap <C-]> :GoDef<cr>
 au FileType go nmap <C-u> :GoCallers<cr>
 au FileType go nmap gr :GoRun .<cr>
 au FileType go nmap gb :GoBuild<cr>:make<cr>
