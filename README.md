@@ -18,7 +18,7 @@ VimPlugins
 - Mac OS
 
   ```bash
-  $brew install ctags nodejs autopep8 yapf ripgrep bat
+  $brew install ctags nodejs autopep8 yapf ripgrep bat golang
   $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g  
   ```
 
@@ -26,7 +26,7 @@ VimPlugins
 - Linux    
 
   ```bash
-  $yum install ctags nodejs autopep8 yapf ripgrep
+  $yum install ctags nodejs autopep8 yapf ripgrep golang
   $npm install ellint eslint-plugin-vue eslint-plugin-react typescript -g
   ```
 
@@ -34,8 +34,14 @@ VimPlugins
 
   ```bash
   $ pip install neovim jedi pylint doq
+  ```
+- make
+
+  ```bash
   $ cd ~/.config/nvim/plugged/vim-pydocstring
   $ make
+  $ cd ~/.config/nvim/plugged/vim-hexokinasee
+  $ make hexokinase
   ```
 
 ### Included Color Schemes
