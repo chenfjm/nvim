@@ -333,12 +333,11 @@ nmap <silent> <C-]> gd
 " Formatting selected code.
 vmap = <Plug>(coc-format-selected)
 
-inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr><C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"    
+inoremap <expr><C-k> coc#pum#visible() ?  coc#pum#prev(1) : "\<C-k>"    
+                                                                                                                                               
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm()    
+                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nnoremap <silent> <Leader>d :call <SID>show_documentation()<CR>
 function! s:show_documentation()
