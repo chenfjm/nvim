@@ -482,7 +482,7 @@ nmap <silent> <Leader>n <Plug>(ale_next_wrap)
 "                               jedi-vim
 "
 let g:jedi#usages_command = "<C-u>"
-let g:jedi#goto_command = ""
+let g:jedi#goto_command = "<C-]>"
 let g:jedi#goto_assignments_command = ""
 let g:jedi#goto_definitions_command = ""
 let g:jedi#goto_stubs_command = ""
