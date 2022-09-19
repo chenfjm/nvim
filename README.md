@@ -27,7 +27,7 @@ VimPlugins
 
   ```bash
   $yum install ctags nodejs autopep8 yapf ripgrep golang
-  $npm install ellint eslint-plugin-vue eslint-plugin-react typescript -g
+  $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g
   ```
 
 - pip
