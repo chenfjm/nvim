@@ -360,7 +360,7 @@ let g:lightline = {
 	 \ 'colorscheme': 'nord',
 	 \ 'active': {
 	 \   'left': [ [ 'mode', 'paste' ],
-	 \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified'] ]
+	 \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'relativepath', 'modified'] ]
 	 \ },
 	 \ 'component_function': {
 	 \   'gitbranch': 'FugitiveHead',
