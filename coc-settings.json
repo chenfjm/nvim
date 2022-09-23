@@ -1,4 +1,6 @@
 {
   "vetur.ignoreProjectWarning": true,
-  "diagnostic.displayByAle": true
+  "diagnostic.displayByAle": true,
+  "pyright.inlayHints.enable": false,
+  "pyright.testing.provider": "pytest"
 }
