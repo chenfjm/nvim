@@ -471,7 +471,7 @@ let g:ale_lint_delay = 500
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_fixers = {'python': [], 'javascript': ['prettier','eslint']} "'python': ['isort','yapf']
 let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let b:ale_linters = {'python': []}
+let b:ale_linters = {'python': ['pylint']}
 let g:ale_python_pylint_options='--disable="E501"'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
