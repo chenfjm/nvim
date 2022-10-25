@@ -4,14 +4,14 @@ VimPlugins
 
 ### Quick Installation  
 
-	```bash
-	$cd ~/.config
-	$git clone https://github.com/chenfjm/nvim.git
-	$pip install neovim
-	$npm install -g neovim
-	$:Copilot setup (in vim)
-	$:checkhealth (in vim)
-	```
+  ```bash
+  $cd ~/.config
+  $git clone https://github.com/chenfjm/nvim.git
+  $pip install neovim
+  $npm install -g neovim
+  $:Copilot setup (in vim)
+  $:checkhealth (in vim)
+  ```
 
 ### Requirements  
 
