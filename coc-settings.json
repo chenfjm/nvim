@@ -1,7 +1,7 @@
 {
   "vetur.ignoreProjectWarning": true,
   "diagnostic.displayByAle": true,
-  "python.formatting.autopep8Path": "/usr/local/python3/bin/autopep8",
+  "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
   "pyright.inlayHints.enable": false,
   "pyright.testing.provider": "pytest"
 }
