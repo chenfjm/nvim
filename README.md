@@ -4,45 +4,44 @@ VimPlugins
 
 ### Quick Installation  
 
-	$git clone https://github.com/chenfjm/VimPlugins.git
-	$mv VimPlugins ~/.vim
-	$cd .vim
-	$git submodule init
-	$git submodule update   
-	$cp .vimrc ~
-
-### PluginInstall  
-
-	$:PluginInstall (in vim)
-	$:GoInstallBinaries (in vim)
-	$cd ~/.vim/bundle/YouCompleteMe
-	$python3 install.py  --go-completer (--clang-completer)
+  ```bash
+  $cd ~/.config
+  $git clone https://github.com/chenfjm/nvim.git
+  $pip install neovim
+  $npm install -g neovim
+  $:Copilot setup (in vim)
+  $:checkhealth (in vim)
+  ```
 
 ### Requirements  
 
 - Mac OS
 
-  ```
-  $brew install ctags nodejs autopep8 yapf ripgrep bat
-  $pip install pylint flake8 
+  ```bash
+  $brew install ctags nodejs autopep8 yapf ripgrep bat golang
   $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g  
   ```
 
 
 - Linux    
 
-  ```
-  $yum install ctags nodejs autopep8 yapf ripgrep
-  $pip install pylint flake8 
-  $npm install ellint eslint-plugin-vue eslint-plugin-react typescript -g
+  ```bash
+  $yum install ctags nodejs autopep8 yapf ripgrep golang
+  $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g
   ```
 
 - pip
 
+  ```bash
+  $ pip install neovim jedi pylint doq
   ```
-  $ pip install jedi
-  $ cd ~/.vim/bundle/vim-pydocstring
+- make
+
+  ```bash
+  $ cd ~/.config/nvim/plugged/vim-pydocstring
   $ make
+  $ cd ~/.config/nvim/plugged/vim-hexokinasee
+  $ make hexokinase
   ```
 
 ### Included Color Schemes
@@ -53,30 +52,63 @@ VimPlugins
 
 ### Included Plugins
 
-- [vim-powerline](https://github.com/Lokaltog/vim-powerline)
-- [MatchTag](https://github.com/gregsexton/MatchTag)
-- [delimitMate.vim](https://github.com/vim-scripts/delimitMate.vim)
-- [Vundle.vim](https://github.com/VundleVim/Vundle.vim)
-- [Mark--Karkat](https://github.com/vim-scripts/Mark--Karkat)
-- [nerdtree](https://github.com/scrooloose/nerdtree)
-- [tagbar](https://github.com/majutsushi/tagbar)
-- [SimpylFold](https://github.com/tmhedberg/SimpylFold)
-- [ctrlp.vim](https://github.com/kien/ctrlp.vim)
-- [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
-- [vim-pydocstring](https://github.com/heavenshell/vim-pydocstring)
-- [vim-javascript](https://github.com/pangloss/vim-javascript)
-- [xml.vim](https://github.com/othree/xml.vim)
-- [vim-less](https://github.com/groenewege/vim-less)
-- [vim-css](https://github.com/lepture/vim-css)
-- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-- [jedi-vim](https://github.com/chenfjm/jedi-vim)
-- [Pydiction](https://github.com/rkulla/pydiction)
-- [syntastic](https://github.com/vim-syntastic/syntastic)
-- [ultisnips](https://github.com/SirVer/ultisnips)
-- [vim-snippets](https://github.com/honza/vim-snippets)
-- [emmet-vim](https://github.com/mattn/emmet-vim)
-- [smartim](https://github.com/ybian/smartim)
-- [vim-markdown](https://github.com/plasticboy/vim-markdown)
+  ```
+	"color
+	Plug 'altercation/vim-colors-solarized'
+	Plug 'sickill/vim-monokai'
+	Plug 'arcticicestudio/nord-vim'
+	Plug 'luochen1990/rainbow'
+
+	"common
+	Plug 'itchyny/lightline.vim'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+	Plug 'Xuyuanp/nerdtree-git-plugin'
+	Plug 'majutsushi/tagbar'
+	Plug 'tmhedberg/SimpylFold'
+	Plug 'scrooloose/nerdcommenter'
+	Plug 'dense-analysis/ale'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'ybian/smartim'
+	Plug 'godlygeek/tabular'
+	Plug 'preservim/vim-markdown'
+	Plug 'elzr/vim-json'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-surround'
+	Plug 'easymotion/vim-easymotion'
+	Plug 'terryma/vim-multiple-cursors'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'Yggdroot/indentLine'
+	Plug 'editorconfig/editorconfig-vim'
+	Plug 'Chiel92/vim-autoformat'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
+	Plug 'voldikss/vim-floaterm'
+	Plug 'puremourning/vimspector'
+	Plug 'github/copilot.vim'
+	"Plug 'ryanoasis/vim-devicons'
+
+	"python
+	Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+	Plug 'davidhalter/jedi-vim'
+
+	"js
+	Plug 'mattn/emmet-vim'
+	Plug 'marijnh/tern_for_vim'
+	Plug 'pangloss/vim-javascript'
+	Plug 'othree/xml.vim'
+	Plug 'KohPoll/vim-less'
+	Plug 'lepture/vim-css'
+	Plug 'darthmall/vim-vue'
+	Plug 'mxw/vim-jsx'
+	Plug 'justinj/vim-react-snippets'
+	Plug 'chemzqm/wxapp.vim'
+
+	"go
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  ```
 
 ### Quick Tutorial
 
@@ -88,6 +120,7 @@ VimPlugins
   wc: 关闭窗口
   wq: 打开 quick fix 窗口
   tb: 开启/关闭TagBar窗口
+  wt: 打开终端
   m: 管理当前节点
   ```
 
@@ -96,7 +129,7 @@ VimPlugins
 
   ```
   <C-p>: 打开文件搜索控件
-  :vimgrep name **: 在当前目录下递归搜索含有name的文件内容
+  <C-a>: 快速搜索
   gg: 到文件首行
   G: 到文件末尾
   ^: 到文件行首
@@ -110,12 +143,14 @@ VimPlugins
   <C-o>: 后退
   <C-]>: 跳转
   <C-u>: 列出类、函数在哪使用
-  <C-a>: 自动添加Docstring
   <C-g>: 获取类、函数的Docstring
   <C-e>: html、js补全
   <C-c>: 切换注释
-  \cc  : 注释代码
-  \cu  : 解除注释
+  pd: 自动添加Docstring
+  cc: git commit
+  bb: git commit (buffer)
+  mm: git blame
+  
   SpaceSpace: 代码折叠
   ```
 
@@ -129,6 +164,6 @@ VimPlugins
 
 ### Screenshots
 
-![](https://chenfjm.github.io/VimPlugins/images/vim1.png)
-![](https://chenfjm.github.io/VimPlugins/images/vim2.png)
-![](https://chenfjm.github.io/VimPlugins/images/vim3.png)
+![](https://chenfjm.github.io/nvim/images/vim1.png)
+![](https://chenfjm.github.io/nvim/images/vim2.png)
+![](https://chenfjm.github.io/nvim/images/vim3.png)
