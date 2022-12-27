@@ -1,5 +1,5 @@
 
-VimPlugins
+nvim
 =========
 
 ### Quick Installation  
