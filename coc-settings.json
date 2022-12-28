@@ -3,5 +3,6 @@
   "diagnostic.displayByAle": true,
   "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
   "pyright.inlayHints.enable": false,
-  "pyright.testing.provider": "pytest"
+  "pyright.testing.provider": "pytest",
+  "snippets.ultisnips.pythonPrompt": false
 }
