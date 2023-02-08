@@ -327,8 +327,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 au FileType vue nmap <silent> <C-]> gd
-au FileType javascript nmap <silent> <C-]> gdgf
-au FileType typescript nmap <silent> <C-]> gdgf
+au FileType javascript nmap <silent> <C-]> gd
+au FileType typescript nmap <silent> <C-]> gd
 nmap <silent> <C-]> gd
 " Formatting selected code.
 vmap = <Plug>(coc-format-selected)
@@ -724,5 +724,7 @@ autocmd! FileType fzf tmap <C-k> <Up>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               	 eggjs-jf
 let g:eggjs_gf_loadpath = 'service\|proxy\|model\|controller\|io'
+au FileType javascript nmap <silent> <C-[> gf
+au FileType typescript nmap <silent> <C-[> gf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
