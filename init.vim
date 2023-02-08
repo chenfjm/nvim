@@ -327,8 +327,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 au FileType vue nmap <silent> <C-]> gd
-" au FileType javascript nmap <silent> <C-]> gd
-" au FileType typescript nmap <silent> <C-]> gd
+au FileType javascript nmap <silent> <C-]> gdgf
+au FileType typescript nmap <silent> <C-]> gdgf
 nmap <silent> <C-]> gd
 " Formatting selected code.
 vmap = <Plug>(coc-format-selected)
@@ -719,5 +719,10 @@ command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 autocmd! FileType fzf tmap <C-k> <Up>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               	 eggjs-jf
+let g:eggjs_gf_loadpath = 'service\|proxy\|model\|controller\|io'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
