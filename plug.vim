@@ -42,7 +42,7 @@ Plug 'davidhalter/jedi-vim'
 "js
 Plug 'pangloss/vim-javascript'
 Plug 'mattn/emmet-vim'
-Plug 'hotoo/jsgf.vim', { 'for': ['javascript', 'javascriptreat', 'typescript', 'typescriptreact', 'json'] }
+" Plug 'hotoo/jsgf.vim', { 'for': ['javascript', 'javascriptreat', 'typescript', 'typescriptreact', 'json'] }
 Plug 'hotoo/eggjs-gf.vim', { 'for': ['javascript', 'typescript'] }
 
 "go
