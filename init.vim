@@ -488,6 +488,7 @@ let g:jedi#goto_definitions_command = ""
 let g:jedi#goto_stubs_command = ""
 let g:jedi#completions_command = ""
 let g:jedi#rename_command = ""
+let g:jedi#popup_on_dot = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
