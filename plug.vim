@@ -33,6 +33,10 @@ Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
 Plug 'github/copilot.vim'
 Plug 'mhinz/vim-startify'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'jackMort/ChatGPT.nvim'
 "Plug 'ryanoasis/vim-devicons'
 
 "python
