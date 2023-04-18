@@ -260,7 +260,7 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 endfunction
-autocmd VimEnter * call TreesitterConfig()
+" autocmd VimEnter * call TreesitterConfig()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
