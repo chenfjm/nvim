@@ -6,7 +6,7 @@ Plug 'luochen1990/rainbow'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 "common
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
