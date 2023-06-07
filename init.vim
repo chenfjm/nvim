@@ -384,7 +384,7 @@ let NERDTreeMouseMode = 1
 "宽度
 let g:NERDTreeWinSize = 30
 "忽略文件、隐藏文件
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.meta']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
 nmap wm :NERDTreeToggle<cr>
 "autocmd BufRead *.py :NERDTreeToggle
