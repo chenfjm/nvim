@@ -142,6 +142,7 @@ imap <C-l> <right>
 cmap q<CR> qa<CR>
 
 "关闭当前窗口
+nmap wn  :tabnew<cr>
 nmap wc  :close!<cr>
 nmap :wq :wqa!<cr>
 nmap :q :qa!<cr>
@@ -150,6 +151,9 @@ nmap wv  <C-w>v
 "打开quickfix
 nmap wq :copen<cr>
 nmap wl :lopen<cr>
+"tab移动快捷键
+nmap <A-h> :tabprevious<cr>
+nmap <A-l> :tabnext<cr>
 "分割窗口移动快捷键
 nnoremap <silent> <c-h> <c-w>h
 nnoremap <silent> <c-j> <c-w>j
@@ -377,6 +381,7 @@ let g:lightline = {
 "u 返回上层目录
 "o 打开目录/文件
 "
+let NERDTreeAutoDeleteBuffer=1
 "不显示帮助信息
 let NERDTreeMinimalUI=1
 "鼠标点击							 
