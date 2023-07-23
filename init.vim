@@ -105,7 +105,7 @@ call plug#end()
  set autoread
 "激活鼠标的使用
  set mouse=n
- set selection=exclusive
+ " set selection=exclusive
  set selectmode=mouse,key
 "支持系统剪切板
  set clipboard=unnamed
