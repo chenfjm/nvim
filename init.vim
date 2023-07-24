@@ -506,7 +506,6 @@ let g:ale_python_pylint_options = '--errors-only'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>n <Plug>(ale_next_wrap)
-autocmd BufRead *.py nmap <silent> = <Plug>(ale_fix)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -700,6 +699,7 @@ let g:autoformat_autoindent = 1
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 1
 nnoremap = :Autoformat<CR>
+au FileType python nmap <silent> = :Autoformat<cr>:ALEFix<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
