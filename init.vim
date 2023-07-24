@@ -694,11 +694,11 @@ let g:indentLine_enabled = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           vim-autoformat
 let g:formatterpath = ['/usr/local/go/bin', '/usr/local/bin']
-let g:formatters_python = ['yapf']
+let g:formatters_python = ['yapf', 'autopep8']
 let g:autoformat_autoindent = 1
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 1
-nnoremap = :Autoformat<CR>
+map = :Autoformat<CR>
 au FileType python nmap <silent> = :Autoformat<cr>:ALEFix<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
