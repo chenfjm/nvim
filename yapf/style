@@ -2,7 +2,7 @@
 column_limit = 120
 join_multiple_lines = 1
 coalesce_brackets = 1
-each_dict_entry_on_separate_line = 0
+each_dict_entry_on_separate_line = 1
 allow_split_before_dict_value = 0
 split_before_first_argument = 0
 split_before_named_assigns = 1
