@@ -1,7 +1,7 @@
 """
 
 {% if params %}
-{%- for p in params %}:param {{ p.argument }}:{% endfor %}
+{%- for p in params %}:param {{ p.argument }}: {% if p.default %}{{ p.default }}{% endif -%}{% endfor %}
 {% endif -%}
-:return
+:return:
 """
