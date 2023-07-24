@@ -361,17 +361,35 @@ function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 let g:lightline = {
-	 \ 'colorscheme': 'nord',
-	 \ 'active': {
-	 \   'left': [ [ 'mode', 'paste' ],
-	 \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'relativepath', 'modified'] ]
-	 \ },
-	 \ 'component_function': {
-	 \   'gitbranch': 'FugitiveHead',
-     \   'cocstatus': 'coc#status',
-     \   'currentfunction': 'CocCurrentFunction'
-	 \ },
-	 \ }
+	\  'colorscheme': 'nord',
+	\  'active': {
+	\     'left': [ [ 'mode', 'paste' ],
+	\               [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'relativepath', 'modified'] ],
+    \     'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+    \                [ 'lineinfo' ],
+	\                [ 'percent' ],
+	\                [ 'fileformat', 'fileencoding', 'filetype'] ]
+	\ },
+	\ 'component_function': {
+	\   'gitbranch': 'FugitiveHead',
+    \   'cocstatus': 'coc#status',
+    \   'currentfunction': 'CocCurrentFunction'
+	\ },
+	\ }
+let g:lightline.component_expand = {
+    \  'linter_checking': 'lightline#ale#checking',
+    \  'linter_infos': 'lightline#ale#infos',
+    \  'linter_warnings': 'lightline#ale#warnings',
+    \  'linter_errors': 'lightline#ale#errors',
+    \  'linter_ok': 'lightline#ale#ok',
+    \ }
+let g:lightline.component_type = {
+    \  'linter_checking': 'right',
+    \  'linter_infos': 'right',
+    \  'linter_warnings': 'warning',
+    \  'linter_errors': 'error',
+    \  'linter_ok': 'right',
+    \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -457,8 +475,11 @@ let g:tagbar_autoshowtag = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          ale-错误检查
+let g:ale_enabled = 1
+let g:ale_use_neovim_diagnostics_api = 1
 let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
+let g:ale_open_list = 0
 let g:ale_completion_enabled = 1
 let g:ale_set_highlights = 1
 let g:ale_fix_on_save = 1
@@ -474,10 +495,11 @@ let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
 let g:ale_lint_on_text_changed = 'normal'
-let g:ale_fixers = {'python': [], 'javascript': ['prettier','eslint']} "'python': ['isort','yapf']
+" yapf: ~/.config/yapf/style
+let g:ale_fixers = {'python': ['isort','yapf'], 'javascript': ['prettier','eslint']}
 let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let b:ale_linters = {'python': ['pylint']}
-let g:ale_python_pylint_options='--errors-only'
+let b:ale_linters = {'python': ['pylint'], 'javascript': ['eslint']}
+let g:ale_python_pylint_options = '--errors-only'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>n <Plug>(ale_next_wrap)
