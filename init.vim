@@ -539,12 +539,7 @@ let g:user_emmet_expandabbr_key = '<C-e>'
 "                                 docstring
 nmap <silent> pd <Plug>(pydocstring)
 let g:pydocstring_doq_path = 'doq'
-" let g:pydocstring_doq_path = '/usr/bin/doq'
-"template
-""""
-":param {{_args_}}:
-"{{_indent_}}:return:
-""""
+let g:pydocstring_templates_path = '~/.config/nvim/docstring'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

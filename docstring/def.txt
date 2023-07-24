@@ -1,0 +1,8 @@
+"""
+{{ name }}
+
+{% if params %}
+{%- for p in params %}param: {{ p.argument }}{% endfor %}
+{% endif -%}
+return: {{ return_type }}
+"""
