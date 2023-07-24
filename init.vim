@@ -390,6 +390,8 @@ let g:lightline.component_type = {
     \  'linter_errors': 'error',
     \  'linter_ok': 'right',
     \ }
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_ok = "\uf00c"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
