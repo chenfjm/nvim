@@ -484,7 +484,7 @@ let g:ale_sign_column_always = 1
 let g:ale_open_list = 0
 let g:ale_completion_enabled = 1
 let g:ale_set_highlights = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_lint_on_insert_leave = 1
 let g:ale_use_global_executables = 1
 let g:ale_linters_explicit = 1
@@ -505,6 +505,7 @@ let g:ale_python_pylint_options = '--errors-only'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>n <Plug>(ale_next_wrap)
+autocmd BufRead *.py nmap <silent> = <Plug>(ale_fix)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -693,9 +694,10 @@ let g:indentLine_enabled = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           vim-autoformat
 let g:formatterpath = ['/usr/local/go/bin', '/usr/local/bin']
-let g:autoformat_autoindent = 0
+let g:formatters_python = ['yapf']
+let g:autoformat_autoindent = 1
 let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
+let g:autoformat_remove_trailing_spaces = 1
 nnoremap = :Autoformat<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
