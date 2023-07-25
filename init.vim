@@ -275,7 +275,7 @@ let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                文件头
 " py
-autocmd bufnewfile *.py if line("$") < 2 | call HeaderPython() | endif
+autocmd BufRead *.py if line("$") < 2 | call HeaderPython() | endif
 autocmd VimEnter *.py if line("$") < 2 | call HeaderPython() | endif
 function HeaderPython()
 	call setline(1, "#!/usr/bin/env python")
@@ -283,7 +283,7 @@ function HeaderPython()
 endf
 
 " sh
-autocmd bufnewfile *.sh if line("$") < 2 | call HeaderShell() | endif
+autocmd BufRead *.sh if line("$") < 2 | call HeaderShell() | endif
 autocmd VimEnter *.sh if line("$") < 2 | call HeaderShell() | endif
 function HeaderShell()
     call setline(1, "#!/bin/bash")
