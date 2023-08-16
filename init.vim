@@ -487,6 +487,7 @@ let g:ale_completion_autoimport = 1
 let g:ale_set_highlights = 1
 let g:ale_fix_on_save = 0
 let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_save = 0
 let g:ale_use_global_executables = 1
 let g:ale_linters_explicit = 1
 let g:airline#extensions#ale#enabled = 1
@@ -495,8 +496,8 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 
 let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
+let g:ale_echo_delay = 500
+let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = 'normal'
 " yapf: ~/.config/yapf/style
 let g:ale_fixers = {'python': ['isort','yapf'], 'javascript': ['prettier','eslint']}
