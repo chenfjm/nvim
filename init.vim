@@ -330,9 +330,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-au FileType vue nmap <silent> <C-]> gd
-au FileType javascript nmap <silent> <C-]> gd
-au FileType typescript nmap <silent> <C-]> gd
+autocmd FileType vue nmap <silent> <C-]> gd
+autocmd FileType javascript nmap <silent> <C-]> gd
+autocmd FileType typescript nmap <silent> <C-]> gd
 nmap <silent> <C-]> gd
 " Formatting selected code.
 vmap = <Plug>(coc-format-selected)
@@ -412,7 +412,7 @@ let g:NERDTreeWinSize = 30
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
 nmap wm :NERDTreeToggle<cr>
-"autocmd BufRead *.py :NERDTreeToggle
+" autocmd BufRead *.py :NERDTreeToggle
 "关闭窗口
  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
