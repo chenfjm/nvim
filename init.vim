@@ -180,8 +180,8 @@ function QuickfixMap()
 endf
 
 "command
-nmap rg :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center ranger<cr>
-nmap git :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center lazygit<cr>
+nmap rg :FloatermNew --width=1 --height=1 --wintype=float --position=center ranger<cr>
+nmap git :FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -362,43 +362,49 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                    lightline
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-endfunction
-let g:lightline = {
-	\  'colorscheme': 'nord',
-	\  'active': {
-	\     'left': [ [ 'mode', 'paste' ],
-	\               [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'relativepath', 'modified'] ],
-    \     'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
-    \                [ 'lineinfo' ],
-	\                [ 'percent' ],
-	\                [ 'fileformat', 'fileencoding', 'filetype'] ]
-	\ },
-    \ 'component_expand': {
-    \  'linter_checking': 'lightline#ale#checking',
-    \  'linter_infos': 'lightline#ale#infos',
-    \  'linter_warnings': 'lightline#ale#warnings',
-    \  'linter_errors': 'lightline#ale#errors',
-    \  'linter_ok': 'lightline#ale#ok',
-    \ },
-    \'component_type': {
-    \  'linter_checking': 'right',
-    \  'linter_infos': 'right',
-    \  'linter_warnings': 'warning',
-    \  'linter_errors': 'error',
-    \  'linter_ok': 'right',
-    \ },
-	\ 'component_function': {
-	\   'gitbranch': 'FugitiveHead',
-    \   'cocstatus': 'coc#status',
-    \   'currentfunction': 'CocCurrentFunction'
-	\ },
-	\ }
-let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_ok = "\uf00c"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                    air-line
+"statusline
+let g:airline_theme='nord'
+let g:airline_symbols_ascii = 1
+let g:airline_powerline_fonts = 0
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_detect_crypt=1
+let g:airline_detect_spell=1
+let g:airline_detect_spelllang=1
+let g:airline_skip_empty_sections = 1
+let g:airline_statusline_ontop = 0
+let g:airline_section_c_only_filename = 1
+let g:airline_section_z = '%p%%  %l:%v'
+
+"tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#alt_sep = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tab_count = 0
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+"map
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>0 <Plug>AirlineSelectTab0
+
+"extensions
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline#extensions#fzf#enabled = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdtree
@@ -420,7 +426,7 @@ let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
 nmap wm :NERDTreeToggle<cr>
 " autocmd BufRead *.py :NERDTreeToggle
 "关闭窗口
- autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Function to open the file or NERDTree or netrw.
 " Returns: 1 if either file explorer was opened; otherwise, 0.
@@ -695,7 +701,7 @@ nmap mm :G blame<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           indentLine
-let g:indentLine_enabled = 0
+let g:indentLine_enabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -728,7 +734,7 @@ autocmd User FloatermOpen tmap <silent> <C-h> <C-\><C-n><C-w>h
 "                               	 fzf
 " export BAT_THEME=Nord
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~50%' }
+let g:fzf_layout = { 'down': '100%' }
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -751,8 +757,6 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
-autocmd! FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 autocmd! FileType fzf tmap <C-k> <Up>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
