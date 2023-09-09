@@ -8,13 +8,13 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 "common
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
-Plug 'maximbaz/lightline-ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ybian/smartim'
