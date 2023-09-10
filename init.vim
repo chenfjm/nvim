@@ -412,6 +412,7 @@ let g:airline#extensions#fzf#enabled = 1
 "u 返回上层目录
 "o 打开目录/文件
 "
+let g:NERDTreeChDirMode = 3
 let NERDTreeAutoDeleteBuffer=1
 "不显示帮助信息
 let NERDTreeMinimalUI=1
@@ -426,6 +427,18 @@ nmap wm :NERDTreeToggle<cr>
 " autocmd BufRead *.py :NERDTreeToggle
 "关闭窗口
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+autocmd FileType nerdtree call NERDTreeAddMenuItem({
+		\ 'text': 'run lazy(g)it in current directory',
+		\ 'shortcut': 'g',
+		\ 'callback': 'NerdLazygit'})
+
+function! NerdLazygit()
+		let current_node = g:NERDTreeDirNode.GetSelected()
+		let current_directory = current_node.path.str()
+		execute("FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit -p ".current_directory)
+endfunction
+
 
 " Function to open the file or NERDTree or netrw.
 " Returns: 1 if either file explorer was opened; otherwise, 0.
