@@ -180,7 +180,7 @@ function QuickfixMap()
 endf
 
 "command
-nmap rg :FloatermNew --width=1 --height=1 --wintype=float --position=center ranger<cr>
+nmap rg :FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center ranger<cr>
 nmap git :FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
