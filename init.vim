@@ -306,7 +306,6 @@ let g:codeium_enabled = v:true
 "
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = [
-	\ 'coc-tabnine',
 	\ 'coc-diagnostic',
 	\ 'coc-docker',
 	\ 'coc-gitignore',
@@ -490,7 +489,7 @@ let g:tagbar_autoshowtag = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          ale-错误检查
 let g:ale_enabled = 1
-let g:ale_use_neovim_diagnostics_api = 1
+let g:ale_use_neovim_diagnostics_api = 0
 let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
 let g:ale_open_list = 0
