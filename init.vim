@@ -789,3 +789,11 @@ nnoremap wu :UndotreeToggle<CR>
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
 nnoremap <leader>g :Grepper -tool rg<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               	  csv.vim
+"删除列:
+"DeleteColumn 2/cursor
+let g:csv_highlight_column = 'y'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
