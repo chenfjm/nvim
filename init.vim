@@ -787,7 +787,8 @@ nnoremap wu :UndotreeToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               	vim-grepper
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-nnoremap <leader>g :Grepper -tool rg<cr>
+nnoremap <leader>a :Grepper -tool rg<cr>
+nnoremap <leader>g :Grepper -tool git<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
