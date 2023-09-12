@@ -30,6 +30,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-grepper'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
 Plug 'github/copilot.vim'
@@ -39,6 +40,8 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'jackMort/ChatGPT.nvim'
+Plug 'neomake/neomake'
+Plug 'mbbill/undotree'
 "Plug 'ryanoasis/vim-devicons'
 
 "python
@@ -60,3 +63,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 "tex
 Plug 'lervag/vimtex'
+
+"csv
+Plug 'chrisbra/csv.vim'

@@ -778,3 +778,14 @@ let g:eggjs_gf_loadpath = 'service\|proxy\|model\|controller\|io'
 au FileType javascript nmap <silent> <C-[> gf
 au FileType typescript nmap <silent> <C-[> gf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               	 undotree
+nnoremap wu :UndotreeToggle<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               	vim-grepper
+nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
+nnoremap <leader>g :Grepper -tool rg<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
