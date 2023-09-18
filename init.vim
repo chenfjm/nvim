@@ -84,7 +84,7 @@ call plug#end()
  set encoding=utf-8
  set fileencodings=utf-8,chinese
 "默认展开所有代码
- set foldmethod=indent
+ " set foldmethod=indent
  nnoremap <space><space> za
  set foldlevel=99
  set foldenable
@@ -247,7 +247,7 @@ require'nvim-treesitter.configs'.setup {
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
   incremental_selection = {
     enable = true,
@@ -782,6 +782,7 @@ au FileType typescript nmap <silent> <C-[> gf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               	 undotree
 nnoremap wu :UndotreeToggle<CR>
+let g:undotree_WindowLayout = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
