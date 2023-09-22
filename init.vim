@@ -59,8 +59,8 @@ call plug#end()
  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
  autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.css setlocal ts=2 sts=2 sw=2 expandtab
- autocmd BufRead *.json setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.vue setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxml setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxml setfiletype html
@@ -658,6 +658,11 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                vim-json
+let g:vim_json_syntax_conceal = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

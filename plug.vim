@@ -66,3 +66,6 @@ Plug 'lervag/vimtex'
 
 "csv
 Plug 'chrisbra/csv.vim'
+
+"json
+Plug 'elzr/vim-json', { 'for': 'json' }
