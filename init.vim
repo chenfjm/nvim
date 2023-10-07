@@ -60,6 +60,7 @@ call plug#end()
  autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
  autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd FileType proto setlocal ts=4 sts=4 sw=4 expandtab
  autocmd BufRead *.css setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.vue setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxml setlocal ts=2 sts=2 sw=2 expandtab
@@ -312,8 +313,8 @@ let g:coc_global_extensions = [
 	\ 'coc-git',
 	\ 'coc-html',
 	\ 'coc-wxml',
-	\ 'coc-css',
-	\ 'coc-json',
+    \ 'coc-css',
+    \ 'coc-json',
 	\ 'coc-tsserver',
 	\ 'coc-vetur',
 	\ 'coc-pyright',
@@ -662,7 +663,8 @@ let g:tagbar_type_go = {
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim-json
-let g:vim_json_syntax_conceal = 0
+let g:vim_json_syntax_conceal = 1
+let g:indentLine_concealcursor=""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
