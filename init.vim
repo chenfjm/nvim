@@ -429,7 +429,7 @@ nmap wm :NERDTreeToggle<cr>
 " 关闭窗口
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-# lazygit
+" lazygit
 autocmd FileType nerdtree call NERDTreeAddMenuItem({
 		\ 'text': 'run lazy(g)it in current directory',
 		\ 'shortcut': 'g',
@@ -440,7 +440,7 @@ function! NerdLazygit()
 		execute("FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit -p ".current_directory)
 endfunction
 
-# umount
+" umount
 autocmd FileType nerdtree call NERDTreeAddMenuItem({
 		\ 'text': '(u)mount current directory',
 		\ 'shortcut': 'u',
