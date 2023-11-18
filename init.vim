@@ -426,18 +426,30 @@ let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
 nmap wm :NERDTreeToggle<cr>
 " autocmd BufRead *.py :NERDTreeToggle
-"关闭窗口
+" 关闭窗口
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+# lazygit
 autocmd FileType nerdtree call NERDTreeAddMenuItem({
 		\ 'text': 'run lazy(g)it in current directory',
 		\ 'shortcut': 'g',
 		\ 'callback': 'NerdLazygit'})
-
 function! NerdLazygit()
 		let current_node = g:NERDTreeDirNode.GetSelected()
 		let current_directory = current_node.path.str()
 		execute("FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit -p ".current_directory)
+endfunction
+
+# umount
+autocmd FileType nerdtree call NERDTreeAddMenuItem({
+		\ 'text': '(u)mount current directory',
+		\ 'shortcut': 'u',
+		\ 'callback': 'NerdUmount'})
+
+function! NerdUmount()
+		let current_node = g:NERDTreeDirNode.GetSelected()
+		let current_directory = current_node.path.str()
+		execute("!umount " .current_directory)
 endfunction
 
 
