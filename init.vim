@@ -562,10 +562,10 @@ let g:jedi#popup_on_dot = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 black
 let g:black_linelength = 120
-augroup black_on_save
-  autocmd!
-  autocmd BufWritePre *.py Black
-augroup end
+" augroup black_on_save
+  " autocmd!
+  " autocmd BufWritePre *.py Black
+" augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
