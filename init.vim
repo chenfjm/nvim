@@ -537,7 +537,7 @@ let g:ale_echo_delay = 500
 let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = 'normal'
 " yapf: ~/.config/yapf/style
-let g:ale_fixers = {'python': ['isort','yapf'], 'javascript': ['prettier','eslint']}
+let g:ale_fixers = {'python': ['isort','black'], 'javascript': ['prettier','eslint']}
 let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let b:ale_linters = {'python': ['pylint'], 'javascript': ['eslint']}
 let g:ale_python_pylint_options = '--errors-only'
@@ -557,6 +557,15 @@ let g:jedi#goto_stubs_command = ""
 let g:jedi#completions_command = ""
 let g:jedi#rename_command = ""
 let g:jedi#popup_on_dot = 0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 black
+let g:black_linelength = 120
+augroup black_on_save
+  autocmd!
+  autocmd BufWritePre *.py Black
+augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -733,7 +742,7 @@ let g:indentLine_enabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           vim-autoformat
 let g:formatterpath = ['/usr/local/go/bin', '/usr/local/bin']
-let g:formatters_python = ['yapf', 'autopep8']
+let g:formatters_python = ['black', 'autopep8']
 let g:autoformat_autoindent = 1
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 1

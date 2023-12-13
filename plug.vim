@@ -46,6 +46,7 @@ Plug 'mbbill/undotree'
 
 "python
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'davidhalter/jedi-vim'
 
 "js
