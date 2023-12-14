@@ -128,7 +128,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 endif
 "启动界面
 set shortmess=atIc
-set cmdheight=2
+set cmdheight=1
 "Alt 组合键不映射到菜单上
 set winaltkeys=no
 "TextEdit might fail if hidden is not set.
