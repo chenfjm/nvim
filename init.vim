@@ -499,6 +499,8 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdcomment
 let g:NERDSpaceDelims=1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
 map <silent> <C-c> <plug>NERDCommenterToggle 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -520,7 +522,6 @@ let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
 let g:ale_open_list = 0
 let g:ale_completion_enabled = 1
-let g:ale_completion_autoimport = 1
 let g:ale_set_highlights = 1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1
@@ -537,7 +538,7 @@ let g:ale_echo_delay = 500
 let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = 'normal'
 " yapf: ~/.config/yapf/style
-let g:ale_fixers = {'python': ['isort','black'], 'javascript': ['prettier','eslint']}
+let g:ale_fixers = {'python': ['autoimport', 'isort', 'black'], 'javascript': ['prettier','eslint']}
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {'python': ['pylint'], 'javascript': ['eslint']}
 let g:ale_python_pylint_options = '--errors-only'
@@ -562,6 +563,9 @@ let g:jedi#popup_on_dot = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 black
 let g:black_linelength = 120
+let g:black_use_virtualenv = 0
+let g:black_quiet = 1
+let g:black_preview = 0
 " augroup black_on_save
   " autocmd!
   " autocmd BufWritePre *.py Black
