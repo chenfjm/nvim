@@ -539,7 +539,7 @@ let g:ale_echo_delay = 500
 let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = 'normal'
 " yapf: ~/.config/yapf/style
-let g:ale_fixers = {'python': ['autoimport', 'black'], 'javascript': ['prettier','eslint']}
+let g:ale_fixers = {'python': ['black', 'isort'], 'javascript': ['prettier','eslint']}
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {'python': ['pylint'], 'javascript': ['eslint']}
 let g:ale_python_pylint_options = '--errors-only'
