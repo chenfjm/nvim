@@ -318,6 +318,7 @@ let g:coc_global_extensions = [
 	\ 'coc-tsserver',
 	\ 'coc-vetur',
 	\ 'coc-pyright',
+	\ 'coc-jedi',
 	\ 'coc-go',
 	\ 'coc-sh',
 	\ 'coc-sql',
