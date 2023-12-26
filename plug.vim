@@ -34,7 +34,6 @@ Plug 'mhinz/vim-grepper'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
 Plug 'github/copilot.vim'
-" Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
 Plug 'mhinz/vim-startify'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -42,6 +41,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'jackMort/ChatGPT.nvim'
 Plug 'neomake/neomake'
 Plug 'mbbill/undotree'
+Plug 'lewis6991/gitsigns.nvim'
 "Plug 'ryanoasis/vim-devicons'
 
 "python
