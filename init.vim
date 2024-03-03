@@ -69,6 +69,7 @@ call plug#end()
  autocmd BufRead *.wxss setfiletype css
  autocmd BufRead *.yaml setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.conf setf dosini
+ autocmd BufRead *.nvue setf html
 
  set autoindent
  set fileformat=unix
@@ -765,6 +766,7 @@ let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 1
 map = :Autoformat<CR>
 au FileType python nmap <silent> = :Autoformat<cr>:ALEFix<cr>
+au FileType json nmap <silent> = :%!jq .<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
