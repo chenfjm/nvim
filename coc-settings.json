@@ -4,6 +4,7 @@
   "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
   "python.formatting.provider": "yapf",
   "python.formatting.yapfPath": "yapf",
+  "pyright.enable": false,
   "pyright.inlayHints.functionReturnTypes": false,
   "pyright.inlayHints.variableTypes": false,
   "pyright.testing.provider": "pytest",
