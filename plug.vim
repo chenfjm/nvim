@@ -38,12 +38,13 @@ Plug 'huggingface/llm.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/trouble.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'jackMort/ChatGPT.nvim'
 Plug 'neomake/neomake'
 Plug 'mbbill/undotree'
 Plug 'lewis6991/gitsigns.nvim'
-"Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 "python
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
