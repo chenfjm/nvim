@@ -652,6 +652,7 @@ let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 let g:WebDevIconsTabAirLineBeforeGlyphPadding = ''
 let g:WebDevIconsTabAirLineAfterGlyphPadding = ''
+autocmd FileType nerdtree setlocal conceallevel=3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -732,17 +733,17 @@ cnoreabbrev e Edit
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdtree-git-plugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
+				\ 'Modified'  :'✹',
+				\ 'Staged'    :'✚',
+				\ 'Untracked' :'✭',
+				\ 'Renamed'   :'➜',
+				\ 'Unmerged'  :'═',
+				\ 'Deleted'   :'✖',
+				\ 'Dirty'     :'✗',
+				\ 'Ignored'   :'☒',
+				\ 'Clean'     :'✔︎',
+				\ 'Unknown'   :'?',
+				\ }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
