@@ -43,6 +43,7 @@ Plug 'mbbill/undotree'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'folke/which-key.nvim'
 " Plug 'terryma/vim-multiple-cursors'
 
 "python
