@@ -68,6 +68,7 @@ call plug#end()
  autocmd BufRead *.wxss setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxss setfiletype css
  autocmd BufRead *.yaml setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd BufRead *.vim setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.conf setf dosini
  autocmd BufRead *.nvue setf html
 
@@ -226,7 +227,6 @@ let g:startify_change_to_dir = 0
 "                                tree-sitter
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-function! TreesitterConfig()
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
@@ -265,8 +265,6 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
-endfunction
-autocmd VimEnter * call TreesitterConfig()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -290,247 +288,6 @@ autocmd VimEnter *.sh if line("$") < 2 | call HeaderShell() | endif
 function HeaderShell()
     call setline(1, "#!/bin/bash")
 endf
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                copilot
-let b:copilot_enabled = v:true
-let g:codeium_enabled = v:false
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            	 ChatGPT
-"
-" export OPENAI_API_TYPE="azure"
-" export OPENAI_API_BASE="https://{your-resource-name}.openai.azure.com"
-" export OPENAI_API_AZURE_ENGINE="gpt4o"
-" export OPENAI_API_AZURE_VERSION="2024-02-15-preview"
-" export OPENAI_API_KEY=""
-"
-function! ChatGPT()
-lua << EOF
-require('chatgpt').setup{
-   api_key_cmd = nil, 
-   yank_register = "+", 
-   edit_with_instructions = { 
-     diff = false, 
-     keymaps = { 
-       close = "<C-c>", 
-       accept = "<C-y>", 
-       toggle_diff = "<C-d>", 
-       toggle_settings = "<C-o>", 
-       toggle_help = "<C-h>", 
-       cycle_windows = "<Tab>", 
-       use_output_as_input = "<C-i>", 
-     }, 
-   }, 
-   chat = { 
-     welcome_message = WELCOME_MESSAGE, 
-     loading_text = "Loading, please wait ...", 
-     question_sign = "", -- 🙂 
-     answer_sign = "ﮧ", -- 🤖 
-     border_left_sign = "", 
-     border_right_sign = "", 
-     max_line_length = 120, 
-     sessions_window = { 
-       active_sign = "", 
-       inactive_sign = "", 
-       current_line_sign = "", 
-       border = { 
-         style = "rounded", 
-         text = { 
-           top = " Sessions ", 
-         }, 
-       }, 
-       win_options = { 
-         winhighlight = "Normal:Normal,FloatBorder:FloatBorder", 
-       }, 
-     }, 
-     keymaps = { 
-       close = "<C-c>", 
-       yank_last = "<C-y>", 
-       yank_last_code = "<C-k>", 
-       scroll_up = "<C-u>", 
-       scroll_down = "<C-d>", 
-       new_session = "<C-n>", 
-       cycle_windows = "<Tab>", 
-       cycle_modes = "<C-f>", 
-       next_message = "<C-j>", 
-       prev_message = "<C-k>", 
-       select_session = "<Space>", 
-       rename_session = "r", 
-       delete_session = "d", 
-       draft_message = "<C-r>", 
-       edit_message = "e", 
-       delete_message = "d", 
-       toggle_settings = "<C-o>", 
-       toggle_sessions = "<C-p>", 
-       toggle_help = "<C-h>", 
-       toggle_message_role = "<C-r>", 
-       toggle_system_role_open = "<C-s>", 
-       stop_generating = "<C-x>", 
-     }, 
-   }, 
-   popup_layout = { 
-     default = "center", 
-     center = { 
-       width = "80%", 
-       height = "80%", 
-     }, 
-     right = { 
-       width = "30%", 
-       width_settings_open = "50%", 
-     }, 
-   }, 
-   popup_window = { 
-     border = { 
-       highlight = "FloatBorder", 
-       style = "rounded", 
-       text = { 
-         top = " ChatGPT ", 
-       }, 
-     }, 
-     win_options = { 
-       wrap = true, 
-       linebreak = true, 
-       foldcolumn = "1", 
-       winhighlight = "Normal:Normal,FloatBorder:FloatBorder", 
-     }, 
-     buf_options = { 
-       filetype = "markdown", 
-     }, 
-   }, 
-   system_window = { 
-     border = { 
-       highlight = "FloatBorder", 
-       style = "rounded", 
-       text = { 
-         top = " SYSTEM ", 
-       }, 
-     }, 
-     win_options = { 
-       wrap = true, 
-       linebreak = true, 
-       foldcolumn = "2", 
-       winhighlight = "Normal:Normal,FloatBorder:FloatBorder", 
-     }, 
-   }, 
-   popup_input = { 
-     prompt = "  ", 
-     border = { 
-       highlight = "FloatBorder", 
-       style = "rounded", 
-       text = { 
-         top_align = "center", 
-         top = " Prompt ", 
-       }, 
-     }, 
-     win_options = { 
-       winhighlight = "Normal:Normal,FloatBorder:FloatBorder", 
-     }, 
-     submit = "<C-Enter>", 
-     submit_n = "<Enter>", 
-     max_visible_lines = 20, 
-   }, 
-   settings_window = { 
-     setting_sign = "", 
-     border = { 
-       style = "rounded", 
-       text = { 
-         top = " Settings ", 
-       }, 
-     }, 
-     win_options = { 
-       winhighlight = "Normal:Normal,FloatBorder:FloatBorder", 
-     }, 
-   }, 
-   help_window = { 
-     setting_sign = "", 
-     border = { 
-       style = "rounded", 
-       text = { 
-         top = " Help ", 
-       }, 
-     }, 
-     win_options = { 
-       winhighlight = "Normal:Normal,FloatBorder:FloatBorder", 
-     }, 
-   }, 
-   openai_params = { 
-     model = "gpt-4o", 
-     frequency_penalty = 0, 
-     presence_penalty = 0, 
-     max_tokens = 300, 
-     temperature = 0, 
-     top_p = 1, 
-     n = 1, 
-   }, 
-   openai_edit_params = { 
-     model = "gpt-4o", 
-     frequency_penalty = 0, 
-     presence_penalty = 0, 
-     temperature = 0, 
-     top_p = 1, 
-     n = 1, 
-   }, 
-   use_openai_functions_for_edits = false, 
-   actions_paths = {}, 
-   show_quickfixes_cmd = "Trouble quickfix", 
-   predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv", 
-   highlights = { 
-     help_key = "@symbol", 
-     help_description = "@comment", 
-   },
-}
-EOF
-endfunction
-" autocmd VimEnter * call ChatGPT()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 llm
-function! LLM()
-lua << EOF
-require('llm').setup{
-  api_token = nil, -- cf Install paragraph
-  model = "bigcode/starcoder", -- the model ID, behavior depends on backend
-  backend = "huggingface", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
-  url = nil, -- the http url of the backend
-  tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
-  -- parameters that are added to the request body, values are arbitrary, you can set any field:value pair here it will be passed as is to the backend
-  request_body = {
-    parameters = {
-      max_new_tokens = 60,
-      temperature = 0.2,
-      top_p = 0.95,
-    },
-  },
-  -- set this if the model supports fill in the middle
-  fim = {
-    enabled = true,
-    prefix = "<fim_prefix>",
-    middle = "<fim_middle>",
-    suffix = "<fim_suffix>",
-  },
-  debounce_ms = 150,
-  accept_keymap = "<Tab>",
-  dismiss_keymap = "<S-Tab>",
-  tls_skip_verify_insecure = false,
-  -- llm-ls configuration, cf llm-ls section
-  lsp = {
-    bin_path = nil,
-    host = nil,
-    port = nil,
-    version = "0.5.2",
-  },
-  tokenizer = nil, -- cf Tokenizer paragraph
-  context_window = 8192, -- max number of tokens for the context window
-  enable_suggestions_on_startup = true,
-  enable_suggestions_on_files = "*", -- pattern matching syntax to enable suggestions on specific files, either a string or a list of strings
-}
-EOF
-endfunction
-" autocmd VimEnter * call LLM()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -602,8 +359,8 @@ endfunction
 "                                    air-line
 "statusline
 let g:airline_theme='nord'
-let g:airline_symbols_ascii = 1
-let g:airline_powerline_fonts = 0
+let g:airline_symbols_ascii = 0
+let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_detect_crypt=1
@@ -641,110 +398,19 @@ nmap <leader>0 <Plug>AirlineSelectTab0
 "extensions
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#fzf#enabled = 1
+
+function! NvimTree(...)
+  if &filetype == 'NvimTree'
+    let w:airline_section_a = ''
+    " let w:airline_section_b = ''
+    let w:airline_section_c = 'NvimTree'
+    let w:airline_section_z = ''
+    let w:airline_section_x = ''
+    let g:airline_variable_referenced_in_statusline = 'foo'
+  endif
+endfunction
+call airline#add_statusline_func('NvimTree')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"							webdevicons
-let g:webdevicons_enable_nerdtree=0
-let g:webdevicons_conceal_nerdtree_brackets=1
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
-let g:WebDevIconsTabAirLineBeforeGlyphPadding = ''
-let g:WebDevIconsTabAirLineAfterGlyphPadding = ''
-autocmd FileType nerdtree setlocal conceallevel=3
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"							nerdtree
-"
-"<Shift-c> 进入当前目录
-"u 返回上层目录
-"o 打开目录/文件
-"
-let g:NERDTreeChDirMode = 3
-let NERDTreeAutoDeleteBuffer=1
-"不显示帮助信息
-let NERDTreeMinimalUI=1
-"鼠标点击							 
-let NERDTreeMouseMode = 1
-"宽度
-let g:NERDTreeWinSize = 30
-"忽略文件、隐藏文件
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
-nmap wm :NERDTreeToggle<cr>
-" autocmd BufRead *.py :NERDTreeToggle
-" 关闭窗口
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd FileType nerdtree setlocal conceallevel=3
-
-" lazygit
-autocmd FileType nerdtree call NERDTreeAddMenuItem({
-		\ 'text': 'run lazy(g)it in current directory',
-		\ 'shortcut': 'g',
-		\ 'callback': 'NerdLazygit'})
-function! NerdLazygit()
-		let current_node = g:NERDTreeDirNode.GetSelected()
-		let current_directory = current_node.path.str()
-		execute("FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit -p ".current_directory)
-endfunction
-
-" umount
-autocmd FileType nerdtree call NERDTreeAddMenuItem({
-		\ 'text': '(u)mount current directory',
-		\ 'shortcut': 'u',
-		\ 'callback': 'NerdUmount'})
-
-function! NerdUmount()
-		let current_node = g:NERDTreeDirNode.GetSelected()
-		let current_directory = current_node.path.str()
-		execute("!umount " .current_directory)
-endfunction
-
-
-" Function to open the file or NERDTree or netrw.
-" Returns: 1 if either file explorer was opened; otherwise, 0.
-function! s:OpenFileOrExplorer(...)
-    if a:0 == 0 || a:1 == ''
-        NERDTree
-    elseif a:1 =~? '^\(scp\|ftp\)://' " Add other protocols as needed.
-        execute 'Vexplore '.a:1
-    elseif isdirectory(a:1)
-        execute 'NERDTree '.a:1
-    else
-        " execute 'edit '.a:1
-        return 0
-    endif
-    return 1
-endfunction
-
-" Auto commands to handle OS commandline arguments
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc()==1 && !exists('s:std_in') | if <SID>OpenFileOrExplorer(argv()[0]) | wincmd p | enew | wincmd p | endif | endif
-
-" Command to call the OpenFileOrExplorer function.
-command! -n=? -complete=file -bar Edit :call <SID>OpenFileOrExplorer('<args>')
-
-" Command-mode abbreviation to replace the :edit Vim command.
-cnoreabbrev e Edit
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"							nerdtree-git-plugin
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-				\ 'Modified'  :'✹',
-				\ 'Staged'    :'✚',
-				\ 'Untracked' :'✭',
-				\ 'Renamed'   :'➜',
-				\ 'Unmerged'  :'═',
-				\ 'Deleted'   :'✖',
-				\ 'Dirty'     :'✗',
-				\ 'Ignored'   :'☒',
-				\ 'Clean'     :'✔︎',
-				\ 'Unknown'   :'?',
-				\ }
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdcomment
@@ -990,14 +656,11 @@ nmap mm :G blame<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            gitsigns
-function! Gitsigns()
 lua << EOF
 require('gitsigns').setup{
-current_line_blame = true
+  current_line_blame = true
 }
 EOF
-endfunction
-autocmd VimEnter * call Gitsigns()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1063,29 +726,142 @@ autocmd! FileType fzf tmap <C-k> <Up>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               	 eggjs-jf
+"                               eggjs-jf
 let g:eggjs_gf_loadpath = 'service\|proxy\|model\|controller\|io'
 au FileType javascript nmap <silent> <C-[> gf
 au FileType typescript nmap <silent> <C-[> gf
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               	 undotree
+"                               undotree
 nnoremap wu :UndotreeToggle<CR>
 let g:undotree_WindowLayout = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               	vim-grepper
+"                              vim-grepper
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
 nnoremap <leader>a :Grepper -tool rg<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               	  csv.vim
+"                         	    csv.vim
 "删除列:
 "DeleteColumn 2/cursor
 let g:csv_highlight_column = 'y'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"								               nvim-tree
+lua << EOF
+--- function
+function RunLazyGit()
+  local lib = require'nvim-tree.lib'
+  local node = lib.get_node_at_cursor()
+  local path = node.absolute_path
+  vim.cmd('FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit -p ' .. path)
+end
+function my_on_attach(bufnr)
+	local api = require('nvim-tree.api')
+	local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+  api.config.mappings.default_on_attach(bufnr)
+	vim.keymap.set('n', '<C-]>',   api.tree.change_root_to_node,        opts('CD'))
+	vim.keymap.set('n', '<C-o>',       api.tree.change_root_to_parent,      opts('Up'))
+	vim.keymap.set('n', 'C',       api.tree.toggle_git_clean_filter,    opts('Toggle Filter: Git Clean'))
+	vim.keymap.set('n', '<Leader>p',      api.node.navigate.git.prev,          opts('Prev Git'))
+	vim.keymap.set('n', '<Leader>n',      api.node.navigate.git.next,          opts('Next Git'))
+	vim.keymap.set('n', 'a',       api.fs.create,                       opts('Create File Or Directory'))
+	vim.keymap.set('n', 'c',       api.fs.copy.node,                    opts('Copy'))
+	vim.keymap.set('n', 'e',       api.tree.expand_all,                 opts('Expand All'))
+	vim.keymap.set('n', 'w',       api.tree.collapse_all,               opts('Collapse'))
+	vim.keymap.set('n', 's',       api.node.run.system,                 opts('Run System'))
+  vim.keymap.set('n', 'h',       api.tree.toggle_hidden_filter,       opts('Toggle Filter: Dotfiles'))
+  vim.api.nvim_set_keymap('n', '<Leader>g', ':lua RunLazyGit()<CR>', { noremap = true, silent = true })
+end
+---
+
+require'nvim-tree'.setup {
+  disable_netrw = true,
+  hijack_netrw = true,
+  on_attach = my_on_attach,
+  view = {
+    width = 30,
+    side = 'left',
+  },
+  filters = {
+    dotfiles = true,
+    custom = { '.pyc$', '__pycache__' },
+  },
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 500,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = false,
+    },
+  },
+  renderer = {
+    highlight_opened_files = "all",
+    root_folder_modifier = ":t",
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "✹",
+          staged = "✚",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "✖",
+          ignored = "◌",
+        },
+      },
+    },
+  },
+}
+-- 设置状态栏内容为空
+EOF
+
+" Key mapping to toggle NvimTree
+nnoremap wm :NvimTreeToggle<CR>
+
+" Auto close NvimTree if it's the last window
+autocmd BufEnter * ++nested if winnr('$') == 1 && exists('b:nvim_tree') | quit | endif
+
+autocmd StdinReadPre * let s:std_in=1
+cnoreabbrev e Edit
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                copilot
+let b:copilot_enabled = v:true
+let g:codeium_enabled = v:false
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            	   ChatGPT
+"
+" export OPENAI_API_TYPE="azure"
+" export OPENAI_API_BASE="https://{your-resource-name}.openai.azure.com"
+" export OPENAI_API_AZURE_ENGINE="gpt4o"
+" export OPENAI_API_AZURE_VERSION="2024-02-15-preview"
+" export OPENAI_API_KEY=""
+"
+" lua << EOF
+" require('chatgpt').setup{}
+" EOF
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 llm
+" lua << EOF
+" require('llm').setup{}
+" EOF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

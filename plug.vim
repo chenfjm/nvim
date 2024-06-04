@@ -10,9 +10,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
@@ -24,7 +21,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
-" Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'editorconfig/editorconfig-vim'
@@ -45,7 +41,9 @@ Plug 'jackMort/ChatGPT.nvim'
 Plug 'neomake/neomake'
 Plug 'mbbill/undotree'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
+" Plug 'terryma/vim-multiple-cursors'
 
 "python
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
