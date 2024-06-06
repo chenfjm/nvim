@@ -51,7 +51,7 @@ call plug#end()
  syntax on
  let mapleader=" "
  set termguicolors
- let g:rainbow_active = 1
+ let g:rainbow_active = 0
 "
 "自动、智能缩进
  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
