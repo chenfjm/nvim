@@ -761,7 +761,7 @@ function RunLazyGit()
   local lib = require'nvim-tree.lib'
   local node = lib.get_node_at_cursor()
   local path = node.absolute_path
-  vim.cmd('FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit -p ' .. path)
+  vim.cmd('FloatermNew --width=1000 --height=1000 --wintype=float --position=center lazygit -p ' .. path)
 end
 function my_on_attach(bufnr)
 	local api = require('nvim-tree.api')
