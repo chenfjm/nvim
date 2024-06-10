@@ -183,8 +183,8 @@ function QuickfixMap()
 endf
 
 "command
-nmap rg :FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center ranger<cr>
-nmap git :FloatermNew --width=0.99 --height=0.99 --wintype=float --position=center lazygit<cr>
+nmap rg :FloatermNew --width=1000 --height=1000 --wintype=float --position=center ranger<cr>
+nmap git :FloatermNew --width=1000 --height=1000 --wintype=float --position=center lazygit<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -686,7 +686,7 @@ au FileType json nmap <silent> = :%!jq .<CR>
 "切换终端
 let g:floaterm_wintype='split'
 let g:floaterm_position='belowright'
-let g:floaterm_height=0.3
+let g:floaterm_height=0.4
 let g:floaterm_autoinsert=v:true
 nmap wt :FloatermToggle<cr>
 tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
