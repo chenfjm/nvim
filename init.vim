@@ -425,7 +425,7 @@ map <silent> <C-c> <plug>NERDCommenterToggle
 "							 tagbar
 autocmd BufRead *.* nmap tb :Tagbar<cr>
 " let tagbar_ctags_bin='/usr/local/bin/ctags'
-" let tagbar_ctags_bin='/usr/bin/ctags'
+let tagbar_ctags_bin='/opt/homebrew/bin/ctags'
 let tagbar_width=30
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
