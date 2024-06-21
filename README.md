@@ -58,62 +58,81 @@ nvim
 
 ### Included Plugins
 
-  ```
-	"color
-	Plug 'altercation/vim-colors-solarized'
-	Plug 'sickill/vim-monokai'
-	Plug 'arcticicestudio/nord-vim'
-	Plug 'luochen1990/rainbow'
+  ```lua
+"color
+Plug 'altercation/vim-colors-solarized'
+Plug 'sickill/vim-monokai'
+Plug 'arcticicestudio/nord-vim'
+Plug 'luochen1990/rainbow'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-	"common
-	Plug 'itchyny/lightline.vim'
-	Plug 'jiangmiao/auto-pairs'
-	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-	Plug 'Xuyuanp/nerdtree-git-plugin'
-	Plug 'majutsushi/tagbar'
-	Plug 'tmhedberg/SimpylFold'
-	Plug 'scrooloose/nerdcommenter'
-	Plug 'dense-analysis/ale'
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
-	Plug 'ybian/smartim'
-	Plug 'godlygeek/tabular'
-	Plug 'preservim/vim-markdown'
-	Plug 'elzr/vim-json'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-surround'
-	Plug 'easymotion/vim-easymotion'
-	Plug 'terryma/vim-multiple-cursors'
-	Plug 'airblade/vim-gitgutter'
-	Plug 'Yggdroot/indentLine'
-	Plug 'editorconfig/editorconfig-vim'
-	Plug 'Chiel92/vim-autoformat'
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
-	Plug 'voldikss/vim-floaterm'
-	Plug 'puremourning/vimspector'
-	Plug 'github/copilot.vim'
-	"Plug 'ryanoasis/vim-devicons'
+"common
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jiangmiao/auto-pairs'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'dense-analysis/ale'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ybian/smartim'
+Plug 'godlygeek/tabular'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-autoformat/vim-autoformat'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'voldikss/vim-floaterm'
+Plug 'puremourning/vimspector'
+Plug 'github/copilot.vim'
+Plug 'huggingface/llm.nvim'
+Plug 'mhinz/vim-startify'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'jackMort/ChatGPT.nvim'
+Plug 'neomake/neomake'
+Plug 'mbbill/undotree'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'folke/which-key.nvim'
+" Plug 'terryma/vim-multiple-cursors'
 
-	"python
-	Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
-	Plug 'davidhalter/jedi-vim'
+"python
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'davidhalter/jedi-vim'
 
-	"js
-	Plug 'mattn/emmet-vim'
-	Plug 'marijnh/tern_for_vim'
-	Plug 'pangloss/vim-javascript'
-	Plug 'othree/xml.vim'
-	Plug 'KohPoll/vim-less'
-	Plug 'lepture/vim-css'
-	Plug 'darthmall/vim-vue'
-	Plug 'mxw/vim-jsx'
-	Plug 'justinj/vim-react-snippets'
-	Plug 'chemzqm/wxapp.vim'
+"js
+Plug 'pangloss/vim-javascript'
+Plug 'mattn/emmet-vim'
+Plug 'hotoo/jsgf.vim', { 'for': ['javascript', 'javascriptreat', 'typescript', 'typescriptreact', 'json'] }
+Plug 'hotoo/eggjs-gf.vim', { 'for': ['javascript', 'typescript'] }
 
-	"go
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+"markdown
+Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
+"tex
+Plug 'lervag/vimtex'
+
+"csv
+Plug 'chrisbra/csv.vim'
+
+"json
+Plug 'elzr/vim-json', { 'for': 'json' }
   ```
 
 ### Quick Tutorial
@@ -121,13 +140,12 @@ nvim
 - 窗口分割
 
   ```
-  wm: 开启/关闭NerdTree窗口
+  wm: 开启/关闭NvimTree窗口
   wv: 垂直切分窗口
   wc: 关闭窗口
   wq: 打开 quick fix 窗口
   tb: 开启/关闭TagBar窗口
   wt: 打开终端
-  m: 管理当前节点
   ```
 
 
@@ -160,6 +178,14 @@ nvim
   SpaceSpace: 代码折叠
   ```
 
+- 集成其他工具
+
+  ```
+  rg: 文件浏览
+  Space g: 打开lazygit
+  Space c: 打开chatgpt
+  ```
+  
 - 其他
 
   ```
@@ -173,3 +199,4 @@ nvim
 ![](https://chenfjm.github.io/nvim/images/vim1.png)
 ![](https://chenfjm.github.io/nvim/images/vim2.png)
 ![](https://chenfjm.github.io/nvim/images/vim3.png)
+![](https://chenfjm.github.io/nvim/images/vim4.png)
