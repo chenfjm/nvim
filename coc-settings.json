@@ -2,6 +2,12 @@
   "vetur.ignoreProjectWarning": true,
   "diagnostic.displayByAle": true,
   "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
-  "pyright.inlayHints.enable": false,
-  "pyright.testing.provider": "pytest"
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfPath": "yapf",
+  "pyright.enable": true,
+  "python.pythonPath": "/opt/homebrew/bin/python3.11",
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
+  "pyright.testing.provider": "pytest",
+  "snippets.ultisnips.pythonPrompt": false
 }

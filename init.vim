@@ -51,7 +51,7 @@ call plug#end()
  syntax on
  let mapleader=" "
  set termguicolors
- let g:rainbow_active = 1
+ let g:rainbow_active = 0
 "
 "自动、智能缩进
  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
@@ -59,15 +59,18 @@ call plug#end()
  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
  autocmd FileType typescript setlocal ts=2 sts=2 sw=2 expandtab
  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd FileType proto setlocal ts=4 sts=4 sw=4 expandtab
  autocmd BufRead *.css setlocal ts=2 sts=2 sw=2 expandtab
- autocmd BufRead *.json setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.vue setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxml setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxml setfiletype html
  autocmd BufRead *.wxss setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.wxss setfiletype css
  autocmd BufRead *.yaml setlocal ts=2 sts=2 sw=2 expandtab
+ autocmd BufRead *.vim setlocal ts=2 sts=2 sw=2 expandtab
  autocmd BufRead *.conf setf dosini
+ autocmd BufRead *.nvue setf html
 
  set autoindent
  set fileformat=unix
@@ -84,7 +87,7 @@ call plug#end()
  set encoding=utf-8
  set fileencodings=utf-8,chinese
 "默认展开所有代码
- set foldmethod=indent
+ " set foldmethod=indent
  nnoremap <space><space> za
  set foldlevel=99
  set foldenable
@@ -104,9 +107,9 @@ call plug#end()
 "自动读取文件修改
  set autoread
 "激活鼠标的使用
- " set mouse=a
+ set mouse=n
  " set selection=exclusive
- " set selectmode=mouse,key
+ set selectmode=mouse,key
 "支持系统剪切板
  set clipboard=unnamed
 "文件类型自动检测，代码智能补全
@@ -127,7 +130,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 endif
 "启动界面
 set shortmess=atIc
-set cmdheight=2
+set cmdheight=1
 "Alt 组合键不映射到菜单上
 set winaltkeys=no
 "TextEdit might fail if hidden is not set.
@@ -142,6 +145,7 @@ imap <C-l> <right>
 cmap q<CR> qa<CR>
 
 "关闭当前窗口
+nmap wn  :tabnew<cr>
 nmap wc  :close!<cr>
 nmap :wq :wqa!<cr>
 nmap :q :qa!<cr>
@@ -150,6 +154,9 @@ nmap wv  <C-w>v
 "打开quickfix
 nmap wq :copen<cr>
 nmap wl :lopen<cr>
+"tab移动快捷键
+nmap <A-h> :tabprevious<cr>
+nmap <A-l> :tabnext<cr>
 "分割窗口移动快捷键
 nnoremap <silent> <c-h> <c-w>h
 nnoremap <silent> <c-j> <c-w>j
@@ -176,8 +183,8 @@ function QuickfixMap()
 endf
 
 "command
-nmap rg :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center ranger<cr>
-nmap git :FloatermNew --width=0.9 --height=0.99 --wintype=float --position=center lazygit<cr>
+nmap rg :FloatermNew --width=1000 --height=1000 --wintype=float --position=center ranger<cr>
+nmap git :FloatermNew --width=1000 --height=1000 --wintype=float --position=center lazygit<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -220,11 +227,10 @@ let g:startify_change_to_dir = 0
 "                                tree-sitter
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-function! TreesitterConfig()
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "python", "go", "vue", "bash", "css", "html", "json", "make", "yaml" },
+  ensure_installed = {"vim", "lua", "python", "go", "vue", "bash", "css", "html", "json", "make", "yaml" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -238,19 +244,20 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
+    disable = { "dockerfile" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
   incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = "<CR>",
       node_incremental = "<CR>",
-      scope_incremental = "<CR>",
+      -- scope_incremental = "<CR>",
       node_decremental = "<BS>",
     },
   },
@@ -259,8 +266,6 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
-endfunction
-autocmd VimEnter * call TreesitterConfig()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -271,7 +276,7 @@ let g:Hexokinase_highlighters = [ 'backgroundfull' ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                文件头
 " py
-autocmd bufnewfile *.py if line("$") < 2 | call HeaderPython() | endif
+autocmd BufRead *.py if line("$") < 2 | call HeaderPython() | endif
 autocmd VimEnter *.py if line("$") < 2 | call HeaderPython() | endif
 function HeaderPython()
 	call setline(1, "#!/usr/bin/env python")
@@ -279,7 +284,7 @@ function HeaderPython()
 endf
 
 " sh
-autocmd bufnewfile *.sh if line("$") < 2 | call HeaderShell() | endif
+autocmd BufRead *.sh if line("$") < 2 | call HeaderShell() | endif
 autocmd VimEnter *.sh if line("$") < 2 | call HeaderShell() | endif
 function HeaderShell()
     call setline(1, "#!/bin/bash")
@@ -296,18 +301,17 @@ endf
 "
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = [
-	\ 'coc-tabnine',
 	\ 'coc-diagnostic',
 	\ 'coc-docker',
 	\ 'coc-gitignore',
 	\ 'coc-git',
 	\ 'coc-html',
 	\ 'coc-wxml',
-	\ 'coc-css',
-	\ 'coc-json',
+  \ 'coc-css',
+  \ 'coc-json',
 	\ 'coc-tsserver',
 	\ 'coc-vetur',
-	\ 'coc-pyright',
+	\ 'coc-jedi',
 	\ 'coc-go',
 	\ 'coc-sh',
 	\ 'coc-sql',
@@ -326,9 +330,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-au FileType vue nmap <silent> <C-]> gd
-" au FileType javascript nmap <silent> <C-]> gd
-" au FileType typescript nmap <silent> <C-]> gd
+autocmd FileType vue nmap <silent> <C-]> gd
+autocmd FileType javascript nmap <silent> <C-]> gd
+autocmd FileType typescript nmap <silent> <C-]> gd
 nmap <silent> <C-]> gd
 " Formatting selected code.
 vmap = <Plug>(coc-format-selected)
@@ -352,91 +356,67 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                    lightline
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
+"                                    air-line
+"statusline
+let g:airline_theme='nord'
+let g:airline_symbols_ascii = 0
+let g:airline_powerline_fonts = 1
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_detect_crypt=1
+let g:airline_detect_spell=1
+let g:airline_detect_spelllang=1
+let g:airline_skip_empty_sections = 1
+let g:airline_statusline_ontop = 0
+let g:airline_section_c = '%t'
+let g:airline_section_z = '%p%% %l:%v'
+
+"tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#alt_sep = 1
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tab_count = 0
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+"map
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>0 <Plug>AirlineSelectTab0
+
+"extensions
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline#extensions#fzf#enabled = 1
+
+function! NvimTree(...)
+  if &filetype == 'NvimTree'
+    let w:airline_section_a = ''
+    " let w:airline_section_b = ''
+    let w:airline_section_c = 'NvimTree'
+    let w:airline_section_z = ''
+    let w:airline_section_x = ''
+    let g:airline_variable_referenced_in_statusline = 'foo'
+  endif
 endfunction
-let g:lightline = {
-	 \ 'colorscheme': 'nord',
-	 \ 'active': {
-	 \   'left': [ [ 'mode', 'paste' ],
-	 \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'relativepath', 'modified'] ]
-	 \ },
-	 \ 'component_function': {
-	 \   'gitbranch': 'FugitiveHead',
-     \   'cocstatus': 'coc#status',
-     \   'currentfunction': 'CocCurrentFunction'
-	 \ },
-	 \ }
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"							nerdtree
-"
-"<Shift-c> 进入当前目录
-"u 返回上层目录
-"o 打开目录/文件
-"
-"不显示帮助信息
-let NERDTreeMinimalUI=1
-"鼠标点击							 
-let NERDTreeMouseMode = 1
-"宽度
-let g:NERDTreeWinSize = 30
-"忽略文件、隐藏文件
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', '.meta']
-let NERDTreeSortOrder=['\/$', 'Makefile', 'makefile', '*', '\~$']
-nmap wm :NERDTreeToggle<cr>
-"autocmd BufRead *.py :NERDTreeToggle
-"关闭窗口
- autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Function to open the file or NERDTree or netrw.
-" Returns: 1 if either file explorer was opened; otherwise, 0.
-function! s:OpenFileOrExplorer(...)
-    if a:0 == 0 || a:1 == ''
-        NERDTree
-    elseif a:1 =~? '^\(scp\|ftp\)://' " Add other protocols as needed.
-        execute 'Vexplore '.a:1
-    elseif isdirectory(a:1)
-        execute 'NERDTree '.a:1
-    else
-        " execute 'edit '.a:1
-        return 0
-    endif
-    return 1
-endfunction
-
-" Auto commands to handle OS commandline arguments
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc()==1 && !exists('s:std_in') | if <SID>OpenFileOrExplorer(argv()[0]) | wincmd p | enew | wincmd p | endif | endif
-
-" Command to call the OpenFileOrExplorer function.
-command! -n=? -complete=file -bar Edit :call <SID>OpenFileOrExplorer('<args>')
-
-" Command-mode abbreviation to replace the :edit Vim command.
-cnoreabbrev e Edit
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"							nerdtree-git-plugin
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call airline#add_statusline_func('NvimTree')
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "							nerdcomment
 let g:NERDSpaceDelims=1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
 map <silent> <C-c> <plug>NERDCommenterToggle 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -444,7 +424,7 @@ map <silent> <C-c> <plug>NERDCommenterToggle
 "							 tagbar
 autocmd BufRead *.* nmap tb :Tagbar<cr>
 " let tagbar_ctags_bin='/usr/local/bin/ctags'
-" let tagbar_ctags_bin='/usr/bin/ctags'
+let tagbar_ctags_bin='/opt/homebrew/bin/ctags'
 let tagbar_width=30
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
@@ -452,12 +432,16 @@ let g:tagbar_autoshowtag = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                          ale-错误检查
+let g:ale_enabled = 1
+let g:ale_use_neovim_diagnostics_api = 0
 let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
+let g:ale_open_list = 0
 let g:ale_completion_enabled = 1
 let g:ale_set_highlights = 1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_save = 0
 let g:ale_use_global_executables = 1
 let g:ale_linters_explicit = 1
 let g:airline#extensions#ale#enabled = 1
@@ -466,13 +450,14 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 
 let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
+let g:ale_echo_delay = 500
+let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = 'normal'
-let g:ale_fixers = {'python': [], 'javascript': ['prettier','eslint']} "'python': ['isort','yapf']
+" yapf: ~/.config/yapf/style
+let g:ale_fixers = {'python': ['black', 'isort'], 'javascript': ['prettier','eslint']}
 let b:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let b:ale_linters = {'python': ['pylint']}
-let g:ale_python_pylint_options='--disable="E501"'
+let b:ale_linters = {'python': ['pylint'], 'javascript': ['eslint']}
+let g:ale_python_pylint_options = '--errors-only'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>n <Plug>(ale_next_wrap)
@@ -488,6 +473,19 @@ let g:jedi#goto_definitions_command = ""
 let g:jedi#goto_stubs_command = ""
 let g:jedi#completions_command = ""
 let g:jedi#rename_command = ""
+let g:jedi#popup_on_dot = 0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 black
+let g:black_linelength = 120
+let g:black_use_virtualenv = 0
+let g:black_quiet = 1
+let g:black_preview = 0
+" augroup black_on_save
+  " autocmd!
+  " autocmd BufWritePre *.py Black
+" augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -533,12 +531,7 @@ let g:user_emmet_expandabbr_key = '<C-e>'
 "                                 docstring
 nmap <silent> pd <Plug>(pydocstring)
 let g:pydocstring_doq_path = 'doq'
-" let g:pydocstring_doq_path = '/usr/bin/doq'
-"template
-""""
-":param {{_args_}}:
-"{{_indent_}}:return:
-""""
+let g:pydocstring_templates_path = '~/.config/nvim/docstring'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -611,7 +604,8 @@ let g:tagbar_type_go = {
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim-json
-let g:vim_json_syntax_conceal = 0
+let g:vim_json_syntax_conceal = 1
+let g:indentLine_concealcursor=""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -661,17 +655,29 @@ nmap mm :G blame<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            gitsigns
+lua << EOF
+require('gitsigns').setup{
+  current_line_blame = true
+}
+EOF
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           indentLine
-let g:indentLine_enabled = 0
+let g:indentLine_enabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           vim-autoformat
 let g:formatterpath = ['/usr/local/go/bin', '/usr/local/bin']
-let g:autoformat_autoindent = 0
+let g:formatters_python = ['black', 'autopep8']
+let g:autoformat_autoindent = 1
 let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
-nnoremap = :Autoformat<CR>
+let g:autoformat_remove_trailing_spaces = 1
+map = :Autoformat<CR>
+au FileType python nmap <silent> = :Autoformat<cr>:ALEFix<cr>
+au FileType json nmap <silent> = :%!jq .<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -679,7 +685,7 @@ nnoremap = :Autoformat<CR>
 "切换终端
 let g:floaterm_wintype='split'
 let g:floaterm_position='belowright'
-let g:floaterm_height=0.3
+let g:floaterm_height=0.4
 let g:floaterm_autoinsert=v:true
 nmap wt :FloatermToggle<cr>
 tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
@@ -693,7 +699,7 @@ autocmd User FloatermOpen tmap <silent> <C-h> <C-\><C-n><C-w>h
 "                               	 fzf
 " export BAT_THEME=Nord
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~50%' }
+let g:fzf_layout = { 'down': '100%' }
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -716,8 +722,177 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
-autocmd! FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 autocmd! FileType fzf tmap <C-k> <Up>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               eggjs-jf
+let g:eggjs_gf_loadpath = 'service\|proxy\|model\|controller\|io'
+au FileType javascript nmap <silent> <C-[> gf
+au FileType typescript nmap <silent> <C-[> gf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               undotree
+nnoremap wu :UndotreeToggle<CR>
+let g:undotree_WindowLayout = 3
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              vim-grepper
+nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
+nnoremap <leader>a :Grepper -tool rg<cr>
+nnoremap <leader>g :Grepper -tool git<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         	    csv.vim
+"删除列:
+"DeleteColumn 2/cursor
+let g:csv_highlight_column = 'y'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"								               nvim-tree
+lua << EOF
+--- function
+function RunLazyGit()
+  local lib = require'nvim-tree.lib'
+  local node = lib.get_node_at_cursor()
+  local path = node.absolute_path
+  vim.cmd('FloatermNew --width=1000 --height=1000 --wintype=float --position=center lazygit -p ' .. path)
+end
+function my_on_attach(bufnr)
+	local api = require('nvim-tree.api')
+	local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+	end
+  api.config.mappings.default_on_attach(bufnr)
+	vim.keymap.set('n', '<C-]>',   api.tree.change_root_to_node,        opts('CD'))
+	vim.keymap.set('n', '<C-o>',       api.tree.change_root_to_parent,      opts('Up'))
+	vim.keymap.set('n', 'C',       api.tree.toggle_git_clean_filter,    opts('Toggle Filter: Git Clean'))
+	vim.keymap.set('n', '<Leader>p',      api.node.navigate.git.prev,          opts('Prev Git'))
+	vim.keymap.set('n', '<Leader>n',      api.node.navigate.git.next,          opts('Next Git'))
+	vim.keymap.set('n', 'a',       api.fs.create,                       opts('Create File Or Directory'))
+	vim.keymap.set('n', 'c',       api.fs.copy.node,                    opts('Copy'))
+	vim.keymap.set('n', 'e',       api.tree.expand_all,                 opts('Expand All'))
+	vim.keymap.set('n', 'w',       api.tree.collapse_all,               opts('Collapse'))
+	vim.keymap.set('n', 's',       api.node.run.system,                 opts('Run System'))
+  vim.keymap.set('n', 'h',       api.tree.toggle_hidden_filter,       opts('Toggle Filter: Dotfiles'))
+  vim.api.nvim_set_keymap('n', '<Leader>g', ':lua RunLazyGit()<CR>', { noremap = true, silent = true })
+end
+---
+
+require'nvim-tree'.setup {
+  disable_netrw = true,
+  hijack_netrw = true,
+  on_attach = my_on_attach,
+  view = {
+    width = 30,
+    side = 'left',
+  },
+  filters = {
+    dotfiles = true,
+    custom = { '.pyc$', '__pycache__' },
+  },
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 500,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = false,
+    },
+  },
+  renderer = {
+    highlight_opened_files = "all",
+    root_folder_modifier = ":t",
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "✹",
+          staged = "✚",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "✖",
+          ignored = "◌",
+        },
+      },
+    },
+  },
+}
+-- 设置状态栏内容为空
+EOF
+
+" Key mapping to toggle NvimTree
+nnoremap wm :NvimTreeToggle<CR>
+
+" Auto close NvimTree if it's the last window
+autocmd BufEnter * ++nested if winnr('$') == 1 && exists('b:nvim_tree') | quit | endif
+
+autocmd StdinReadPre * let s:std_in=1
+cnoreabbrev e Edit
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                which-key
+lua << EOF
+  require("which-key").setup {}
+  local wk = require("which-key")
+  wk.register({
+        c = {
+          name = "ChatGPT",
+          c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+          i = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
+          e = { "<cmd>ChatGPTRun complete_code<CR>", "Complete Code", mode = { "n", "v" } },
+          g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
+          t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
+          k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
+          d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+          a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+          o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+          s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+          f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+          x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+          r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
+          l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
+        }
+      }, { prefix = "<leader>" })
+EOF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                copilot
+let b:copilot_enabled = v:true
+let g:codeium_enabled = v:false
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            	   ChatGPT
+"
+" export OPENAI_API_TYPE="azure"
+" export OPENAI_API_BASE="https://{your-resource-name}.openai.azure.com"
+" export OPENAI_API_AZURE_ENGINE="gpt-35-turbo"
+" export OPENAI_API_AZURE_VERSION="2024-02-15-preview"
+" export OPENAI_API_KEY=""
+"
+lua << EOF
+require("chatgpt").setup{
+  actions_paths = {
+    "~/.config/nvim/chatgpt/actions.json"
+  },
+}
+EOF
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 llm
+" lua << EOF
+" require('llm').setup{}
+" EOF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

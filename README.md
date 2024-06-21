@@ -44,6 +44,12 @@ nvim
   $ make hexokinase
   ```
 
+- setup
+
+  ```bash
+  $ cp -R ~/.config/nvim/yapf ~/.config
+  ```
+
 ### Included Color Schemes
 
 - [Nord](https://github.com/arcticicestudio/nord-vim) (*default*)
