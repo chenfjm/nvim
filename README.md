@@ -18,7 +18,7 @@ nvim
 - Mac OS
 
   ```bash
-  $brew install ctags nodejs autopep8 yapf ripgrep bat golang
+  $brew install ctags nodejs autopep8 ripgrep bat golang
   $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g  
   ```
 
@@ -26,14 +26,14 @@ nvim
 - Linux    
 
   ```bash
-  $yum install ctags nodejs autopep8 yapf ripgrep golang
+  $yum install ctags nodejs autopep8 ripgrep golang
   $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g
   ```
 
 - pip
 
   ```bash
-  $ pip install neovim jedi pylint doq
+  $ pip install neovim jedi pylint doq black
   ```
 - make
 
@@ -42,12 +42,6 @@ nvim
   $ make
   $ cd ~/.config/nvim/plugged/vim-hexokinasee
   $ make hexokinase
-  ```
-
-- setup
-
-  ```bash
-  $ cp -R ~/.config/nvim/yapf ~/.config
   ```
 
 ### Included Color Schemes
