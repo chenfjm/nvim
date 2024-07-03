@@ -58,7 +58,7 @@ Plug 'hotoo/jsgf.vim', { 'for': ['javascript', 'javascriptreat', 'typescript', '
 Plug 'hotoo/eggjs-gf.vim', { 'for': ['javascript', 'typescript'] }
 
 "go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go' ", { 'do': ':GoUpdateBinaries' }
 
 "markdown
 Plug 'preservim/vim-markdown'
