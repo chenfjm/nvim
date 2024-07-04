@@ -779,6 +779,7 @@ function my_on_attach(bufnr)
 	vim.keymap.set('n', 's',       api.node.run.system,                 opts('Run System'))
   vim.keymap.set('n', 'h',       api.tree.toggle_hidden_filter,       opts('Toggle Filter: Dotfiles'))
   vim.api.nvim_set_keymap('n', '<Leader>g', ':lua RunLazyGit()<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', 'gg', ':lua RunLazyGit()<CR>', { noremap = true, silent = true })
 end
 ---
 
