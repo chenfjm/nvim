@@ -18,7 +18,7 @@ nvim
 - Mac OS
 
   ```bash
-  $brew install ctags nodejs autopep8 ripgrep bat golang
+  $brew install ctags nodejs autopep8 flake8 ripgrep bat golang
   $npm install eslint eslint-plugin-vue eslint-plugin-react typescript -g  
   ```
 
