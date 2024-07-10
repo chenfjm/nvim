@@ -503,23 +503,6 @@ let g:ycm_semantic_triggers =  {
   \}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"								ultisnips
-" Track the engine.
-"Bundle 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-"Bundle 'honza/vim-snippets'
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="horizontal"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Emmet
 "
@@ -875,8 +858,15 @@ let g:codeium_enabled = v:false
 "
 "
 lua << EOF
-require("supermaven-nvim").setup{
-}
+require("supermaven-nvim").setup({
+  keymaps = {
+    accept_suggestion = "<C-l>",
+    clear_suggestion = "<C-k>",
+    accept_word = "<C-j>",
+  },
+  log_level = "no", -- set to "off" to disable logging completely
+  disable_inline_completion = false, -- disables inline completion for use with cmp
+})
 EOF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
