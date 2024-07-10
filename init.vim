@@ -341,7 +341,7 @@ inoremap <expr><C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <expr><C-k> coc#pum#visible() ?  coc#pum#prev(1) : "\<C-k>"    
                                                                                                                                                
 inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm()    
-                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()"
 
 nnoremap <silent> <Leader>d :call <SID>show_documentation()<CR>
 function! s:show_documentation()
