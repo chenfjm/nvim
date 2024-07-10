@@ -457,6 +457,7 @@ let g:ale_fixers = {'python': ['black', 'isort'], 'javascript': ['prettier','esl
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {'python': ['pylint'], 'javascript': ['eslint']}
 let g:ale_python_pylint_options = '--errors-only'
+let g:ale_python_isort_options = '--line-length 120 --profile black'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>n <Plug>(ale_next_wrap)
