@@ -438,6 +438,7 @@ let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
 let g:ale_open_list = 0
 let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
 let g:ale_set_highlights = 1
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_insert_leave = 1
@@ -453,11 +454,11 @@ let g:ale_completion_delay = 500
 let g:ale_echo_delay = 500
 let g:ale_lint_delay = 50
 let g:ale_lint_on_text_changed = 'normal'
-let g:ale_fixers = {'python': ['black', 'isort'], 'javascript': ['prettier','eslint']}
+let g:ale_fixers = {'python': ['isort', 'autoimport', 'yapf', 'black'], 'javascript': ['prettier','eslint']}
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint']}
 let g:ale_python_pylint_options = '--errors-only'
-let g:ale_python_flake8_options = '--ignore=W,E501'
+let g:ale_python_flake8_options = '--ignore=W,E501,E203'
 let g:ale_python_isort_options = '--line-length 88 --profile black'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
