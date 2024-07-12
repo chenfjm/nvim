@@ -457,7 +457,7 @@ let g:ale_fixers = {'python': ['isort', 'yapf', 'black'], 'javascript': ['pretti
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint']}
 let g:ale_python_pylint_options = '--errors-only'
-let g:ale_python_flake8_options = '--ignore=W,E501,E203'
+let g:ale_python_flake8_options = '--ignore=W,E501,E203,E252'
 let g:ale_python_isort_options = '--line-length 88 --profile black --dont-follow-links'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
