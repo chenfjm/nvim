@@ -863,8 +863,8 @@ lua << EOF
 require("supermaven-nvim").setup({
   keymaps = {
     accept_suggestion = "<C-l>",
-    clear_suggestion = "<C-k>",
-    accept_word = "<C-j>",
+    accept_word = "<C-k>",
+    clear_suggestion = "<C-i>",
   },
   log_level = "no", -- set to "off" to disable logging completely
   disable_inline_completion = false, -- disables inline completion for use with cmp
