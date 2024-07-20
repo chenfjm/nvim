@@ -77,7 +77,7 @@ call plug#end()
  filetype indent on
 
 "Always show the status line - use 2 lines for the status bar
- set laststatus=2
+ set laststatus=3
 
  set cursorline
  set modifiable
@@ -850,6 +850,21 @@ EOF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                nvim-cmp
+lua << EOF
+local cmp = require'cmp'
+cmp.setup({
+  sources = {
+    { name = "supermaven" },
+  },
+      mapping = cmp.mapping.preset.insert({
+      ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+})
+EOF
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                copilot
 let b:copilot_enabled = v:false
 let g:codeium_enabled = v:false
@@ -862,8 +877,8 @@ let g:codeium_enabled = v:false
 lua << EOF
 require("supermaven-nvim").setup({
   keymaps = {
-    accept_suggestion = "<C-l>",
-    accept_word = "<C-k>",
+    accept_suggestion = "<Tab>",
+    accept_word = "<C-l>",
     clear_suggestion = "<C-i>",
   },
   log_level = "no", -- set to "off" to disable logging completely
