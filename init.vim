@@ -458,7 +458,8 @@ let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint']}
 let g:ale_python_pylint_options = '--errors-only'
 let g:ale_python_flake8_options = '--ignore=W,E501,E203,E252'
-let g:ale_python_isort_options = '--line-length 88 --profile black --dont-follow-links'
+let g:ale_python_black_options = '--line-length 120'
+let g:ale_python_isort_options = '--line-length 120 --profile black --dont-follow-links'
 
 nmap <silent> <Leader>p <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>n <Plug>(ale_next_wrap)
@@ -655,7 +656,7 @@ let g:indentLine_enabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           vim-autoformat
 let g:formatterpath = ['/usr/local/go/bin', '/usr/local/bin']
-let g:formatters_python = ['black']
+" let g:formatters_python = ['black']
 let g:autoformat_autoindent = 1
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 1
