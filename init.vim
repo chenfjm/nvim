@@ -368,7 +368,7 @@ let g:airline_detect_spell=1
 let g:airline_detect_spelllang=1
 let g:airline_skip_empty_sections = 1
 let g:airline_statusline_ontop = 0
-let g:airline_section_c = '%t'
+" let g:airline_section_c = '%t'
 let g:airline_section_z = '%p%% %l:%v'
 
 "tabline
