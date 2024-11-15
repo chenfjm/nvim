@@ -726,8 +726,7 @@ let g:undotree_WindowLayout = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              vim-grepper
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-nnoremap <leader>r :Grepper -tool rg<cr>
-nnoremap <leader>g :Grepper -tool git<cr>
+nnoremap <leader>g :Grepper -tool rg<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
