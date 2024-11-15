@@ -726,7 +726,7 @@ let g:undotree_WindowLayout = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              vim-grepper
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-nnoremap <leader>g :Grepper -tool rg<cr>
+nnoremap <leader>e :Grepper -tool rg<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -740,10 +740,25 @@ let g:csv_highlight_column = 'y'
 "								               nvim-tree
 lua << EOF
 --- function
+function FindGitDir(dir)
+  local git_dir = dir .. "/.git"
+  if vim.fn.isdirectory(git_dir) == 1 then
+    return dir
+  elseif dir == "/" then
+    return false
+  else
+    -- 查找父目录
+    local parent_dir = vim.fn.fnamemodify(dir, ":h")
+    return FindGitDir(parent_dir)
+  end
+end
 function RunLazyGit()
   local node = require("nvim-tree.api").tree.get_node_under_cursor()
   local path = node.absolute_path
-  vim.cmd('FloatermNew --width=1000 --height=1000 --wintype=float --position=center lazygit -p ' .. path)
+  path = FindGitDir(path)
+  if path then
+    vim.cmd('FloatermNew --width=1000 --height=1000 --wintype=float --position=center lazygit -p ' .. path)
+  end
 end
 function my_on_attach(bufnr)
 	local api = require('nvim-tree.api')
