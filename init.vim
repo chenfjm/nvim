@@ -840,11 +840,10 @@ lua << EOF
   require("which-key").setup {}
   local wk = require("which-key")
   wk.add({
-    { "<leader>c", group = "ChatGPT" },
-    { "<leader>cc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+    { "<leader>c", "<cmd>AvanteToggle<CR>", desc = "Chat" },
     {
       mode = { "n", "v" },
-      { "<leader>ce", "<cmd>ChatGPTRun complete_code<CR>", desc = "Complete Code" },
+      { "<leader>aa", "<cmd>AvanteAsk<CR>", desc = "Avante ask" },
     },
   })
 EOF
@@ -856,7 +855,7 @@ lua << EOF
 local cmp = require'cmp'
 cmp.setup({
   sources = {
-    { name = "supermaven" },
+    { name = "" },
   },
       mapping = cmp.mapping.preset.insert({
       ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -894,14 +893,13 @@ lua << EOF
 require('avante_lib').load()
 require('avante').setup ({
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-  provider = "azure", -- Recommend using Claude
-  auto_suggestions_provider = "azure", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-  azure = {
-    endpoint = "",
-    model = "",
-    api_version = "2024-06-01",
+  provider = "openai", -- Recommend using Claude
+  auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+  openai = {
+    endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    model = "qwen-max", -- qwen-max | qwen2.5-coder-32b-instruct
     temperature = 0,
-    max_tokens = 4096,
+    max_tokens = 8192,
   },
   behaviour = {
     auto_suggestions = false, -- Experimental stage
@@ -922,10 +920,10 @@ require('avante').setup ({
       prev = "[x",
     },
     suggestion = {
-      accept = "<M-l>",
-      next = "<M-]>",
-      prev = "<M-[>",
-      dismiss = "<C-]>",
+      accept = "<Tab>",
+      next = "<C-j",
+      prev = "<C-k>",
+      dismiss = "<C-i>",
     },
     jump = {
       next = "]]",
@@ -933,7 +931,7 @@ require('avante').setup ({
     },
     submit = {
       normal = "<CR>",
-      insert = "<C-s>",
+      insert = "<CR>",
     },
     sidebar = {
       apply_all = "A",
@@ -947,14 +945,14 @@ require('avante').setup ({
     ---@type "right" | "left" | "top" | "bottom"
     position = "right", -- the position of the sidebar
     wrap = true, -- similar to vim.o.wrap
-    width = 30, -- default % based on available width
+    width = 40, -- default % based on available width
     sidebar_header = {
-      enabled = true, -- true, false to enable/disable the header
+      enabled = false, -- true, false to enable/disable the header
       align = "center", -- left, center, right for title
       rounded = true,
     },
     input = {
-      prefix = "> ",
+      prefix = ">",
       height = 8, -- Height of the input window in vertical layout
     },
     edit = {
