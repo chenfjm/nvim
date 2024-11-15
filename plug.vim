@@ -29,15 +29,11 @@ Plug 'mhinz/vim-grepper'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'
 Plug 'hrsh7th/nvim-cmp'
-"Plug 'github/copilot.vim'
-Plug 'supermaven-inc/supermaven-nvim'
-Plug 'huggingface/llm.nvim'
 Plug 'mhinz/vim-startify'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'jackMort/ChatGPT.nvim'
 Plug 'neomake/neomake'
 Plug 'mbbill/undotree'
 Plug 'lewis6991/gitsigns.nvim'
@@ -45,6 +41,12 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'folke/which-key.nvim'
 " Plug 'terryma/vim-multiple-cursors'
+
+"ai
+"Plug 'github/copilot.vim'
+Plug 'supermaven-inc/supermaven-nvim'
+Plug 'stevearc/dressing.nvim'
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
 "python
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }

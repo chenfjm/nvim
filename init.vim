@@ -726,7 +726,7 @@ let g:undotree_WindowLayout = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              vim-grepper
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-nnoremap <leader>a :Grepper -tool rg<cr>
+" nnoremap <leader>a :Grepper -tool rg<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -742,8 +742,7 @@ let g:csv_highlight_column = 'y'
 lua << EOF
 --- function
 function RunLazyGit()
-  local lib = require'nvim-tree.lib'
-  local node = lib.get_node_at_cursor()
+  local node = require("nvim-tree.api").tree.get_node_under_cursor()
   local path = node.absolute_path
   vim.cmd('FloatermNew --width=1000 --height=1000 --wintype=float --position=center lazygit -p ' .. path)
 end
@@ -767,7 +766,6 @@ function my_on_attach(bufnr)
   vim.api.nvim_set_keymap('n', '<Leader>g', ':lua RunLazyGit()<CR>', { noremap = true, silent = true })
 end
 ---
-
 require'nvim-tree'.setup {
   disable_netrw = true,
   hijack_netrw = true,
@@ -810,7 +808,6 @@ require'nvim-tree'.setup {
     },
   },
 }
--- 设置状态栏内容为空
 EOF
 
 " Key mapping to toggle NvimTree
@@ -889,28 +886,105 @@ require("supermaven-nvim").setup({
 EOF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            	   ChatGPT
-"
-" export OPENAI_API_TYPE="azure"
-" export OPENAI_API_BASE="https://{your-resource-name}.openai.azure.com"
-" export OPENAI_API_AZURE_ENGINE="gpt-35-turbo"
-" export OPENAI_API_AZURE_VERSION="2024-02-15-preview"
-" export OPENAI_API_KEY=""
-"
-lua << EOF
-require("chatgpt").setup{
-  actions_paths = {
-    "~/.config/nvim/chatgpt/actions.json"
-  },
-}
-EOF
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 llm
-" lua << EOF
-" require('llm').setup{}
-" EOF
+"                             avante.nvim
+lua << EOF
+require('avante_lib').load()
+require('avante').setup ({
+  ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+  provider = "azure", -- Recommend using Claude
+  auto_suggestions_provider = "azure", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+  azure = {
+    endpoint = "",
+    model = "",
+    api_version = "2024-06-01",
+    temperature = 0,
+    max_tokens = 4096,
+  },
+  behaviour = {
+    auto_suggestions = false, -- Experimental stage
+    auto_set_highlight_group = true,
+    auto_set_keymaps = true,
+    auto_apply_diff_after_generation = false,
+    support_paste_from_clipboard = false,
+  },
+  mappings = {
+    --- @class AvanteConflictMappings
+    diff = {
+      ours = "co",
+      theirs = "ct",
+      all_theirs = "ca",
+      both = "cb",
+      cursor = "cc",
+      next = "]x",
+      prev = "[x",
+    },
+    suggestion = {
+      accept = "<M-l>",
+      next = "<M-]>",
+      prev = "<M-[>",
+      dismiss = "<C-]>",
+    },
+    jump = {
+      next = "]]",
+      prev = "[[",
+    },
+    submit = {
+      normal = "<CR>",
+      insert = "<C-s>",
+    },
+    sidebar = {
+      apply_all = "A",
+      apply_cursor = "a",
+      switch_windows = "<Tab>",
+      reverse_switch_windows = "<S-Tab>",
+    },
+  },
+  hints = { enabled = true },
+  windows = {
+    ---@type "right" | "left" | "top" | "bottom"
+    position = "right", -- the position of the sidebar
+    wrap = true, -- similar to vim.o.wrap
+    width = 30, -- default % based on available width
+    sidebar_header = {
+      enabled = true, -- true, false to enable/disable the header
+      align = "center", -- left, center, right for title
+      rounded = true,
+    },
+    input = {
+      prefix = "> ",
+      height = 8, -- Height of the input window in vertical layout
+    },
+    edit = {
+      border = "rounded",
+      start_insert = true, -- Start insert mode when opening the edit window
+    },
+    ask = {
+      floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+      start_insert = true, -- Start insert mode when opening the ask window
+      border = "rounded",
+      ---@type "ours" | "theirs"
+      focus_on_apply = "ours", -- which diff to focus after applying
+    },
+  },
+  highlights = {
+    ---@type AvanteConflictHighlights
+    diff = {
+      current = "DiffText",
+      incoming = "DiffAdd",
+    },
+  },
+  --- @class AvanteConflictUserConfig
+  diff = {
+    autojump = true,
+    ---@type string | fun(): any
+    list_opener = "copen",
+    --- Override the 'timeoutlen' setting while hovering over a diff (see :help timeoutlen).
+    --- Helps to avoid entering operator-pending mode with diff mappings starting with `c`.
+    --- Disable by setting to -1.
+    override_timeoutlen = 500,
+  },
+})
+EOF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
