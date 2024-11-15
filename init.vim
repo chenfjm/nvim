@@ -726,7 +726,7 @@ let g:undotree_WindowLayout = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              vim-grepper
 nnoremap <leader>* :Grepper -tool rg -cword -noprompt<cr>
-" nnoremap <leader>a :Grepper -tool rg<cr>
+nnoremap <leader>r :Grepper -tool rg<cr>
 nnoremap <leader>g :Grepper -tool git<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -830,19 +830,7 @@ lua << EOF
     { "<leader>cc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
     {
       mode = { "n", "v" },
-      { "<leader>ca", "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
-      { "<leader>cd", "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
       { "<leader>ce", "<cmd>ChatGPTRun complete_code<CR>", desc = "Complete Code" },
-      { "<leader>cf", "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
-      { "<leader>cg", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
-      { "<leader>ci", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
-      { "<leader>ck", "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
-      { "<leader>cl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "Code Readability Analysis" },
-      { "<leader>co", "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
-      { "<leader>cr", "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
-      { "<leader>cs", "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
-      { "<leader>ct", "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
-      { "<leader>cx", "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
     },
   })
 EOF
