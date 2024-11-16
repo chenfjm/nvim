@@ -846,8 +846,8 @@ lua << EOF
     { "<leader>a", group = "Avante" },
     {
       mode = { "n", "v" },
-      { "<leader>ac", "<cmd>AvanteChat<CR>", desc = "Avante Chat" },
-      { "<leader>al", "<cmd>AvanteClear<CR>", desc = "Avante Clear" },
+      { "<leader>ac", "<cmd>AvanteChat<CR>", desc = "avante chat" },
+      { "<leader>al", "<cmd>AvanteClear<CR>", desc = "avante clear" },
     },
   })
 EOF
