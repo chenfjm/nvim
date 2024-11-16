@@ -52,7 +52,10 @@ call plug#end()
  let mapleader=" "
  set termguicolors
  let g:rainbow_active = 0
-"
+
+"窗口分割线
+highlight WinSeparator guifg=#465264 guibg=None
+
 "自动、智能缩进
  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
  autocmd FileType go setlocal ts=4 sts=4 sw=4 expandtab
@@ -840,10 +843,11 @@ lua << EOF
   require("which-key").setup {}
   local wk = require("which-key")
   wk.add({
-    { "<leader>c", "<cmd>AvanteToggle<CR>", desc = "Chat" },
+    { "<leader>a", group = "Avante" },
     {
       mode = { "n", "v" },
-      { "<leader>aa", "<cmd>AvanteAsk<CR>", desc = "Avante ask" },
+      { "<leader>ac", "<cmd>AvanteChat<CR>", desc = "Avante Chat" },
+      { "<leader>al", "<cmd>AvanteClear<CR>", desc = "Avante Clear" },
     },
   })
 EOF
@@ -893,13 +897,24 @@ lua << EOF
 require('avante_lib').load()
 require('avante').setup ({
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-  provider = "openai", -- Recommend using Claude
-  auto_suggestions_provider = "openai", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+  provider = "qwen-max", -- Recommend using Claude
+  auto_suggestions_provider = "qwen-coder", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
   openai = {
     endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
-    model = "qwen-max", -- qwen-max | qwen2.5-coder-32b-instruct
+    model = "qwen-turbo",
     temperature = 0,
     max_tokens = 8192,
+    ["local"] = false,
+  },
+  vendors = {
+    ["qwen-max"] = {
+      __inherited_from = "openai",
+      model = "qwen-max",
+    },
+    ["qwen-coder"] = {
+      __inherited_from = "openai",
+      model = "qwen2.5-coder-32b-instruct",
+    }
   },
   behaviour = {
     auto_suggestions = false, -- Experimental stage

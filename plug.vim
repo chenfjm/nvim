@@ -40,10 +40,11 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'folke/which-key.nvim'
+Plug 'HakonHarnes/img-clip.nvim'
 " Plug 'terryma/vim-multiple-cursors'
 
 "ai
-"Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 Plug 'supermaven-inc/supermaven-nvim'
 Plug 'stevearc/dressing.nvim'
 Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
