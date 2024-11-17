@@ -904,7 +904,6 @@ require('avante').setup ({
     model = "qwen-turbo",
     temperature = 0,
     max_tokens = 8192,
-    ["local"] = false,
   },
   vendors = {
     ["qwen-max"] = {
