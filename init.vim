@@ -928,6 +928,12 @@ require('avante').setup ({
       endpoint = "https://codestral.mistral.ai/v1",
       model = "codestral-latest",
     },
+    ["gemini"] = {
+      __inherited_from = "openai",
+      api_key_name = "GEMINI_API_KEY",
+      endpoint = "https://generativelanguage.googleapis.com/v1beta/openai",
+      model = "gemini-2.0-flash-exp",
+    },
   },
   behaviour = {
     auto_suggestions = false, -- Experimental stage
