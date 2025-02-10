@@ -898,7 +898,7 @@ require('avante_lib').load()
 require('avante').setup ({
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
   provider = "codestral", -- Recommend using Claude
-  auto_suggestions_provider = "qwen-coder", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
+  auto_suggestions_provider = "codestral", 
   openai = {
     temperature = 0,
     max_tokens = 8192,
@@ -908,7 +908,7 @@ require('avante').setup ({
       __inherited_from = "openai",
       api_key_name = "DASHSCOPE_API_KEY",
       endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
-      model = "qwen-max",
+      model = "qwen-max-latest",
     },
     ["qwen-coder"] = {
       __inherited_from = "openai",
