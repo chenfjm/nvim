@@ -25,6 +25,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ibhagwan/fzf-lua'
 Plug 'mhinz/vim-grepper'
 Plug 'voldikss/vim-floaterm'
 Plug 'puremourning/vimspector'

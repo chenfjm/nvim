@@ -1020,6 +1020,17 @@ require('avante').setup ({
     --- Disable by setting to -1.
     override_timeoutlen = 500,
   },
+  --- @class AvanteFileSelectorConfig
+  file_selector = {
+    --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string | fun(params: avante.file_selector.IParams|nil): nil
+    provider = "fzf",
+    -- Options override for custom providers
+    provider_opts = {},
+  },
+  suggestion = {
+    debounce = 600,
+    throttle = 600,
+  },
 })
 EOF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
