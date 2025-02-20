@@ -67,6 +67,7 @@ Plug 'fatih/vim-go' ", { 'do': ':GoUpdateBinaries' }
 "markdown
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 "tex
 Plug 'lervag/vimtex'
