@@ -1,4 +1,6 @@
-"color
+if exists('g:vscode')"color
+else
+
 Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
 Plug 'arcticicestudio/nord-vim'
@@ -77,3 +79,4 @@ Plug 'chrisbra/csv.vim'
 
 "json
 Plug 'elzr/vim-json', { 'for': 'json' }
+endif
