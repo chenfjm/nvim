@@ -906,32 +906,20 @@ lua << EOF
 require('avante_lib').load()
 require('avante').setup ({
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-  provider = "codestral", -- Recommend using Claude
-  auto_suggestions_provider = "codestral", 
+  provider = "qwq", -- Recommend using Claude
+  auto_suggestions_provider = "qwq", 
   openai = {
     temperature = 0,
     max_tokens = 8192,
   },
   vendors = {
-    ["qwen-max"] = {
+    ["qwq"] = {
       __inherited_from = "openai",
       api_key_name = "DASHSCOPE_API_KEY",
       endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
-      model = "qwen-max-latest",
-    },
-    ["qwen-coder"] = {
-      __inherited_from = "openai",
-      api_key_name = "DASHSCOPE_API_KEY",
-      endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
-      model = "qwen2.5-coder-32b-instruct",
+      model = "qwq-32b",
     },
 
-    ["mistral"] = {
-      __inherited_from = "openai",
-      api_key_name = "MISTRAL_API_KEY",
-      endpoint = "https://api.mistral.ai/v1",
-      model = "mistral-large-latest",
-    },
     ["codestral"] = {
       __inherited_from = "openai",
       api_key_name = "CODESTRAL_API_KEY",
