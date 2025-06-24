@@ -908,30 +908,36 @@ require('avante').setup ({
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
   provider = "qwq", -- Recommend using Claude
   auto_suggestions_provider = "qwq", 
-  openai = {
-    temperature = 0,
-    max_tokens = 8192,
-  },
-  vendors = {
-    ["qwq"] = {
+  providers = {
+    openai = {
+      max_tokens = 8192,
+    },
+    qwq = {
       __inherited_from = "openai",
       api_key_name = "DASHSCOPE_API_KEY",
       endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
       model = "qwq-32b",
+      extra_request_body = {  
+        temperature = 0,
+      },
     },
 
-    ["codestral"] = {
+    codestral = {
       __inherited_from = "openai",
       api_key_name = "CODESTRAL_API_KEY",
       endpoint = "https://codestral.mistral.ai/v1",
       model = "codestral-latest",
+      extra_request_body = {  
+        temperature = 0,
+      },
     },
 
-    ["gemini"] = {
+    gemini = {
       __inherited_from = "openai",
       api_key_name = "GEMINI_API_KEY",
       endpoint = "https://generativelanguage.googleapis.com/v1beta/openai",
       model = "gemini-2.0-flash",
+      temperature = 0,
     },
   },
   behaviour = {
