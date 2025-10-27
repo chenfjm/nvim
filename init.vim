@@ -539,11 +539,11 @@ nmap mp <Plug>MarkdownPreview
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           render-markdown.nvim
-lua << EOF
-require('render-markdown').setup({
-    file_types = { 'markdown', 'quarto', 'Avante' },
-})
-EOF
+" lua << EOF
+" require('render-markdown').setup({
+"     file_types = { 'markdown', 'quarto', 'Avante' },
+" })
+" EOF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -680,9 +680,10 @@ au FileType json nmap <silent> = :%!jq .<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  vim-floaterm
 "切换终端
-let g:floaterm_wintype='split'
-let g:floaterm_position='belowright'
-let g:floaterm_height=0.4
+let g:floaterm_wintype='vsplit'
+let g:floaterm_position='right'
+let g:floaterm_height=1
+let g:floaterm_width=0.3
 let g:floaterm_autoinsert=v:true
 nmap wt :FloatermToggle<cr>
 tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
