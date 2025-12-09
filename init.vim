@@ -683,11 +683,11 @@ au FileType json nmap <silent> = :%!jq .<CR>
 let g:floaterm_wintype='vsplit'
 let g:floaterm_position='right'
 let g:floaterm_height=1
-let g:floaterm_width=0.3
+let g:floaterm_width=0.4
 let g:floaterm_autoinsert=v:true
-nmap wt :FloatermToggle<cr>
+nmap <c-i> :FloatermToggle<cr>
 tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
-tmap <silent> wt <C-\><C-n>:FloatermHide<CR>
+tmap <silent> <c-i> <C-\><C-n>:FloatermHide<CR>
 " tmap <silent> jj <C-\><C-n>
 autocmd User FloatermOpen tmap <silent> <C-k> <C-\><C-n><C-w>k
 autocmd User FloatermOpen tmap <silent> <C-h> <C-\><C-n><C-w>h
