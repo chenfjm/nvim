@@ -85,7 +85,7 @@ highlight WinSeparator guifg=#465264 guibg=None
  set cursorline
  set modifiable
 "paste toggle
- set pastetoggle=<C-t>
+"  set pastetoggle=<C-t>
 "中文乱码"
  set encoding=utf-8
  set fileencodings=utf-8,chinese
@@ -231,7 +231,7 @@ let g:startify_change_to_dir = 0
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 lua << EOF
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter.config'.setup {
   -- A list of parser names, or "all"
   ensure_installed = {"vim", "lua", "python", "go", "vue", "bash", "css", "html", "json", "make", "yaml" },
 
@@ -961,7 +961,7 @@ require('avante').setup ({
     },
     suggestion = {
       accept = "<Tab>",
-      next = "<C-j",
+      next = "<C-j>",
       prev = "<C-k>",
       dismiss = "<C-i>",
     },
