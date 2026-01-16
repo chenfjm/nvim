@@ -110,11 +110,11 @@ highlight WinSeparator guifg=#465264 guibg=None
 "自动读取文件修改
  set autoread
 "激活鼠标的使用
- set mouse=n
+ set mouse=a
  " set selection=exclusive
- set selectmode=mouse,key
+ " set selectmode=mouse,key
 "支持系统剪切板
- set clipboard=unnamed
+ set clipboard=unnamedplus
 "文件类型自动检测，代码智能补全
  set completeopt=longest,preview,menu
 
@@ -683,7 +683,7 @@ au FileType json nmap <silent> = :%!jq .<CR>
 let g:floaterm_wintype='vsplit'
 let g:floaterm_position='right'
 let g:floaterm_height=1
-let g:floaterm_width=0.4
+let g:floaterm_width=0.35
 let g:floaterm_autoinsert=v:true
 nmap <c-i> :FloatermToggle<cr>
 tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
