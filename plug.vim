@@ -48,7 +48,6 @@ Plug 'HakonHarnes/img-clip.nvim'
 
 "ai
 " Plug 'github/copilot.vim'
-Plug 'supermaven-inc/supermaven-nvim'
 Plug 'stevearc/dressing.nvim'
 Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 

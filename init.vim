@@ -884,23 +884,6 @@ let b:copilot_enabled = v:false
 let g:codeium_enabled = v:false
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            	  Supermaven
-"
-"
-lua << EOF
-require("supermaven-nvim").setup({
-  keymaps = {
-    accept_suggestion = "<Tab>",
-    accept_word = "<C-l>",
-    clear_suggestion = "<C-i>",
-  },
-  log_level = "no", -- set to "off" to disable logging completely
-  disable_inline_completion = false, -- disables inline completion for use with cmp
-})
-EOF
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                             avante.nvim
 lua << EOF
