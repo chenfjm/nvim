@@ -47,9 +47,9 @@ Plug 'HakonHarnes/img-clip.nvim'
 " Plug 'terryma/vim-multiple-cursors'
 
 "ai
-" Plug 'github/copilot.vim'
 Plug 'stevearc/dressing.nvim'
-Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+Plug 'folke/snacks.nvim'
+Plug 'coder/claudecode.nvim'
 
 "python
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }

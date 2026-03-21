@@ -231,7 +231,7 @@ let g:startify_change_to_dir = 0
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 lua << EOF
-require'nvim-treesitter.config'.setup {
+require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = {"vim", "lua", "python", "go", "vue", "bash", "css", "html", "json", "make", "yaml" },
 
@@ -876,148 +876,45 @@ cmp.setup({
     }),
 })
 EOF
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                copilot
-let b:copilot_enabled = v:false
-let g:codeium_enabled = v:false
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                             avante.nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            claudecode.nvim
 lua << EOF
-require('avante_lib').load()
-require('avante').setup ({
-  ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-  provider = "qwq", -- Recommend using Claude
-  auto_suggestions_provider = "qwq", 
-  providers = {
-    openai = {
-      max_tokens = 8192,
-    },
-    qwq = {
-      __inherited_from = "openai",
-      api_key_name = "DASHSCOPE_API_KEY",
-      endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
-      model = "qwq-32b",
-      extra_request_body = {  
-        temperature = 0,
-      },
-    },
+require("claudecode").setup({
+  -- Server Configuration
+  port_range = { min = 10000, max = 65535 },
+  auto_start = true,
+  log_level = "info", -- "trace", "debug", "info", "warn", "error"
+  terminal_cmd = nil, -- Custom terminal command (default: "claude")
 
-    codestral = {
-      __inherited_from = "openai",
-      api_key_name = "CODESTRAL_API_KEY",
-      endpoint = "https://codestral.mistral.ai/v1",
-      model = "codestral-latest",
-      extra_request_body = {  
-        temperature = 0,
-      },
-    },
+  -- Send/Focus Behavior
+  focus_after_send = false,
 
-    gemini = {
-      __inherited_from = "openai",
-      api_key_name = "GEMINI_API_KEY",
-      endpoint = "https://generativelanguage.googleapis.com/v1beta/openai",
-      model = "gemini-2.0-flash",
-      temperature = 0,
+  -- Selection Tracking
+  track_selection = true,
+  visual_demotion_delay_ms = 50,
+
+  -- Terminal Configuration
+  terminal = {
+    split_side = "right", -- "left" or "right"
+    split_width_percentage = 0.30,
+    provider = "none", -- "auto", "snacks", "native", "external", "none"
+    auto_close = true,
+    snacks_win_opts = {},
+
+    provider_opts = {
+      external_terminal_cmd = nil,
     },
   },
-  behaviour = {
-    auto_suggestions = false, -- Experimental stage
-    auto_set_highlight_group = true,
-    auto_set_keymaps = true,
-    auto_apply_diff_after_generation = false,
-    support_paste_from_clipboard = false,
-  },
-  mappings = {
-    --- @class AvanteConflictMappings
-    diff = {
-      ours = "co",
-      theirs = "ct",
-      all_theirs = "ca",
-      both = "cb",
-      cursor = "cc",
-      next = "]x",
-      prev = "[x",
-    },
-    suggestion = {
-      accept = "<Tab>",
-      next = "<C-j>",
-      prev = "<C-k>",
-      dismiss = "<C-i>",
-    },
-    jump = {
-      next = "]]",
-      prev = "[[",
-    },
-    submit = {
-      normal = "<CR>",
-      insert = "<CR>",
-    },
-    sidebar = {
-      apply_all = "A",
-      apply_cursor = "a",
-      switch_windows = "<Tab>",
-      reverse_switch_windows = "<S-Tab>",
-    },
-  },
-  hints = { enabled = true },
-  windows = {
-    ---@type "right" | "left" | "top" | "bottom"
-    position = "right", -- the position of the sidebar
-    wrap = true, -- similar to vim.o.wrap
-    width = 40, -- default % based on available width
-    sidebar_header = {
-      enabled = false, -- true, false to enable/disable the header
-      align = "center", -- left, center, right for title
-      rounded = true,
-    },
-    input = {
-      prefix = ">",
-      height = 8, -- Height of the input window in vertical layout
-    },
-    edit = {
-      border = "rounded",
-      start_insert = true, -- Start insert mode when opening the edit window
-    },
-    ask = {
-      floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-      start_insert = true, -- Start insert mode when opening the ask window
-      border = "rounded",
-      ---@type "ours" | "theirs"
-      focus_on_apply = "ours", -- which diff to focus after applying
-    },
-  },
-  highlights = {
-    ---@type AvanteConflictHighlights
-    diff = {
-      current = "DiffText",
-      incoming = "DiffAdd",
-    },
-  },
-  --- @class AvanteConflictUserConfig
-  diff = {
-    autojump = true,
-    ---@type string | fun(): any
-    list_opener = "copen",
-    --- Override the 'timeoutlen' setting while hovering over a diff (see :help timeoutlen).
-    --- Helps to avoid entering operator-pending mode with diff mappings starting with `c`.
-    --- Disable by setting to -1.
-    override_timeoutlen = 500,
-  },
-  --- @class AvanteFileSelectorConfig
-  file_selector = {
-    --- @alias FileSelectorProvider "native" | "fzf" | "mini.pick" | "snacks" | "telescope" | string | fun(params: avante.file_selector.IParams|nil): nil
-    provider = "fzf",
-    -- Options override for custom providers
-    provider_opts = {},
-  },
-  suggestion = {
-    debounce = 600,
-    throttle = 600,
+
+  -- Diff Integration
+  diff_opts = {
+    layout = "vertical", -- "vertical" or "horizontal"
+    open_in_new_tab = false,
+    keep_terminal_focus = false,
+    hide_terminal_in_new_tab = false,
   },
 })
 EOF
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
