@@ -231,7 +231,7 @@ let g:startify_change_to_dir = 0
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 lua << EOF
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter.config'.setup {
   -- A list of parser names, or "all"
   ensure_installed = {"vim", "lua", "python", "go", "vue", "bash", "css", "html", "json", "make", "yaml" },
 
@@ -685,9 +685,9 @@ let g:floaterm_position='right'
 let g:floaterm_height=1
 let g:floaterm_width=0.35
 let g:floaterm_autoinsert=v:true
-nmap <c-i> :FloatermToggle<cr>
+nmap <M-i> :FloatermToggle<cr>
 tmap <silent> wc <C-\><C-n>:FloatermKill<CR>
-tmap <silent> <c-i> <C-\><C-n>:FloatermHide<CR>
+tmap <silent> <M-i> <C-\><C-n>:FloatermHide<CR>
 " tmap <silent> jj <C-\><C-n>
 autocmd User FloatermOpen tmap <silent> <C-k> <C-\><C-n><C-w>k
 autocmd User FloatermOpen tmap <silent> <C-h> <C-\><C-n><C-w>h
